@@ -1,0 +1,203 @@
+{
+  "cityId": "5d66fbb3-7057-42a0-b296-b72d4306ef17",
+  "cityName": "Varanasi",
+  "title": "Kashi Darshan",
+  "subtitle": "A 4-day civilizational journey through the world's oldest living city",
+  "intro": "Varanasi is not one story — it is 3,000 years of stories layered on top of each other, each one still alive. This itinerary is designed so you feel each layer before you understand it. Every stop has a civilizational context that no guidebook carries. You will leave Kashi knowing why it matters — not just that it is old.",
+  "stats": {
+    "days": 4,
+    "stops": 18,
+    "pricePerPerson": "₹10K"
+  },
+  "days": [
+    {
+      "day": 1,
+      "theme": "Kashi ki Aatma",
+      "themeEnglish": "The Soul of the City",
+      "hindi": "पहला दिन",
+      "tagline": "Begin before dawn. The ghats in these hours belong only to Kashi's own.",
+      "accentColor": "#C8652A",
+      "stops": [
+        {
+          "time": "5:00 AM",
+          "name": "Assi Ghat — Sunrise Boat Ride",
+          "desc": "The boat moves northward across all 84 ghats as the city wakes. Sadhus at morning puja, the smell of incense on the water, temple bells echoing across the river. The SamsKruti founder narrates the arc of Kashi as you float through it.",
+          "story": "Assi Ghat is the mythic southern threshold of Kashi — where the Assi river meets the Ganga. To enter Kashi from here is to enter from the feet of the city.",
+          "duration": "90 minutes"
+        },
+        {
+          "time": "7:00 AM",
+          "name": "Shri Kashi Vishwanath Temple",
+          "desc": "Morning darshan of the Jyotirlinga — one of 12 sacred Shiva Jyotirlingas. Phones not allowed inside, which forces pure presence. Arrive early to avoid the queue.",
+          "story": "This temple was demolished and rebuilt multiple times over centuries. Mughal rulers razed it; Hindu kings rebuilt it. Its very survival is Kashi's civilizational story — the city that cannot be erased.",
+          "duration": "60 minutes"
+        },
+        {
+          "time": "8:30 AM",
+          "name": "Manikarnika Ghat — Reflective Walk",
+          "desc": "No photography. A brief, respectful, deeply interior stop. The eternal flame burns here, believed to have been kept alive for centuries without interruption.",
+          "story": "Named for Sati's earring (manikarnika) that fell here when Shiva carried her body. This is where Kashi's philosophy of moksha is made visible — dying here is believed to grant liberation. Life and death share the same ground.",
+          "duration": "45 minutes"
+        },
+        {
+          "time": "10:00 AM",
+          "name": "Panchganga Ghat + Alamgir Mosque",
+          "desc": "Five sacred rivers are said to converge here invisibly — Ganga, Yamuna, Saraswati, Kirana, and Dhutapapa. The Alamgir Mosque sits directly above, built by Aurangzeb on a Vishnu temple. The terrace offers one of the finest views of the Ganga in Varanasi.",
+          "story": "This single spot holds the deepest civilizational tension in Varanasi — and yet the city absorbed it and moved on. The mosque and the ghat below it coexist. That coexistence is Kashi's oldest teaching.",
+          "duration": "60 minutes"
+        },
+        {
+          "time": "6:00 PM",
+          "name": "Dashashwamedh Ghat — Grand Ganga Aarti",
+          "desc": "The most spectacular daily ritual in India. Seven priests perform synchronized aarti with fire lamps, incense, conch shells, and chanting. Arrive by 6 PM for preferred viewing positions on the ghat steps.",
+          "story": "Lord Brahma is said to have performed ten Ashwamedha yajnas here to welcome Shiva back to the city. The evening aarti is a re-enactment of that welcome, every single night, without fail, for centuries.",
+          "duration": "90 minutes"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "theme": "Kashi ka Hunar",
+      "themeEnglish": "Craft, Artisans & Living Heritage",
+      "hindi": "दूसरा दिन",
+      "tagline": "Into the lanes. The weavers, the perfumers — artisans whose lineage stretches back centuries.",
+      "accentColor": "#D4922A",
+      "stops": [
+        {
+          "time": "6:30 AM",
+          "name": "Sankat Mochan Hanuman Temple",
+          "desc": "Morning prayers at the temple founded by Tulsidas on the spot where he reportedly had a divine vision of Hanuman. Lush greenery, cool air, continuous chanting. Not crowded at this hour.",
+          "story": "The only temple in Varanasi where Hanuman's idol faces Rama directly — an unusual devotional arrangement. Malaviya, who built BHU, helped construct the modern structure. Two of Varanasi's greatest builders, one temple.",
+          "duration": "45 minutes"
+        },
+        {
+          "time": "7:30 AM",
+          "name": "Tulsi Manas Temple",
+          "desc": "White marble temple built on the exact site where Tulsidas composed the Ramcharitmanas. The entire text of the epic is engraved in marble on the temple walls — you can walk the text as you walk the temple.",
+          "story": "Tulsidas chose to write in Awadhi, not Sanskrit — a conscious act of democratizing scripture for ordinary people who could not access the priestly language. That instinct — making the sacred accessible — is what SamsKruti is building.",
+          "duration": "45 minutes"
+        },
+        {
+          "time": "10:00 AM",
+          "name": "Banarasi Silk Weaver — Workshop Visit",
+          "desc": "Live loom demonstration at an artisan's home workshop. Watch a Banarasi silk saree being woven — the intricacy of the zari work, the rhythm of the loom, the time each piece takes. Hear the weaver's lineage story directly.",
+          "story": "The weavers of Varanasi carry knowledge in their hands that no institution teaches. A Kimkhab brocade in which no thread of silk is visible beneath the gold zari can take a week per metre. Five hundred years of this craft live in these workshops.",
+          "duration": "2 hours"
+        },
+        {
+          "time": "12:30 PM",
+          "name": "Vishwanath Gali — Artisan Lane Walk + Lunch",
+          "desc": "The ancient lane behind Kashi Vishwanath Temple — brass artisans, Rudraksha sellers, traditional attar perfumers, old sweet shops. Lunch at a local Banarasi kachori-sabji stall. Not a restaurant. A heritage experience.",
+          "story": "This lane has functioned as a living marketplace for centuries, virtually unchanged. The artisans here have their craft in their hands the way others have education in their degrees — inherited, embodied, and irreplaceable.",
+          "duration": "90 minutes"
+        },
+        {
+          "time": "6:30 PM",
+          "name": "Dashashwamedh Ghat — Artisan Debrief",
+          "desc": "Chai on the ghat steps. Informal conversation — which artisan story moved you most? What surprised you? What must the platform carry about these people?",
+          "story": "This conversation is not just reflective. It is design input for SamsKruti. Your answer shapes which vendors are featured first, and how their stories are told.",
+          "duration": "60 minutes"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "theme": "Kashi ka Vistaar",
+      "themeEnglish": "Beyond the Ghats",
+      "hindi": "तीसरा दिन",
+      "tagline": "Varanasi is not just its river. It is a civilizational crossroads of faiths and empires.",
+      "accentColor": "#7A9A6A",
+      "stops": [
+        {
+          "time": "7:30 AM",
+          "name": "Sarnath — Buddhist Temple & Dhamek Stupa",
+          "desc": "A morning at Sarnath, 10 km from the city. The Dhamek Stupa marks the exact spot where the Buddha gave his first sermon after attaining enlightenment. Clean, meditative, deeply quiet.",
+          "story": "Varanasi is not a Hindu city. It is a civilizational crossroads. The Kashi Vishwanath Jyotirlinga and Sarnath's Dhamek Stupa both sit within 15 km of each other. Two of the world's great traditions — Shaivism and Buddhism — born in the same geography, within the same century.",
+          "duration": "2 hours"
+        },
+        {
+          "time": "11:00 AM",
+          "name": "Ramnagar Fort",
+          "desc": "The Kashi Naresh (King of Varanasi) still lives here. The museum holds vintage arms, palanquins, royal costumes, and old photographs of the kingdom. Rustic, not polished — which is exactly the point.",
+          "story": "The Kashi Naresh has presided over the Ram Nagar Ramlila for centuries — a 31-day open-air epic performance of the Ramayana, staged entirely without a covered stage. It is a living cultural scripture that never stopped. The king is the institution.",
+          "duration": "90 minutes"
+        },
+        {
+          "time": "2:30 PM",
+          "name": "Chunar Fort",
+          "desc": "A 40-km drive to the red sandstone fort perched on the Ganga. Sher Shah Suri, the Mughals, and the British all fought to control this single fort. Minimal crowds; the view from the battlements over the river is extraordinary.",
+          "story": "Chunar is the source of the sandstone used in Sarnath's Ashoka Pillar — the same pillar whose four lions now form India's national emblem. One stone, from this quarry, to nationhood. That continuity is what SamsKruti is documenting.",
+          "duration": "90 minutes"
+        },
+        {
+          "time": "6:00 PM",
+          "name": "Assi Ghat — Sunset & Live Music",
+          "desc": "Return to Assi Ghat for sunset. This is where Varanasi's musicians, scholars, and poets gather in the evenings — very different energy from Dashashwamedh. Often live classical music or bhajans on the ghat steps.",
+          "story": "Assi is the intellectual and artistic soul of Varanasi. The ghats at dusk here are where the city's living cultural traditions — not just its ancient ones — are made and performed in real time.",
+          "duration": "60 minutes"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "theme": "Kashi ka Chintan",
+      "themeEnglish": "Knowledge, Memory & Closing",
+      "hindi": "चौथा दिन",
+      "tagline": "The most interior day. What does India need to remember?",
+      "accentColor": "#6A8AB8",
+      "stops": [
+        {
+          "time": "10:30 AM",
+          "name": "Bharat Kala Bhavan Museum — BHU",
+          "desc": "One of India's finest collections — Gupta-era miniature paintings, ancient coins, temple sculptures, and textiles. Phones not allowed inside, which forces slow, unhurried looking. Open Tuesday–Saturday.",
+          "story": "This museum is exactly what SamsKruti is trying to build digitally — a place where civilizational memory is preserved in a form people can access and feel. Walking through it is the best orientation to what the platform is for.",
+          "duration": "2 hours"
+        },
+        {
+          "time": "1:00 PM",
+          "name": "Banaras Hindu University — Campus Walk",
+          "desc": "A slow walk through Asia's largest campus — the New Vishwanath Temple inside, tree-lined roads, the quiet of a place that takes knowledge seriously. Lunch on campus.",
+          "story": "Malaviya built BHU in 1916 as a civilizational institution — a place where ancient and modern India would meet on equal terms. The same instinct that created BHU is what SamsKruti is building for the digital age.",
+          "duration": "60 minutes"
+        },
+        {
+          "time": "3:30 PM",
+          "name": "Kashi Vishwanath Temple — Final Darshan",
+          "desc": "Evening darshan to close the 4-day arc. You began here on Day 1 morning. Returning closes the circle — a deliberate design of this journey.",
+          "story": "Kashi is circular. Every pilgrimage here is a parikrama — a circumambulation that ends where it begins. Returning to the Vishwanath temple on Day 4 is not repetition. It is completion.",
+          "duration": "45 minutes"
+        },
+        {
+          "time": "5:30 PM",
+          "name": "Assi Ghat — The Closing Circle",
+          "desc": "The experience ends not at a hotel, but at the river. Chai, open conversation — 'What did you feel? What story must not be lost?' Each guest receives a handcrafted Varanasi gift: a Rudraksha mala or silk token purchased directly from the Day 2 artisan.",
+          "story": "The gift carries the artisan's name and story — a physical prototype of what the SamsKruti platform will do digitally. You are not tourists. You are the origin story of this platform.",
+          "duration": "90 minutes",
+          "isClosing": true
+        }
+      ]
+    }
+  ],
+  "operationalNotes": [
+    {
+      "icon": "◈",
+      "title": "Pre-Trip Brief",
+      "body": "Send each member a one-page 'Kashi Brief' 3 days before arrival — the civilizational context so they arrive prepared to feel, not just see."
+    },
+    {
+      "icon": "◈",
+      "title": "Recommended Stay",
+      "body": "Heritage guesthouses near Assi Ghat: Brijrama Palace, Shivala area properties. Proximity to Assi enables early morning walks without logistics."
+    },
+    {
+      "icon": "◈",
+      "title": "Chunar Fort Note",
+      "body": "Recent visitor reports flag partial army occupation limiting public access. Verify current access before booking Day 3. Alternate: Ganga boat crossing to the opposite bank."
+    },
+    {
+      "icon": "◈",
+      "title": "Best Season",
+      "body": "October–February for ideal conditions. Avoid peak summer (April–June). Dev Deepawali (Kartik Purnima, typically November) coincides with the most spectacular Ganga Aarti of the year."
+    }
+  ]
+}

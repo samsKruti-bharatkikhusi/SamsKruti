@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "1e0611bc-a316-4972-a186-62a1fa0577c7",
+    "name": "Kathi Roll",
+    "slug": "kathi-roll",
+    "districtSlug": "kolkata",
+    "districtName": "Kolkata",
+    "category": "Street Invention",
+    "featured": true,
+    "excerpt": "The Kathi Roll was invented in Kolkata in 1932 by Nizam's restaurant — a paratha wrapped around kebab for the office workers who couldn't stop and eat. It became one of India's great street foods.",
+    "body": "Nizam's restaurant at New Market has been making rolls since 1932. The story goes that an English businessman could not eat kebab with his hands without soiling his suit — so the cook wrapped the kebab in a paratha. That improvisation became a food category.\n\nThe original Kathi Roll is made with egg-coated flaky paratha, a seekh kebab or mutton filling, raw onion rings, lime juice, and green chutney. The \"kathi\" refers to the thin bamboo skewers originally used for the kebabs.\n\nToday's rolls in Kolkata range from the minimalist original to modern versions with paneer, chicken, and a dozen chutneys. But the best still come from places that have been making only rolls for decades — places where the paratha is still hand-rolled and the kebabs still have char.\n\n\"Every city has its street food,\" a regular at Nizam's says. \"But the Kathi Roll is not just food — it is a problem someone solved with intelligence. That is very Kolkata.\"",
+    "gradient": { "g1": "#3A1A0A", "g2": "#8A4010" },
+    "tags": ["Invention", "Kebab", "Street Food"],
+    "districtId": "3d2be5b6-5479-4176-9a17-a8bf0d9f6f73",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  },
+  {
+    "_id": "84522516-40c6-405f-ba9f-e57e448197f6",
+    "name": "Mishti Doi",
+    "slug": "mishti-doi",
+    "districtSlug": "kolkata",
+    "districtName": "Kolkata",
+    "category": "Sweet Tradition",
+    "featured": false,
+    "excerpt": "Bengali sweet yoghurt set in earthen pots. The pot breathes, and the yoghurt remembers it. No refrigerator version has ever been the same.",
+    "body": "Mishti Doi is made by reducing full-fat milk until thick, sweetening it with jaggery or date palm sugar, adding a culture, and setting it in shallow earthen pots. The porous clay allows slow evaporation, which concentrates the flavour and changes the texture.\n\nThe sweet shops of Kolkata — the mishti r dokan — have been making it the same way for over a century. The pots are disposable: you buy the doi, eat it, and leave the pot. Or take the pot home. In the old neighbourhoods, children are still sent to collect mishti doi in the morning for the family's breakfast.\n\nThe particular taste — the slight bitterness of jaggery against the sourness of yoghurt — is not easily described to someone who has not grown up with it. It is not ice cream. It is not yoghurt. It is its own thing.",
+    "gradient": { "g1": "#3A2A0A", "g2": "#8A7030" },
+    "tags": ["Sweet", "Dairy", "Clay pot"],
+    "districtId": "3d2be5b6-5479-4176-9a17-a8bf0d9f6f73",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]

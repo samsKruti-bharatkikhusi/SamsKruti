@@ -1,0 +1,69 @@
+{
+  "slug": "samskruti",
+  "name": "SamsKruti",
+  "devanagari": "संस्कृति",
+  "tagline": "Hidden Treasures of India",
+  "mission": "India cannot be understood through highlights. It must be experienced — through its streets, its kitchens, and the hands that carry its memory. SamsKruti surfaces what is overlooked: the heritage, the recipes, the artisans nobody documents.",
+  "thesis": "hidden-treasures",
+  "brand": {
+    "accent": "#C8652A",
+    "accentName": "Terracotta",
+    "background": "#1F0F06",
+    "backgroundName": "Deep Earth",
+    "gold": "#B8893E",
+    "goldName": "Gold Leaf"
+  },
+  "segments": [
+    {
+      "slug": "galiyan",
+      "name": "Sheher Ki Galiyan",
+      "devanagari": "शहर की गलियाँ",
+      "english": "Streets of the City",
+      "identity": "Heritage in the city — ancient lanes, temples, havelis, step-wells, city gates that most people walk past",
+      "accent": "#3D7050",
+      "accentName": "Heritage Jade",
+      "background": "#050F09",
+      "route": "/varanasi/galiyan"
+    },
+    {
+      "slug": "parampara",
+      "name": "Sheher Ka Swaad",
+      "devanagari": "शहर का स्वाद",
+      "english": "Taste of the City",
+      "identity": "Food in the city — traditional recipes, kitchen culture, the dishes that carry civilisational memory",
+      "accent": "#A83828",
+      "accentName": "Tamarind Red",
+      "background": "#0D0302",
+      "route": "/varanasi/parampara"
+    },
+    {
+      "slug": "hriday",
+      "name": "Sheher Ka Hriday",
+      "devanagari": "शहर का हृदय",
+      "english": "Heart of the City",
+      "identity": "Arts and crafts in the city — weavers, potters, painters, smiths carrying living knowledge in their hands",
+      "accent": "#4F76B0",
+      "accentName": "Indigo",
+      "background": "#060810",
+      "route": "/varanasi/hriday"
+    }
+  ],
+  "states": [
+    "uttar-pradesh",
+    "west-bengal",
+    "rajasthan",
+    "maharashtra",
+    "delhi"
+  ],
+  "activeDistricts": [
+    "varanasi"
+  ],
+  "plannedDistricts": [
+    "lucknow",
+    "jaipur",
+    "kolkata",
+    "mumbai",
+    "delhi",
+    "pune"
+  ]
+}

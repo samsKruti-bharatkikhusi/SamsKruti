@@ -1,0 +1,34 @@
+{
+  "_id": "1eec6b5d-a0e3-4861-91e4-ba86ec06d193",
+  "slug": "mumbai",
+  "name": "Mumbai",
+  "hindi": "मुंबई",
+  "state": "maharashtra",
+  "stateName": "Maharashtra",
+  "featured": false,
+  "coordinates": [19.0760, 72.8777],
+  "tagline": "The city that makes everything possible.",
+  "description": "Mumbai is not a city — it is a proposition. That if you are willing to work hard enough, the city will receive you, regardless of who you are or where you come from.",
+  "dimensions": {
+    "culture": {
+      "title": "The city that never agreed on itself",
+      "body": "Mumbai has always been multiple cities at once. The mill workers's city and the Bollywood city. The fishing village and the financial capital. Every culture that enters Mumbai eventually becomes part of Mumbai.",
+      "accentColor": "#C8652A"
+    },
+    "craft": {
+      "title": "Dabbawalas and dhobis",
+      "body": "The dabbawala network — 5,000 lunch-box carriers achieving Six Sigma accuracy without a single app — is one of Mumbai's most studied cultural phenomena.",
+      "accentColor": "#D4922A"
+    },
+    "people": {
+      "title": "The migrant city",
+      "body": "Everyone in Mumbai is either a migrant or the child of one. The chaiwala from Bihar. The tailor from Uttar Pradesh. The fish seller from the Koli community whose ancestors lived here before the city was built.",
+      "accentColor": "#7A9A6A"
+    },
+    "memory": {
+      "title": "The mill district",
+      "body": "The textile mills of Central Mumbai are closed now. Their chimneys still rise above the buildings. The land was sold to developers. What replaced them is called Lower Parel — a neighbourhood of restaurants.",
+      "accentColor": "#6A8AB8"
+    }
+  }
+}

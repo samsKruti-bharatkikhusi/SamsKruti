@@ -1,0 +1,34 @@
+{
+  "_id": "69b46960-d094-4824-ac3d-959b8c556843",
+  "slug": "delhi",
+  "name": "Delhi",
+  "hindi": "दिल्ली",
+  "state": "delhi",
+  "stateName": "Delhi",
+  "featured": false,
+  "coordinates": [28.6139, 77.2090],
+  "tagline": "Eight cities beneath one.",
+  "description": "Delhi has been destroyed and rebuilt eight times. Each civilisation left its ruins for the next to build on. To walk through Delhi is to walk through an unresolved argument between empires about who the city truly belongs to.",
+  "dimensions": {
+    "culture": {
+      "title": "The capital's burden",
+      "body": "Delhi is the only city in India that was designed to govern. Every street in Lutyens' Delhi was drawn to communicate power — wide enough to move troops, straight enough to see the distance.",
+      "accentColor": "#C8652A"
+    },
+    "craft": {
+      "title": "Mughal craftsmanship",
+      "body": "Delhi's craft heritage is Mughal. The silver filigree work, the zardozi embroidery, the carved jali screens — these techniques were brought by artisans who followed emperors from Persia and Central Asia.",
+      "accentColor": "#D4922A"
+    },
+    "people": {
+      "title": "The Partition generation",
+      "body": "Millions of people arrived in Delhi in 1947 carrying only what they could hold. Their grandchildren now run the city. In certain lanes in Old Delhi, the weight of that displacement still shapes how families speak.",
+      "accentColor": "#7A9A6A"
+    },
+    "memory": {
+      "title": "Layers of empire",
+      "body": "Qutub Minar was built by the Delhi Sultanate using the stones of 27 Hindu and Jain temples. Each empire used the last one as its quarry. That is Delhi's architecture and its history simultaneously.",
+      "accentColor": "#6A8AB8"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "_id": "48c5da80-d66d-4476-a038-2f2fb182f05d",
+    "name": "Jeetendra Kumawat — Blue Pottery Master",
+    "slug": "jeetendra-kumawat-blue-pottery",
+    "districtSlug": "jaipur",
+    "districtName": "Jaipur",
+    "craft": "Blue Pottery",
+    "generation": "Fourth",
+    "featured": true,
+    "excerpt": "Jaipur's blue pottery has Persian roots. It arrived with Mughal craftsmen and took root in Rajasthani soil. Jeetendra's family has been shaping it for four generations.",
+    "body": "Blue pottery is technically a misnomer — the base is not clay but a mixture of powdered quartz, sodium sulphate, and glass powder, shaped and fired at low temperature. The colour comes from cobalt and copper oxide applied in Persian floral patterns.\n\nJeetendra Kumawat works in a workshop behind their home in Sanganer. The process is unforgiving: the mixture cracks easily, the firing must be precise, and the patterns must be painted freehand with no guide marks.\n\n\"We don't use templates,\" he says, turning a small vase slowly under a fine brush. \"My father said templates are for people who don't believe their hands. Our hands have been doing this since before I was born.\"\n\nHis biggest challenge is not the craft — it is the market. Machine-made imitations from Gujarat are sold in Rajasthan's tourist markets at a tenth of the price. Many buyers cannot tell the difference until they hold both.",
+    "gradient": { "g1": "#0A1A3A", "g2": "#1A4A8A" },
+    "tags": ["Blue pottery", "Persian influence", "Quartz", "Sanganer"],
+    "districtId": "b84c8432-acf3-488e-aa5f-acbaed1f4d6b",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  },
+  {
+    "_id": "c1a5df65-54e8-44f3-b491-caadeafe9cee",
+    "name": "Hanif Khan — Block Printer",
+    "slug": "hanif-khan-block-printer",
+    "districtSlug": "jaipur",
+    "districtName": "Jaipur",
+    "craft": "Sanganeri Block Printing",
+    "generation": "Fifth",
+    "featured": true,
+    "excerpt": "Sanganeri block printing is five hundred years old. Hanif's ancestors were brought from Persia by the Mughal emperor to teach their art. The blocks they use were carved by Hanif's great-great-grandfather.",
+    "body": "Sanganer is a small town outside Jaipur where, for five hundred years, the Chhipa community has been making block-printed textiles. The word chhipa means \"one who prints\" — it is both a surname and a vocation.\n\nHanif Khan works in a courtyard behind his home. Three tables are set up with fabric stretched over them. On a low shelf: two hundred carved wooden blocks, arranged by pattern. Some are more than a hundred years old — made by his ancestors, still usable, the carving still sharp.\n\nThe printing process is tactile and precise. The block is pressed into natural dye (indigo, madder root, turmeric), then stamped onto the fabric in a sequence that must be exact — misalignment ruins the pattern. A single sari requires forty to sixty block stamps.\n\n\"These blocks are not tools,\" Hanif says, running his finger along the carved edge of an intricate floral pattern. \"They are the accumulated judgment of five generations of hands. When I press this block, I am pressing my grandfather's decision about how close the petals should be.\"",
+    "gradient": { "g1": "#1A0A3A", "g2": "#5A2A8A" },
+    "tags": ["Block printing", "Sanganer", "Indigo", "Wooden blocks"],
+    "districtId": "b84c8432-acf3-488e-aa5f-acbaed1f4d6b",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]

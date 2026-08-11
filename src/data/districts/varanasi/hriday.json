@@ -1,0 +1,34 @@
+[
+  {
+    "_id": "edc06269-2f8c-49a7-a982-ba26c8504094",
+    "name": "Ustad Rahimuddin — Master Banarasi Silk Weaver",
+    "slug": "ustad-rahimuddin-banarasi-silk",
+    "districtSlug": "varanasi",
+    "districtName": "Varanasi",
+    "craft": "Banarasi Silk Weaving",
+    "generation": "Seventh",
+    "featured": true,
+    "excerpt": "Seven generations of Rahimuddin's family have woven silk in Varanasi's Madanpura. He is the last who knows kimkhab — a brocade so dense with gold it stands alone.",
+    "body": "Ustad Rahimuddin speaks of his loom the way others speak of a person. He has given it a name — Raushan, meaning light — because it has been in his family for four generations.\n\nThe loom is a Jacquard-type handloom, but do not call it simple. On it, Rahimuddin produces kimkhab — the most laborious form of Banarasi brocade, where gold and silver zari thread forms the base of the fabric, with silk used only as accent. A single sari can take eight months.\n\n\"I wake at 4 AM,\" he says, seated cross-legged before the loom in the half-light of his courtyard. \"I work until Zuhr prayer. Then again from Asr until Isha. This is the life of a weaver.\"\n\nHis son works in software. His nephew drives an auto-rickshaw. The craft, if it survives, will survive through a niece who has shown interest. \"She understands patience,\" Rahimuddin says. \"Weaving is 90 percent patience and 10 percent prayer.\"",
+    "gradient": { "g1": "#2A1A40", "g2": "#6A3A9A" },
+    "tags": ["Silk", "Kimkhab", "Zari", "Seventh generation"],
+    "districtId": "5d66fbb3-7057-42a0-b296-b72d4306ef17",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  },
+  {
+    "_id": "912d525c-e6ff-48a7-b79a-b750046e94ec",
+    "name": "Ganga Devi — Brassware Maker",
+    "slug": "ganga-devi-brassware",
+    "districtSlug": "varanasi",
+    "districtName": "Varanasi",
+    "craft": "Dhokra Brasswork",
+    "generation": "Fourth",
+    "featured": false,
+    "excerpt": "Dhokra is the oldest known metal-casting tradition in the world — four thousand years old, using the lost-wax process. Ganga Devi makes ritual objects for the ghats in the same way her ancestors made them.",
+    "body": "Dhokra casting uses the lost-wax method: a wax form is made, coated in clay, fired until the wax melts out (leaving a hollow mold), and then filled with molten brass. When the clay is broken, a unique metal object remains. Every piece is therefore different — it cannot be exactly replicated.\n\nGanga Devi's workshop is small, dark, and filled with the smell of burning beeswax. She makes diyas (oil lamps), incense holders, and small deity figurines — the objects needed for the daily rituals of the ghats.\n\n\"The priests need these every season,\" she says, shaping a thin wax rope into the edge of a diya. \"New ones when old ones wear out. I have made the same diya hundreds of times, but never twice the same.\"\n\nHer family's brass-casting tradition predates any written record in Varanasi. She cannot trace it back further than her great-grandmother. But the process itself — the wax, the clay, the fire — has not changed.",
+    "gradient": { "g1": "#3A2A08", "g2": "#9A7020" },
+    "tags": ["Dhokra", "Lost-wax", "Brass", "Ritual objects"],
+    "districtId": "5d66fbb3-7057-42a0-b296-b72d4306ef17",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]

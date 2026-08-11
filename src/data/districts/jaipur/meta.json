@@ -1,0 +1,34 @@
+{
+  "_id": "b84c8432-acf3-488e-aa5f-acbaed1f4d6b",
+  "slug": "jaipur",
+  "name": "Jaipur",
+  "hindi": "जयपुर",
+  "state": "rajasthan",
+  "stateName": "Rajasthan",
+  "featured": false,
+  "coordinates": [26.9124, 75.7873],
+  "tagline": "A city built as a work of art.",
+  "description": "Jaipur was planned in 1727 by Maharaja Jai Singh II with an architect's precision — the first planned city in modern India. Its pink walls were painted for the welcome of a British prince, and they stayed.",
+  "dimensions": {
+    "culture": {
+      "title": "The court tradition",
+      "body": "Jaipur's culture was shaped by royal patronage. The Kathak dance form, the Jaipur gharana of classical music, the tradition of miniature painting — all emerged from centuries of court life.",
+      "accentColor": "#C8652A"
+    },
+    "craft": {
+      "title": "Blue pottery and block prints",
+      "body": "Jaipur's blue pottery has Central Asian roots brought by Mughal craftsmen. Its block-printed textiles are made in workshops that have barely changed since the 17th century.",
+      "accentColor": "#D4922A"
+    },
+    "people": {
+      "title": "The merchant class",
+      "body": "The Marwaris built Jaipur's commercial identity. Their havelis still stand in the old city, and their business networks stretch across the world.",
+      "accentColor": "#7A9A6A"
+    },
+    "memory": {
+      "title": "The astronomical city",
+      "body": "Jantar Mantar — the world's largest stone astronomical observatory — was built by Jai Singh to map the skies. It still keeps accurate time, daily.",
+      "accentColor": "#6A8AB8"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "1cff4493-c8a7-4661-bbca-1496143d0dfd",
+    "name": "Bikram Chitrakar — Scroll Painter",
+    "slug": "bikram-chitrakar-scroll-painter",
+    "districtSlug": "kolkata",
+    "districtName": "Kolkata",
+    "craft": "Patachitra Scroll Painting",
+    "generation": "Eighth",
+    "featured": true,
+    "excerpt": "The Chitrakar community of Bengal has painted and sung their stories for eight hundred years. Bikram paints with natural pigments on cloth scrolls and sings the story as he unrolls it.",
+    "body": "Pata means cloth, chitra means picture. Patachitra is the tradition of painting stories on long cloth scrolls — stories from mythology, from history, from village life — and performing them by unrolling the scroll while singing the accompanying song (pater gaan).\n\nBikram Chitrakar, forty-three years old, is the eighth generation of his family to practice this art. He lives in Naya village near Kolkata, a village of sixty households where almost every adult is a Chitrakar — literally, \"picture maker.\"\n\nHis scrolls are made from layers of cloth pasted together, coated with cow dung and clay, and painted with natural pigments: black from lamp soot, red from red earth, yellow from turmeric, green from leaves.\n\n\"The first scroll I painted I was seven,\" he says. \"It was about a flood that killed many people in the next village. My father said we must paint it so the village does not forget. That is what we do — we paint what must not be forgotten.\"\n\nHis sales come partly from urban art collectors, partly from exhibitions, and partly from tourists who visit the village. The old form of earning — going village to village to perform — has largely died.",
+    "gradient": { "g1": "#2A1A0A", "g2": "#8A5020" },
+    "tags": ["Patachitra", "Natural pigments", "Performance", "Bengal"],
+    "districtId": "3d2be5b6-5479-4176-9a17-a8bf0d9f6f73",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]

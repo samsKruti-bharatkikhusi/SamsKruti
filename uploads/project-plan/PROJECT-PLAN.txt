@@ -1,0 +1,88 @@
+================================================================
+ SAMSKRUTI — PROJECT PLAN
+ The living plan. We open this each session and move step by step.
+ Status:  [ ] todo   [~] in progress   [x] done
+ Last reconciled to reality: 2026-07-12  (box -> book pivot)
+================================================================
+
+THE REAL PROBLEM (locked)
+  A traveller enters a city and feels LOST — a hundred videos, no
+  idea where to go or what to do. We make them feel GUIDED, like a
+  guide is walking beside them. That feeling is the whole product.
+
+NORTH STAR (next 6 months)
+  100 genuinely guided souls  +  how many recommend it onward.
+  (Second number = book sales: the business proof. Never let selling
+   override guiding — guided souls stay the true star.)
+
+THE ONE RULE
+  Finish ONE thing to DONE before opening the next. At ~1hr/day,
+  spreading across many things finishes nothing. Depth beats spread.
+  And: build UP from the real problem — never DOWN from the dream
+  (no brand/team/enterprise/scale before the lost traveller is served).
+
+WHAT WE ARE BUILDING (the funnel)
+  1. FREE 1-2 pager — "Going to Varanasi? Felt lost in a hundred
+     videos? Tap -> get a guided experience." (the taste / the hook)
+  2. THE GUIDEBOOK (~Rs.400-500) — beautiful, every page a soul; the
+     whole trip day-by-day (1/2/10 days) in the traveller's hand.
+  3. THE PHONE NUMBER inside — call a real guide when lost. Never
+     stranded. (Founder IS the guide/AI, for now.)
+
+PARKED (deliberately, not abandoned)
+  [~] The BOX + shop + build-your-own + box-3d — too much work, unclear
+      demand, it's a gift not self-use. Its RESEARCH (the 5 crafts,
+      makers, lanes, coords) carries over into the guidebook/itinerary.
+  [ ] The immersive AI app (enter-the-city, clock starts) — the
+      destination; earned later, built from the first 100 souls.
+  [ ] Cart / checkout / payments.
+  [ ] Other segments (Galiyan, Swaad) and other cities.
+
+----------------------------------------------------------------
+ PHASE A — Deep research of Varanasi        [NOW · the foundation]
+----------------------------------------------------------------
+  The content of the book AND the itinerary. Do it for a REAL trip,
+  never abstract. Core question to answer, truthfully and deeply:
+  "One / two / ten days, someone trusting me completely — where do I
+   take them, in what ORDER, and WHY?"  (The 'why' is the guiding.)
+  [ ] The spine: a day, hour by hour (dawn ghats -> ... -> night)
+  [ ] The stops: places, crafts (5 already researched), food, people
+  [ ] The 'why' for each stop (what only a local who loves it knows)
+  [ ] The lost-moments: where people get confused -> what to tell them
+
+----------------------------------------------------------------
+ PHASE B — The itinerary framework          [the guided logic]
+----------------------------------------------------------------
+  [ ] The 3 questions: how long? · what pulls you? · what pace?
+  [ ] How answers -> a personalised day-by-day plan
+  [ ] Make it feel like a friend walking beside them, not a listicle
+
+----------------------------------------------------------------
+ PHASE C — SOUL #001 (real traveller, ~Aug-Sep 2026)  [first proof]
+----------------------------------------------------------------
+  A real person, going to Varanasi, ASKED to be guided. See
+  uploads/project-plan/GUIDED-SOULS.txt.
+  [ ] Ask him the 3 questions
+  [ ] Write his 2-page guided plan (his trip, in your voice)
+  [ ] Offer the live phone-guide during his trip (test the safety net)
+  [ ] After: did it genuinely guide you? would you send a friend?
+  ->  His trip writes the first edition of the book.
+
+----------------------------------------------------------------
+ PHASE D — The guidebook                     [the product]
+----------------------------------------------------------------
+  [ ] Turn proven itinerary content into the booklet (day-by-day +
+      cross-check + phone number + the soul on every page)
+  [ ] First few LEAN-beautiful (validate the Rs.500), gorgeous later
+  [ ] Print/produce a small first batch
+
+----------------------------------------------------------------
+ PHASE E — The landing page                  [one job]
+----------------------------------------------------------------
+  [ ] ONE screen: the hook + "guide me" -> capture a Varanasi-bound
+      traveller. A door, not the house. Don't let it become a project.
+
+================================================================
+ NEXT UP:  Phase A + Phase C together — do the research FOR Soul
+ #001's real trip, so it's never abstract. One true step at a time.
+================================================================

@@ -1,0 +1,206 @@
+// SamsKruti — content database
+// Docs: https://pris.ly/d/prisma-schema
+//
+// This first pass models the *content core* only: states, cities/districts,
+// and the three segments (galiyan = stories, parampara = foods, hriday =
+// artisans), plus itineraries. Guidebooks and the shop stay in TypeScript for
+// now — see src/data/guidebooks.
+//
+// Image convention: the DB never stores image bytes. It stores a *path/URL*
+// string that points at a file in Supabase Storage (see coverImage / heroImage
+// / itinerary stop images). Generated art lives in a Storage bucket, not git.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  // Pooled connection (Supabase Supavisor, port 6543) — used by the app at runtime.
+  url       = env("DATABASE_URL")
+  // Direct connection (port 5432) — used by `prisma migrate` / `db push` only.
+  directUrl = env("DIRECT_URL")
+}
+
+/// A state groups districts (cities). Slug is the human key used across the app.
+model State {
+  id     String @id @default(uuid()) @db.Uuid
+  slug   String @unique
+  name   String
+  hindi  String
+  cities City[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/// A district / city — the top of the content tree. Its four "dimensions"
+/// (culture, craft, people, memory) are an authored value object, kept as JSON.
+model City {
+  id          String  @id @default(uuid()) @db.Uuid
+  slug        String  @unique
+  name        String
+  hindi       String
+  tagline     String
+  description String
+  featured    Boolean @default(false)
+
+  latitude  Float?
+  longitude Float?
+
+  heroImage  String? // Supabase Storage path/URL
+  dimensions Json // { culture, craft, people, memory: { title, body, accentColor } }
+
+  state     State  @relation(fields: [stateSlug], references: [slug])
+  stateSlug String
+
+  stories     Story[]
+  foods       Food[]
+  artisans    Artisan[]
+  itineraries Itinerary[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([stateSlug])
+}
+
+/// Sheher Ki Galiyan — a place / heritage story tied to a city.
+model Story {
+  id       String  @id @default(uuid()) @db.Uuid
+  slug     String
+  title    String
+  excerpt  String
+  body     String
+  category String
+  tag      String?
+  featured Boolean @default(false)
+
+  coverImage String? // Supabase Storage path/URL
+  gradient   Json // { g1, g2 }
+
+  city   City   @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  cityId String @db.Uuid
+
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([cityId, slug])
+  @@index([cityId])
+}
+
+/// Sheher Ka Swaad — a food tradition tied to a city.
+model Food {
+  id       String   @id @default(uuid()) @db.Uuid
+  slug     String
+  name     String
+  excerpt  String
+  body     String
+  category String
+  featured Boolean  @default(false)
+  tags     String[]
+
+  coverImage String? // Supabase Storage path/URL
+  gradient   Json // { g1, g2 }
+
+  city   City   @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  cityId String @db.Uuid
+
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([cityId, slug])
+  @@index([cityId])
+}
+
+/// Sheher Ka Hriday — an artisan / craft tied to a city.
+model Artisan {
+  id         String   @id @default(uuid()) @db.Uuid
+  slug       String
+  name       String
+  craft      String
+  generation String
+  excerpt    String
+  body       String
+  featured   Boolean  @default(false)
+  tags       String[]
+
+  coverImage String? // Supabase Storage path/URL
+  gradient   Json // { g1, g2 }
+
+  city   City   @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  cityId String @db.Uuid
+
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([cityId, slug])
+  @@index([cityId])
+}
+
+/// A multi-day itinerary for a city (e.g. the "4-day" Kashi Darshan).
+model Itinerary {
+  id       String @id @default(uuid()) @db.Uuid
+  slug     String // e.g. "4-day"
+  title    String
+  subtitle String
+  intro    String
+
+  durationDays   Int
+  stopCount      Int
+  pricePerPerson String
+
+  operationalNotes Json // [{ icon, title, body }]
+
+  city   City   @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  cityId String @db.Uuid
+
+  days ItineraryDay[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([cityId, slug])
+  @@index([cityId])
+}
+
+/// One day within an itinerary.
+model ItineraryDay {
+  id           String @id @default(uuid()) @db.Uuid
+  dayNumber    Int
+  theme        String
+  themeEnglish String
+  hindi        String
+  tagline      String
+  accentColor  String
+
+  itinerary   Itinerary @relation(fields: [itineraryId], references: [id], onDelete: Cascade)
+  itineraryId String    @db.Uuid
+
+  stops ItineraryStop[]
+
+  @@unique([itineraryId, dayNumber])
+  @@index([itineraryId])
+}
+
+/// One stop within an itinerary day, in visiting order.
+model ItineraryStop {
+  id        String  @id @default(uuid()) @db.Uuid
+  order     Int
+  time      String
+  name      String
+  desc      String
+  story     String
+  duration  String
+  isClosing Boolean @default(false)
+
+  image String? // Supabase Storage path/URL
+
+  day   ItineraryDay @relation(fields: [dayId], references: [id], onDelete: Cascade)
+  dayId String       @db.Uuid
+
+  @@index([dayId])
+}

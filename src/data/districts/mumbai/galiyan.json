@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "69333e83-2407-49b8-aabf-13b8ad43939d",
+    "title": "Morning at the chaiwala's corner",
+    "slug": "morning-at-the-chaiwalas-corner",
+    "excerpt": "Before 6am, the city belongs to a different class of person. The chaiwala has watched it change for thirty years. He prefers the old version.",
+    "body": "Suresh opens his stall at 5:30 AM. The city is not yet awake in the way it will be in two hours. He has been doing this since 1992.\n\nHis customers have changed. In the early days, it was mostly mill workers and dock labourers heading to shifts. Then the mills closed and the IT parks opened and a different kind of person started arriving — younger, wearing headphones, carrying laptops. \"They still drink the same chai,\" he notes. \"Some things the city cannot change.\"\n\nI ask him what he misses about the old customers. He thinks for a moment. \"They talked to each other,\" he says. \"Not on phones. To each other.\"",
+    "districtSlug": "mumbai",
+    "districtName": "Mumbai",
+    "category": "People",
+    "tag": "Mumbai · People",
+    "featured": true,
+    "gradient": { "g1": "#4A1F30", "g2": "#9A4060" },
+    "districtId": "1eec6b5d-a0e3-4861-91e4-ba86ec06d193",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  },
+  {
+    "_id": "f7ab416b-bcab-43ab-aa2f-7e4814b74ed8",
+    "title": "The dabbawala's geometry",
+    "slug": "the-dabbawalas-geometry",
+    "excerpt": "Mumbai's lunch-box delivery network achieves Six Sigma accuracy without GPS, smartphones, or a single computer. The secret is in the code on the lid.",
+    "body": "At 9:30 AM every weekday, 5,000 dabbawalas fan out across Mumbai. They collect lunch boxes from 200,000 homes and deliver them to 200,000 offices before noon. The system has been running since 1890.\n\nThe secret is painted on each lid in a code that is not English, not Marathi, not Hindi. It is a system of colours, numbers, and symbols that encodes the pickup station, destination, building, and floor — all in a single glance readable by a dabbawala who may be illiterate in every formal language.\n\n\"The code is Mumbai,\" says Sopan Lad, a dabbawala for twenty-two years. \"It contains the whole city.\"",
+    "districtSlug": "mumbai",
+    "districtName": "Mumbai",
+    "category": "Craft",
+    "tag": "Mumbai · Craft",
+    "featured": true,
+    "gradient": { "g1": "#0A1A3A", "g2": "#2A4A8A" },
+    "districtId": "1eec6b5d-a0e3-4861-91e4-ba86ec06d193",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]

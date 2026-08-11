@@ -1,0 +1,17 @@
+[
+  {
+    "_id": "5b948b90-a143-4e56-b9f0-2c914a11ebfe",
+    "name": "Dal Baati Churma",
+    "slug": "dal-baati-churma",
+    "districtSlug": "jaipur",
+    "districtName": "Jaipur",
+    "category": "Rajasthani Heritage",
+    "featured": true,
+    "excerpt": "Three dishes, one plate — the complete meal of Rajasthan. The baati was originally baked in the embers of a soldiers' camp fire.",
+    "body": "Dal Baati Churma is the food of a harsh geography. Rajasthan is not gentle — the desert takes water, and cooking methods adapted to what fire could do that water could not.\n\nBaati is a dense wheat ball baked in the embers of a fire. It does not need water during cooking — it bakes dry, until a hard crust forms. When done, it is split open, drenched in clarified butter, and placed beside the dal.\n\nThe dal is slow-cooked with five lentils (panch mel dal), tempered with ghee, spices, and dried mango powder. The churma is the sweet counterpoint — coarsely ground wheat, fried and mixed with jaggery and ghee.\n\nTogether, they form a meal that could sustain a Rajput warrior on a long march. In Jaipur today, it is eaten at weddings, at festivals, and at restaurants where the fire-baking is maintained as discipline — not nostalgia.\n\n\"My grandmother made baati in a wood fire for seventy years,\" says the owner of a Jaipur dhaba. \"She said gas baati has no soul. I don't know if I agree. But I still use wood.\"",
+    "gradient": { "g1": "#3A1A08", "g2": "#9A5018" },
+    "tags": ["Heritage", "Desert food", "Three-course"],
+    "districtId": "b84c8432-acf3-488e-aa5f-acbaed1f4d6b",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]

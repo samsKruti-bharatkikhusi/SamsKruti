@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "bd5d8a78-6bfc-495e-8a2e-a400416e7238",
+    "name": "Banarasi Paan",
+    "slug": "banarasi-paan",
+    "districtSlug": "varanasi",
+    "districtName": "Varanasi",
+    "category": "Ritual Food",
+    "featured": true,
+    "excerpt": "The paan of Varanasi is not a snack — it is a ceremony. Thirty-two ingredients, three minutes of assembly, and a flavour that no other city can replicate.",
+    "body": "At the corner of Godowlia Chowk, a paan wallah named Raju Prasad has been making Banarasi paan since 1978. His hands move without looking — the betel leaf is buffed, the lime paste applied in a precise arc, then layers of supari, cardamom, saffron, and silver leaf.\n\nThe Banarasi paan is classified into types. Meetha paan — sweet, with fennel and rose petal preserve. Saada paan — plain, for those who chew through the bitterness to find the clarity beneath. And the fabled Magahi paan — leaves from a particular village in Bihar, smuggled into Varanasi's alleyways because their softness cannot be replicated elsewhere.\n\n\"People come from Dubai, from London, from Tokyo,\" Raju says, wrapping the final leaf into a perfect triangle. \"They want to take it home in their memories. But paan is not food — it is a moment. It does not travel.\"",
+    "gradient": { "g1": "#1A3A1A", "g2": "#3A7A2A" },
+    "tags": ["Ritual", "Betel", "Street Food"],
+    "districtId": "5d66fbb3-7057-42a0-b296-b72d4306ef17",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  },
+  {
+    "_id": "06fc4d78-8cbe-46ab-a35d-8ae45adfa426",
+    "name": "Litti Chokha",
+    "slug": "litti-chokha",
+    "districtSlug": "varanasi",
+    "districtName": "Varanasi",
+    "category": "Ancestral Dish",
+    "featured": true,
+    "excerpt": "Wheat dough stuffed with roasted gram flour, cooked over cow-dung cakes. The dish is poor, ancient, and perfect — and the cities have never been able to improve it.",
+    "body": "Litti is the food of the fields — of the Bihar and UP heartland, of farmers who needed something that would fill, survive the day's heat, and require no refrigeration. It is wheat dough filled with sattu (roasted gram flour), spiced with mustard oil, ginger, and ajwain, then cooked in an open fire until charred and blistered.\n\nThe chokha that accompanies it is roasted brinjal or tomato mashed with mustard oil and raw onion. It is brutal in its simplicity.\n\nIn Varanasi, litti chokha appears at dusk — on small carts, over coal fires, with clouds of smoke rising into lanes already thick with incense. You eat it with your hands. There is no other way.\n\n\"Rich men eat litti at parties now and call it cuisine,\" says a litti seller near Assi Ghat. \"But it is not cuisine. It is what we ate because we had nothing else — and it turns out that is what we needed.\"",
+    "gradient": { "g1": "#4A2A08", "g2": "#9A6020" },
+    "tags": ["Ancestral", "Wheat", "Fire-cooked"],
+    "districtId": "5d66fbb3-7057-42a0-b296-b72d4306ef17",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]

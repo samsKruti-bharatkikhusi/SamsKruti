@@ -1,0 +1,34 @@
+[
+  {
+    "_id": "38c46cf4-c2db-40e8-9825-722c73a1b966",
+    "name": "Meena Devi — Madhubani Painter",
+    "slug": "meena-devi-madhubani",
+    "districtSlug": "delhi",
+    "districtName": "Delhi",
+    "craft": "Madhubani Painting",
+    "generation": "Third",
+    "featured": true,
+    "excerpt": "Madhubani is not decorative art — it is a narrative system developed by women in Bihar to mark births, deaths, and marriage. Meena Devi learned it from her mother's hands, not from any school.",
+    "body": "Meena Devi was born in the Mithila region of Bihar. She came to Delhi in 1989 when she married, carrying with her the visual language that women of her village had passed down for centuries.\n\nMadhubani painting is not taught through instruction. It is absorbed — a daughter watches her mother paint, helps with the mixing of natural pigments, and begins to understand the grammar of line before she understands the grammar of words. The motifs carry meaning: fish for fertility and prosperity, birds for the soul in transit, lotus for divine presence.\n\nMeena now runs a small workshop in South Delhi where she teaches — not the technique, but the stories behind the lines.\n\n\"People think Madhubani is about colours,\" she says, mixing indigo with her thumb. \"It is about what the colours mean. If you paint a red border without knowing that red means married life, you have made decoration, not art.\"",
+    "gradient": { "g1": "#0A1A3A", "g2": "#2A4A8A" },
+    "tags": ["Madhubani", "Bihar", "Women's art", "Natural pigments"],
+    "districtId": "69b46960-d094-4824-ac3d-959b8c556843",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  },
+  {
+    "_id": "4e1003bf-03f3-43ca-9f98-82c51b657731",
+    "name": "Lalita Srivastava — Zardozi Embroiderer",
+    "slug": "lalita-srivastava-zardozi",
+    "districtSlug": "delhi",
+    "districtName": "Delhi",
+    "craft": "Zardozi Embroidery",
+    "generation": "Second",
+    "featured": false,
+    "excerpt": "Zardozi is gold-wire embroidery developed in the Mughal courts. It once adorned royal robes. Now it appears on bridal wear — and on garments made by women in Old Delhi who work by lamplight.",
+    "body": "Zardozi — from the Persian zar (gold) and dozi (embroidery) — was the craft of Mughal courts. Emperors wore it on formal occasions; horses wore it on ceremonial processions. The craft required metal workers, not textile workers: the gold and silver threads were hammered wire, not spun thread.\n\nLalita Srivastava works in a three-room house in Lajpat Nagar, Delhi. She learned zardozi from her mother-in-law, who learned from her mother-in-law, who learned in a workshop attached to a nawab's household in pre-Partition Lucknow.\n\n\"The irony is that the work I do on a bride's dupatta is the same work that went on a Mughal emperor's coat,\" Lalita says, threading a fine wire through the taut fabric of an embroidery frame. \"The stitch has not changed. The customer has.\"\n\nThe work is paid by the hour, and the hours are long. A full bridal ensemble takes four months.",
+    "gradient": { "g1": "#2A2010", "g2": "#7A6030" },
+    "tags": ["Zardozi", "Gold wire", "Mughal", "Bridal"],
+    "districtId": "69b46960-d094-4824-ac3d-959b8c556843",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]

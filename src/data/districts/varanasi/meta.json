@@ -1,0 +1,34 @@
+{
+  "_id": "5d66fbb3-7057-42a0-b296-b72d4306ef17",
+  "slug": "varanasi",
+  "name": "Varanasi",
+  "hindi": "वाराणसी",
+  "state": "uttar-pradesh",
+  "stateName": "Uttar Pradesh",
+  "featured": true,
+  "coordinates": [25.3176, 82.9739],
+  "tagline": "The city that never stopped being eternal.",
+  "description": "Varanasi is not simply old — it is the oldest continuously inhabited city in the world. It is the place where Hindus come to die, where silk is woven into prayers, and where the Ganga moves like a living deity through the lives of millions.",
+  "dimensions": {
+    "culture": {
+      "title": "The living ritual",
+      "body": "What the city practises, observes, and passes down without writing it down. Ganga Aarti, the morning bathing rituals, the cycle of festivals — none of these are tourist attractions. They are the unbroken rhythm of a civilisation.",
+      "accentColor": "#C8652A"
+    },
+    "craft": {
+      "title": "The hands behind it",
+      "body": "Banarasi silk is not a product — it is a language. Weavers in the old city have been threading gold and silver into brocade for five hundred years. Today's master weavers carry knowledge that no school teaches.",
+      "accentColor": "#D4922A"
+    },
+    "people": {
+      "title": "The voices within",
+      "body": "The pandit who has performed last rites for sixty years. The boatman whose family has rowed the same ghat for generations. People who live inside the story — not guides.",
+      "accentColor": "#7A9A6A"
+    },
+    "memory": {
+      "title": "What the city remembers",
+      "body": "History not as a timeline, but as a texture you can still feel on the walls. The city was ancient when Rome was young. Its memory is written in stone steps worn smooth by ten thousand years of feet.",
+      "accentColor": "#6A8AB8"
+    }
+  }
+}

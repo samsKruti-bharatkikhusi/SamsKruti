@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "e3064db2-10a6-4603-a722-494efa1e823d",
+    "title": "The aarti nobody attends",
+    "slug": "the-aarti-nobody-attends",
+    "excerpt": "Every evening, a priest lights lamps on an empty ghat. He has done this for forty years. No audience required.",
+    "body": "Pandit Ramesh Tiwari arrives at the small ghat off the main Dashashwamedh at exactly 6:14 PM every evening. He does not hurry. He has never hurried. The tourists are a few hundred metres away, watching the grand aarti with its synchronized flames and incense clouds. Here, there is only him, a brass lamp, and the moving Ganga.\n\nHe lights five lamps. He recites the mantras his grandfather taught him. He offers flowers. He watches the current carry the petals downstream. And then he goes home.\n\n\"Who said the river needs an audience?\" he said. \"The river was here before the first priest stood on this ghat. It will be here long after the last one. My job is simply to remember that.\"",
+    "districtSlug": "varanasi",
+    "districtName": "Varanasi",
+    "category": "Ritual",
+    "tag": "Varanasi · Ritual",
+    "featured": true,
+    "gradient": { "g1": "#6B2D0A", "g2": "#C8652A" },
+    "districtId": "5d66fbb3-7057-42a0-b296-b72d4306ef17",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  },
+  {
+    "_id": "ef6270c0-44d5-4d55-bc09-85628e5884c7",
+    "title": "A weaver's last loom",
+    "slug": "a-weavers-last-loom",
+    "excerpt": "Three generations made Banarasi silk. The fourth makes something else entirely. This is the story of what was lost between them.",
+    "body": "In the narrow lanes of Madanpura, the sound of the handloom used to be the neighbourhood's heartbeat. Mohammed Arif remembers falling asleep to it as a child, his father and uncles working through the night to finish an order for a bride's wedding sari.\n\nArif's family specialty was kimkhab — a brocade so dense with gold thread that the fabric could stand on its own. There are fewer than twenty weavers in the world who still know how to make it.\n\nArif is not one of them. He works in mobile phone repair now. \"The loom takes eight hours a day and pays three hundred rupees,\" he says quietly. \"The phone shop takes the same hours and pays twelve hundred.\" He explains it with the patience of someone who has spent a long time making peace with a loss.",
+    "districtSlug": "varanasi",
+    "districtName": "Varanasi",
+    "category": "Craft",
+    "tag": "Banaras · Craft",
+    "featured": true,
+    "gradient": { "g1": "#4A2800", "g2": "#B87028" },
+    "districtId": "5d66fbb3-7057-42a0-b296-b72d4306ef17",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  },
+  {
+    "_id": "219c056d-a8e1-415c-b89e-e178d66e2a41",
+    "title": "Why the river predates the city",
+    "slug": "why-the-river-predates-the-city",
+    "excerpt": "Varanasi is considered eternal. But even eternity has a context. What does it mean for a city to be older than its own mythology?",
+    "body": "The Ganga at Varanasi is not simply a river. In the Puranas, it is Ganga Mata — mother, deity, purifier. To die here and have your ashes scattered in the Ganga is to achieve moksha.\n\nDr. Vashisht, who teaches ancient Indian history at BHU, has spent thirty years trying to understand what Varanasi was before it became sacred. \"Every civilisation needs an origin point,\" he says. \"Varanasi became India's. But the river was just the river before that. It didn't know what it would mean to people.\" He pauses. \"That's true of most holy things.\"",
+    "districtSlug": "varanasi",
+    "districtName": "Varanasi",
+    "category": "Philosophy",
+    "tag": "Ganga · Philosophy",
+    "featured": false,
+    "gradient": { "g1": "#0F3028", "g2": "#286048" },
+    "districtId": "5d66fbb3-7057-42a0-b296-b72d4306ef17",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]

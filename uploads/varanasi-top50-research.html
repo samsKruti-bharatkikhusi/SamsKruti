@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varanasi Top 50 · SamsKruti Market Research</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --earth: #1A0D05;
+  --earth-2: #261509;
+  --earth-3: #311C0D;
+  --terra: #C8652A;
+  --terra-l: #D97A42;
+  --ochre: #E8A870;
+  --ochre-l: #F5C99A;
+  --ivory: #FAF7F2;
+  --ivory-d: #EDE4D5;
+  --smoke: #8B7558;
+  --smoke-l: #A8916E;
+  --gold: #C4911F;
+  --gold-b: #E8B84B;
+  --rust: #8B3A1A;
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--earth);
+  color: var(--ivory);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* GRAIN OVERLAY */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.35;
+}
+
+/* STAR PATTERN BG */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 10% 10%, rgba(200,101,42,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 90%, rgba(232,168,112,0.05) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 2 L42 38 L78 40 L42 42 L40 78 L38 42 L2 40 L38 38z' fill='%23C8652A' fill-opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0;
+}
+
+/* ── HEADER ── */
+header {
+  position: relative; z-index: 1;
+  padding: 3.5rem 6vw 3rem;
+  border-bottom: 1px solid rgba(200,101,42,0.2);
+  max-width: 1400px; margin: 0 auto;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 3rem;
+}
+.brand-gem {
+  width: 30px; height: 30px;
+  background: var(--terra);
+  transform: rotate(45deg);
+  position: relative; flex-shrink: 0;
+}
+.brand-gem::after {
+  content: ''; position: absolute; inset: 5px;
+  border: 1px solid rgba(250,247,242,0.35);
+}
+.brand-name {
+  font-size: 18px; font-weight: 300;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ochre);
+}
+.brand-sep { width: 1px; height: 24px; background: rgba(200,101,42,0.35); margin: 0 2px; }
+.brand-url { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--smoke-l); }
+
+.eyebrow {
+  font-family: 'Josefin Sans', sans-serif; font-size: 10px;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--terra); margin-bottom: 1rem;
+}
+h1 {
+  font-size: clamp(46px, 7vw, 92px); font-weight: 300; line-height: 1.04;
+  color: var(--ivory); margin-bottom: 0.8rem;
+}
+h1 em { font-style: italic; color: var(--ochre); }
+.header-sub {
+  font-size: 17px; font-weight: 300; color: var(--smoke-l);
+  max-width: 600px; line-height: 1.7; margin-bottom: 2.5rem;
+}
+.kv-row {
+  display: flex; gap: 2.5rem; flex-wrap: wrap;
+}
+.kv { }
+.kv-val {
+  font-size: 32px; font-weight: 300; color: var(--gold-b);
+  display: block; line-height: 1;
+}
+.kv-lbl {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--smoke); margin-top: 4px; display: block;
+}
+
+/* ── BODY ── */
+main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 0 6vw 5rem; }
+
+/* SECTION DIVIDER */
+.sec {
+  display: flex; align-items: center; gap: 14px;
+  margin: 4rem 0 2rem;
+}
+.sec::before { content: ''; width: 28px; height: 1px; background: var(--terra); flex-shrink: 0; }
+.sec-txt {
+  font-family: 'Josefin Sans', sans-serif; font-size: 10px;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--terra);
+}
+.sec::after { content: ''; flex: 1; height: 1px; background: rgba(200,101,42,0.15); }
+
+/* STATS BAND */
+.stats-band {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px; background: rgba(200,101,42,0.18);
+  border: 1px solid rgba(200,101,42,0.18); overflow: hidden;
+  margin-bottom: 1rem;
+}
+.stat {
+  background: var(--earth-2); padding: 1.5rem 1.25rem;
+  border-left: 3px solid transparent;
+  transition: border-color 0.25s, background 0.25s;
+}
+.stat:hover { border-left-color: var(--terra); background: var(--earth-3); }
+.stat-n { font-size: 34px; font-weight: 300; color: var(--ochre); line-height: 1; margin-bottom: 5px; }
+.stat-l { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--smoke); margin-bottom: 3px; }
+.stat-s { font-size: 13px; color: var(--smoke-l); font-style: italic; }
+
+/* FILTER */
+.filter-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 1.75rem; }
+.filter-lbl { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--smoke); margin-right: 4px; }
+.fbtn {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 6px 16px; border: 1px solid rgba(200,101,42,0.28); background: transparent;
+  color: var(--smoke-l); cursor: pointer; transition: all 0.2s;
+}
+.fbtn:hover { border-color: var(--terra); color: var(--ochre); }
+.fbtn.on { background: var(--terra); border-color: var(--terra); color: var(--ivory); }
+
+/* PRODUCT GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1px; background: rgba(200,101,42,0.1);
+  border: 1px solid rgba(200,101,42,0.12);
+  overflow: hidden;
+}
+.card {
+  background: var(--earth-2); padding: 1.6rem 1.5rem;
+  position: relative; overflow: hidden;
+  transition: background 0.25s;
+  animation: up 0.4s ease both;
+}
+.card:hover { background: var(--earth-3); }
+.card.hidden { display: none; }
+
+@keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+/* card accent line on left */
+.card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 0;
+  background: var(--terra); transition: width 0.2s;
+}
+.card:hover::before { width: 3px; }
+
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.9rem; }
+.card-num {
+  font-size: 52px; font-weight: 300; line-height: 1;
+  color: rgba(200,101,42,0.16); letter-spacing: -0.02em;
+  user-select: none;
+}
+.tags { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+.tag {
+  font-family: 'Josefin Sans', sans-serif; font-size: 8.5px;
+  letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 9px;
+}
+.t-gi { background: rgba(196,145,31,0.14); color: var(--gold-b); border: 1px solid rgba(196,145,31,0.28); }
+.t-cat { background: rgba(200,101,42,0.1); color: var(--terra-l); border: 1px solid rgba(200,101,42,0.2); }
+.t-cul { background: rgba(139,117,88,0.12); color: var(--smoke-l); border: 1px solid rgba(139,117,88,0.2); }
+
+.card-name { font-size: 20px; font-weight: 400; color: var(--ivory); line-height: 1.2; margin-bottom: 3px; }
+.card-story { font-size: 13px; font-style: italic; color: var(--ochre); opacity: 0.85; margin-bottom: 0.85rem; }
+.card-desc { font-size: 14px; font-weight: 300; color: var(--smoke-l); line-height: 1.65; margin-bottom: 1rem; }
+.card-foot {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  padding-top: 0.85rem; border-top: 1px solid rgba(200,101,42,0.1);
+}
+.chip {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--smoke);
+  display: flex; align-items: center; gap: 5px;
+}
+.chip span { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; text-transform: none; letter-spacing: 0; color: var(--ivory-d); }
+
+/* CHART PANELS */
+.charts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(200,101,42,0.12); border: 1px solid rgba(200,101,42,0.12); overflow: hidden; margin-bottom: 0.75rem; }
+@media(max-width:700px){ .charts { grid-template-columns:1fr; } }
+.cpanel { background: var(--earth-2); padding: 1.75rem; }
+.cpanel-title { font-family: 'Josefin Sans', sans-serif; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--smoke); margin-bottom: 1.5rem; }
+
+/* category bars */
+.bars { display: flex; flex-direction: column; gap: 13px; }
+.brow { }
+.brow-top { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.brow-name { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--smoke-l); }
+.brow-val { font-size: 18px; color: var(--ochre); font-weight: 300; line-height: 1; }
+.btrack { height: 3px; background: rgba(200,101,42,0.1); overflow: hidden; }
+.bfill { height: 100%; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+
+/* demand grid */
+.demand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dcard { background: rgba(200,101,42,0.06); border: 1px solid rgba(200,101,42,0.12); padding: 10px 12px; }
+.dcard-label { font-family: 'Josefin Sans', sans-serif; font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--smoke); margin-bottom: 5px; }
+.dcard-val { font-size: 24px; font-weight: 300; color: var(--gold-b); line-height: 1; }
+.dcard-sub { font-size: 11px; color: var(--smoke-l); font-style: italic; margin-top: 2px; }
+
+/* INSIGHT */
+.insight {
+  margin: 3rem 0 0; padding: 2.25rem 2.5rem;
+  border: 1px solid rgba(200,101,42,0.22); border-left: 4px solid var(--terra);
+  background: rgba(200,101,42,0.035); position: relative;
+}
+.insight-q {
+  font-size: 90px; font-weight: 300; font-style: italic;
+  color: rgba(200,101,42,0.07); position: absolute; top: -10px; right: 1.5rem; line-height: 1;
+}
+.insight-tag { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); margin-bottom: 0.6rem; }
+.insight-h { font-size: 28px; font-weight: 300; color: var(--ivory); margin-bottom: 0.85rem; line-height: 1.3; }
+.insight-p { font-size: 16px; font-weight: 300; color: var(--smoke-l); line-height: 1.8; max-width: 720px; }
+
+/* COUNT BADGE */
+.count-badge {
+  font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--smoke-l);
+  margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;
+}
+.count-badge strong { color: var(--ochre); font-size: 14px; font-weight: 400; }
+
+/* FOOTER */
+footer {
+  position: relative; z-index: 1;
+  max-width: 1400px; margin: 0 auto;
+  padding: 1.75rem 6vw 2.5rem;
+  border-top: 1px solid rgba(200,101,42,0.14);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+}
+.f-brand { font-size: 16px; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; color: var(--smoke); }
+.f-note { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--smoke); opacity: 0.45; }
+
+@media(max-width:600px){
+  h1 { font-size: 38px; }
+  .grid { grid-template-columns: 1fr; }
+  .stats-band { grid-template-columns: 1fr 1fr; }
+  .demand-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-gem"></div>
+    <span class="brand-name">SamsKruti</span>
+    <div class="brand-sep"></div>
+    <span class="brand-url">www.samskruti.life</span>
+  </div>
+  <p class="eyebrow">Market Research · Varanasi · 2026</p>
+  <h1>The Kashi<br><em>50 Flagships</em></h1>
+  <p class="header-sub">A civilizational audit of Varanasi's most iconic products — GI-tagged crafts, culinary heritage, ritual objects, musical traditions — curated as flagship offerings for the SamsKruti Cart.</p>
+  <div class="kv-row">
+    <div class="kv"><span class="kv-val">30+</span><span class="kv-lbl">GI Tags · Varanasi</span></div>
+    <div class="kv"><span class="kv-val">₹25,500 Cr</span><span class="kv-lbl">Purvanchal Annual Business</span></div>
+    <div class="kv"><span class="kv-val">$4.56B</span><span class="kv-lbl">India Handicraft Market 2024</span></div>
+    <div class="kv"><span class="kv-val">20 L+</span><span class="kv-lbl">Artisans · Purvanchal</span></div>
+    <div class="kv"><span class="kv-val">6.4%</span><span class="kv-lbl">CAGR → 2033</span></div>
+  </div>
+</header>
+
+<main>
+  <div class="sec"><span class="sec-txt">Market Overview</span></div>
+
+  <div class="stats-band">
+    <div class="stat"><div class="stat-n">$3.89B</div><div class="stat-l">India Handicraft Exports FY25</div><div class="stat-s">USA = 38.7% of all exports</div></div>
+    <div class="stat"><div class="stat-n">#1</div><div class="stat-l">UP's GI Rank in India</div><div class="stat-s">69 GI products · March 2024</div></div>
+    <div class="stat"><div class="stat-n">317M</div><div class="stat-l">UP Domestic Tourist Arrivals</div><div class="stat-s">2022; surging post-KVD renovation</div></div>
+    <div class="stat"><div class="stat-n">Top 8</div><div class="stat-l">National Handicraft Clusters</div><div class="stat-s">Varanasi alongside Agra, Jaipur</div></div>
+    <div class="stat"><div class="stat-n">$8.19B</div><div class="stat-l">India Handicraft Market 2033</div><div class="stat-s">Projected at 6.39% CAGR</div></div>
+  </div>
+
+  <div class="sec"><span class="sec-txt">Product Intelligence</span></div>
+
+  <div class="charts">
+    <div class="cpanel">
+      <div class="cpanel-title">Products by category · 50 Total</div>
+      <div class="bars">
+        <div class="brow"><div class="brow-top"><span class="brow-name">Food & Drink</span><span class="brow-val">14</span></div><div class="btrack"><div class="bfill" style="width:100%;background:var(--terra);"></div></div></div>
+        <div class="brow"><div class="brow-top"><span class="brow-name">Crafts & Art</span><span class="brow-val">13</span></div><div class="btrack"><div class="bfill" style="width:93%;background:#639922;"></div></div></div>
+        <div class="brow"><div class="brow-top"><span class="brow-name">Textiles</span><span class="brow-val">10</span></div><div class="btrack"><div class="bfill" style="width:71%;background:var(--gold);"></div></div></div>
+        <div class="brow"><div class="brow-top"><span class="brow-name">Wellness & Ritual</span><span class="brow-val">8</span></div><div class="btrack"><div class="bfill" style="width:57%;background:#854F0B;"></div></div></div>
+        <div class="brow"><div class="brow-top"><span class="brow-name">Music & Culture</span><span class="brow-val">5</span></div><div class="btrack"><div class="bfill" style="width:36%;background:#185FA5;"></div></div></div>
+      </div>
+    </div>
+    <div class="cpanel">
+      <div class="cpanel-title">GI tagged vs cultural / culinary</div>
+      <div class="demand-grid">
+        <div class="dcard"><div class="dcard-label">GI Tagged</div><div class="dcard-val">17</div><div class="dcard-sub">Legal IP protection</div></div>
+        <div class="dcard"><div class="dcard-label">Cultural / Culinary</div><div class="dcard-val">33</div><div class="dcard-sub">Story-driven value</div></div>
+        <div class="dcard"><div class="dcard-label">Export Demand</div><div class="dcard-val">12</div><div class="dcard-sub">Internationally traded</div></div>
+        <div class="dcard"><div class="dcard-label">Pilgrim-Driven</div><div class="dcard-val">11</div><div class="dcard-sub">Sacred / devotional</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-txt">50 Flagship Products · SamsKruti Cart</span></div>
+
+  <div class="filter-wrap">
+    <span class="filter-lbl">Filter —</span>
+    <button class="fbtn on" data-f="all">All 50</button>
+    <button class="fbtn" data-f="Textiles">Textiles</button>
+    <button class="fbtn" data-f="Food & Drink">Food & Drink</button>
+    <button class="fbtn" data-f="Crafts & Art">Crafts & Art</button>
+    <button class="fbtn" data-f="Wellness & Ritual">Wellness & Ritual</button>
+    <button class="fbtn" data-f="Music & Culture">Music & Culture</button>
+    <button class="fbtn" data-f="gi">GI Tagged Only</button>
+  </div>
+
+  <div class="count-badge"><strong id="countNum">50</strong> products shown</div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="insight">
+    <div class="insight-q">"</div>
+    <div class="insight-tag">Strategic Positioning · SamsKruti</div>
+    <div class="insight-h">Don't sell products.<br>Sell civilizational memory.</div>
+    <p class="insight-p">Every object in this list is a portal. The Rudraksha carries Shiva's mythology. The Banarasi Silk carries the fingerprints of weavers across five centuries. The Malaiyyo exists only in Kashi's winter air. The Shehnai of Bismillah Khan echoes across ghats. The SamsKruti Cart's differentiation lies not in the product itself, but in the <em>story architecture</em> around it — artisan name, craft lineage, cultural origin, and a living connection to the civilizational legacy of this eternal city. Pair every physical item with a QR-linked story page. That transforms a souvenir into a civilizational artifact.</p>
+  </div>
+</main>
+
+<footer>
+  <span class="f-brand">SamsKruti · www.samskruti.life</span>
+  <span class="f-note">Varanasi Market Research · May 2026</span>
+</footer>
+
+<script>
+const P = [
+  // TEXTILES (10)
+  {n:1,  name:"Banarasi Silk Saree",          cat:"Textiles",         gi:true,  story:"Mughal court to modern brides",              price:"₹5K–₹2L+",       demand:"Extremely High",    desc:"The crown jewel — handwoven silk with intricate zari (gold/silver thread) brocade. Each saree takes up to six months. Four types: Katan, Organza, Georgette, Shattir. The weavers, Tantuvayas, have practiced this since 1500 BCE."},
+  {n:2,  name:"Banaras Zardozi Embroidery",   cat:"Textiles",         gi:true,  story:"Persian origins, Kashi soul",                price:"₹800–₹50K",      demand:"High",              desc:"Gold and silver thread embroidery rooted in Persian craftsmanship, once reserved for royal garments. Found on stoles, wall art, and fashion accessories. A GI-tagged luxury craft with global collector demand."},
+  {n:3,  name:"Banaras Hand Block Print",     cat:"Textiles",         gi:true,  story:"Artisan hands, ancient patterns",            price:"₹300–₹5K",       demand:"Growing",           desc:"Naturally dyed fabric printed with hand-carved wooden blocks in geometric and floral Banarasi motifs. Centres at Kashmiriganj, Khojwan, and Manduadih. Roots in the Indus Valley civilisation."},
+  {n:4,  name:"Banarasi Silk Stole/Dupatta",  cat:"Textiles",         gi:true,  story:"Gifted at every ceremony",                   price:"₹500–₹8K",       demand:"High + Diaspora",   desc:"The lighter, more accessible sibling of the full saree. Silk stoles and dupattas with zari borders — perfect as gifts, easy to carry, beloved by the Indian diaspora worldwide."},
+  {n:5,  name:"Katan Silk Fabric (Yardage)",  cat:"Textiles",         gi:true,  story:"Purest silk woven in Kashi",                 price:"₹600–₹4K/m",     demand:"Growing B2B",       desc:"Pure Katan silk — the finest Banarasi raw material — sold by the metre for bespoke garments. Favoured by designers and couture houses. A weaver-to-consumer story SamsKruti can tell powerfully."},
+  {n:6,  name:"Kimkhab Brocade Fabric",       cat:"Textiles",         gi:true,  story:"Cloth woven for emperors",                   price:"₹2K–₹20K/m",     demand:"Niche Luxury",      desc:"The most opulent Banarasi weave — heavy silk completely covered in gold and silver zari, leaving no ground visible. Historically used for royal robes and throne coverings. Now prized for weddings and couture."},
+  {n:7,  name:"Banarasi Georgette Saree",     cat:"Textiles",         gi:false, story:"Modern Banaras, timeless drape",             price:"₹2K–₹15K",       demand:"Very High",         desc:"A lighter contemporary adaptation of the Banarasi tradition — chiffon-weight georgette woven with zari. Easier to drape, fashionable for parties, and the entry-level Banarasi for young buyers."},
+  {n:8,  name:"Banaras Cotton Saree",         cat:"Textiles",         gi:false, story:"Everyday devotion, everyday beauty",         price:"₹500–₹3K",       demand:"Steady Local",      desc:"Handwoven cotton sarees in traditional Banarasi patterns — the working woman's saree of UP. Affordable, durable, deeply local. Often missed by tourists but central to the weaving community's livelihood."},
+  {n:9,  name:"Banarasi Lehenga Fabric",      cat:"Textiles",         gi:false, story:"Bridal dreams woven in silk",                price:"₹3K–₹80K",       demand:"High Bridal",       desc:"Specially woven broad-panel silk brocade for bridal lehengas. Increasingly sought by wedding designers. Among the fastest-growing export segments as Indian wedding culture globalises."},
+  {n:10, name:"Traditional Lungi & Dhoti",    cat:"Textiles",         gi:false, story:"The garment of devotion and simplicity",     price:"₹100–₹800",      demand:"Steady",            desc:"Handwoven cotton lungis, dhotis, and gamchas — the everyday ritual garments of Kashi's priests and pilgrims. Made in nearby Tanda and Mau, sold widely in Varanasi markets."},
+
+  // CRAFTS & ART (13)
+  {n:11, name:"Banaras Gulabi Meenakari",     cat:"Crafts & Art",     gi:true,  story:"Mughal enamel meets Kashi gold",             price:"₹1.5K–₹80K",     demand:"Niche Premium",     desc:"Enamel art on gold and silver metal, with distinctive rose-pink hues and gemstone accents. Unique to Varanasi — found nowhere else in India. Practised in the bylanes of Gai Ghat. Brought by the Mughals, perfected by Kashi's master craftsmen."},
+  {n:12, name:"Wooden Lacquerware & Toys",    cat:"Crafts & Art",     gi:true,  story:"Ivory ban birthed this craft",               price:"₹50–₹3K",        demand:"High + Export",     desc:"Hand-carved eucalyptus/gular wood toys and figurines, lacquered in vivid colours. Exported to Spain, Brazil, and USA. National Award-winning artisans in Kashmiriganj and Khojwan. 200+ families involved."},
+  {n:13, name:"Banaras Wood Carving",         cat:"Crafts & Art",     gi:true,  story:"Epics carved in white cedar",                price:"₹500–₹25K",      demand:"Steady",            desc:"White cedar carved into mythological figures — Shiva, Rama, Krishna, animals, temple motifs. Each piece depicts scenes from the Ramayana and Mahabharata. Storytelling through wood in its purest form."},
+  {n:14, name:"Varanasi Soft Stone Jali Work",cat:"Crafts & Art",     gi:true,  story:"Temple architecture in miniature",           price:"₹300–₹15K",      demand:"Moderate",          desc:"Intricately latticed decorative pieces carved from soft stone, echoing the jali screens of Varanasi's temples and ghats. Lamps, decorative boxes, table-tops. Stones from the Chunar quarries."},
+  {n:15, name:"Banaras Glass Beads",          cat:"Crafts & Art",     gi:true,  story:"Kashi's colourful language",                 price:"₹50–₹2K",        demand:"High Export",       desc:"One of India's largest bead-exporting industries — over 2,000 artisans in Varanasi. Glass beads in every colour used in jewellery, clothing, bead curtains, and chandeliers. World's largest manufacturing unit here."},
+  {n:16, name:"Banaras Metal Repousse",       cat:"Crafts & Art",     gi:true,  story:"Metal that tells stories",                   price:"₹400–₹20K",      demand:"Moderate",          desc:"Embossing intricate designs onto metal sheets to create ornamental trays, idols, and wall decor. A GI-tagged art specific to Banaras metalworking tradition, centuries old."},
+  {n:17, name:"Banaras Metal Casting (Idols)",cat:"Crafts & Art",     gi:true,  story:"Gods cast in Kashi's furnaces",              price:"₹200–₹50K",      demand:"Very High Pilgrim", desc:"Cast metal idols of Hindu deities — Shiva, Ganesha, Durga, Saraswati — in brass, copper, silver. Available in every size. Pilgrims carry them home as sacred souvenirs. GI tagged and deeply civilizational."},
+  {n:18, name:"Chunar Stone Carving",         cat:"Crafts & Art",     gi:false, story:"Ashoka's pillars were born here",            price:"₹200–₹30K",      demand:"Moderate",          desc:"Sandstone and marble carvings from Chunar — near Varanasi — the same quarries that provided stone for Ashoka's pillars. Shiva lingas, Buddha statues, decorative panels, and coasters. Best found in Sarnath."},
+  {n:19, name:"Handmade Paper & Paintings",   cat:"Crafts & Art",     gi:false, story:"Mythological stories on handmade paper",     price:"₹100–₹5K",       demand:"Growing Tourist",   desc:"Handmade paper and folk paintings depicting mythological stories — used for greeting cards, gift wraps, and wall art. Found in art stores near Dashashwamedh Ghat. Increasingly popular with heritage-conscious buyers."},
+  {n:20, name:"Glass Bangle Jewellery",       cat:"Crafts & Art",     gi:false, story:"Every married woman's wrist",                price:"₹20–₹500",       demand:"Very High",         desc:"Colourful handmade glass bangles — a tradition tied to auspiciousness and festivity in North India. Varanasi's glass bangle market is one of the largest in UP. Every colour, every occasion."},
+  {n:21, name:"Brass & Copper Utensils",      cat:"Crafts & Art",     gi:false, story:"The Thatheri Bazar sound of hammers",        price:"₹150–₹8K",       demand:"Steady Tourist",    desc:"Handcrafted brass pooja thalis, diyas, water pots, and decorative lamps from Thatheri Bazar — Varanasi's ancient metal quarter. Artisans use traditional hammering techniques unchanged for centuries."},
+  {n:22, name:"Brass Diya & Lamp Sets",       cat:"Crafts & Art",     gi:false, story:"The Ganga Aarti begins here",                price:"₹80–₹3K",        demand:"High Pilgrim",      desc:"Brass diyas and temple lamps — used in the famous Ganga Aarti at Dashashwamedh Ghat. Deeply tied to ritual. Purchased by every pilgrim as a sacred souvenir. Available in all sizes."},
+  {n:23, name:"Banarasi Mural Paintings",     cat:"Crafts & Art",     gi:true,  story:"Kashi's walls speak in colour",              price:"₹500–₹20K",      demand:"Emerging",          desc:"A lesser-known but GI-tagged art form — traditional mural paintings from Varanasi depicting deities, folk scenes, and temple motifs. Growing in premium interior design and cultural gifting markets."},
+
+  // FOOD & DRINK (14)
+  {n:24, name:"Banarasi Paan",                cat:"Food & Drink",     gi:true,  story:"Bollywood immortalised this ritual",         price:"₹10–₹100",       demand:"Iconic Tourism",    desc:"A cultural institution — sweet meetha paan of rose petals, fennel, saffron. Or the spicy variant. Immortalised in Bollywood. Every street corner, every ghat has a paanwala. One of the most recognised symbols of Kashi."},
+  {n:25, name:"Malaiyyo (Nimish)",            cat:"Food & Drink",     gi:false, story:"Only Kashi's winter air makes this",         price:"₹20–₹60",        demand:"Seasonal Cult",     desc:"A winter-only dessert that exists only in Varanasi. Milk churned overnight, flavoured with saffron and cardamom, served in kulhads. Disappears when winter ends. Unreplicable anywhere else on earth."},
+  {n:26, name:"Banarasi Lassi",               cat:"Food & Drink",     gi:false, story:"The earthen pot matters as much as the drink",price:"₹30–₹150",      demand:"Very High Tourist", desc:"Thick, indulgent condensed milk lassi in earthen pots with rose, pomegranate, and nut toppings. Blue Lassi near Vishwanath Gali is globally famous. A must-have Varanasi experience."},
+  {n:27, name:"Jalebi with Rabri",            cat:"Food & Drink",     gi:false, story:"Breakfast as devotion",                      price:"₹20–₹80",        demand:"Very High",         desc:"Banaras is India's jalebi capital. Thick, crispy jalebis dunked in saffron-tinged rabri (condensed milk). A sacred morning ritual for locals near Kachori Gali. Over a century of unbroken tradition."},
+  {n:28, name:"Kachori Sabzi",               cat:"Food & Drink",     gi:false, story:"The lane that never sleeps",                  price:"₹15–₹40",        demand:"Daily Staple",      desc:"Flaky deep-fried kachoris with spiced potato curry. The definitive Banarasi breakfast. Kachori Gali near Vishwanath Temple has served this continuously. Ram Bhandar is the legendary name."},
+  {n:29, name:"Thandai",                     cat:"Food & Drink",     gi:false, story:"Shiva's preferred offering",                  price:"₹30–₹120",       demand:"Festival Peak",     desc:"Spiced milk blended with almonds, fennel, saffron, rose petals, cardamom. A Holi-festival tradition deeply tied to Shiva worship. Baba Thandai at Godowlia is the legendary source."},
+  {n:30, name:"Laung Lata (Launglata)",      cat:"Food & Drink",     gi:false, story:"Sweetness wrapped in centuries",              price:"₹15–₹60",        demand:"Growing Tourist",   desc:"Deep-fried Banarasi sweet — crispy maida shell encasing mawa, saffron, cardamom, and nuts. Festival staple available year-round at Rajbandhu Sweets. Increasingly discovered by travellers."},
+  {n:31, name:"Choora Matar",               cat:"Food & Drink",     gi:false, story:"A winter morning in Kashi",                   price:"₹30–₹80",        demand:"Seasonal Local",    desc:"Varanasi's twist on poha — flattened rice with green peas, ghee, cashews, saffron and spices. No onions. A distinct winter morning tradition unique to this city. Best eaten with hot chai."},
+  {n:32, name:"Chena Dahi Vada",            cat:"Food & Drink",     gi:false, story:"Where cottage cheese meets devotion",          price:"₹30–₹70",        demand:"High Local",        desc:"A Banarasi variation of dahi vada — potato and cottage cheese vadas, deep-fried, topped with sweet curd, tamarind and coriander chutneys. A cherished breakfast at Kashi Chaat Bhandar."},
+  {n:33, name:"Banarasi Chai (Kulhad)",     cat:"Food & Drink",     gi:false, story:"The ghat chai is a universe of its own",      price:"₹5–₹20",         demand:"Daily Ritual",      desc:"Served in terracotta kulhads at the ghats — masala chai with ginger that tastes inexplicably different in Varanasi. The kulhad is disposable, biodegradable, and soulful. A complete cultural object."},
+  {n:34, name:"Lal Peda & Sweets",          cat:"Food & Drink",     gi:false, story:"The sweet offering of Kashi",                 price:"₹20–₹500/box",   demand:"High Pilgrim",      desc:"Banarasi mithai — Lal Peda (saffron-coloured), Kalakand, Sohan Halwa, Akbari, Ras Piyab. Varanasi sweets are famous across UP. Taken home as prasad and gifts from the holy city."},
+  {n:35, name:"Langra Mango (Seasonal)",    cat:"Food & Drink",     gi:true,  story:"The king of mangoes born in Kashi",            price:"₹80–₹200/kg",    demand:"Summer Peak",       desc:"The Langra mango originated in Varanasi. Green-skinned, fibreless, intensely fragrant — considered one of India's finest. GI-tagged and exported nationally. A summer pilgrimage in itself."},
+  {n:36, name:"Benarasi Khoa / Rabri",      cat:"Food & Drink",     gi:false, story:"Slow-cooked patience in a clay pot",           price:"₹50–₹200",       demand:"Steady",            desc:"Slow-reduced solidified milk (khoa/mawa) — the base ingredient of nearly every Banarasi sweet. Also served as rabri. Varanasi and Ramnagar are major khoa production centres for eastern UP."},
+  {n:37, name:"Litti Chokha (Baati Chokha)",cat:"Food & Drink",    gi:false, story:"Charcoal, sattu, and a clay stove",            price:"₹50–₹120",       demand:"Growing Urban",     desc:"Round wheat-flour balls stuffed with spiced sattu, slow-cooked over charcoal. Served with chokha (roasted brinjal and tomato). A rustic, earthy meal with deep roots in eastern UP's agrarian tradition."},
+
+  // WELLNESS & RITUAL (8)
+  {n:38, name:"Rudraksha & Mala",           cat:"Wellness & Ritual", gi:false, story:"Shiva's tears, your protection",             price:"₹50–₹50K+",      demand:"Very High Pilgrim", desc:"Varanasi is the world's primary source of authentic rudraksha beads — the 'tears of Shiva'. Malas used in meditation and prayer. Rare 5-mukhi and Panch-mukhi types available. Deeply civilizational."},
+  {n:39, name:"Shiva Linga (Stone/Crystal)", cat:"Wellness & Ritual",gi:false, story:"Every pilgrim takes one home",               price:"₹50–₹10K",       demand:"Very High Pilgrim", desc:"Buying a Shivalinga from Varanasi is a sacred ritual for Hindu pilgrims. Available in Narmada river stone, crystal quartz, and black stone. Every size. Every family that visits brings one home."},
+  {n:40, name:"Ganga Jal (Sacred Water)",   cat:"Wellness & Ritual", gi:false, story:"The greatest export of Kashi",              price:"₹20–₹200",       demand:"Extremely High",    desc:"The holy water of the Ganga — Varanasi's most-exported product. Available in sealed copper pots and plastic canes of all sizes. Pilgrims carry it for ancestral rituals. The original sacred souvenir."},
+  {n:41, name:"Agarbatti & Dhoop Incense",  cat:"Wellness & Ritual", gi:false, story:"The scent of the Aarti",                    price:"₹30–₹500",       demand:"High Pilgrim",      desc:"Temple incense — sandalwood, guggul, camphor blends used in puja and the famous Ganga Aarti. Varanasi-made agarbattis are a major local industry. Available as packaged gift sets with cultural story."},
+  {n:42, name:"Kulhad & Kashi Clay Pottery",cat:"Wellness & Ritual", gi:false, story:"The original disposable cup",               price:"₹5–₹200",        demand:"Rising Eco-Trend",  desc:"Hand-thrown terracotta kulhads made by local kumbhars. Used for chai, lassi, Malaiyyo, Ganga Aarti lamps. Biodegradable, soulful, and now embraced as eco-conscious design objects globally."},
+  {n:43, name:"Spiritual & Vedic Books",    cat:"Wellness & Ritual", gi:false, story:"Varanasi is India's publishing soul",        price:"₹50–₹2K",        demand:"Steady",            desc:"Varanasi is home to some of India's oldest Hindu publishers. Ancient bookstores near BHU and ghats stock the Ramacharitmanas, Vedas, Upanishads, commentaries by Kashi's own scholars. Unique to this city."},
+  {n:44, name:"Ittar / Attar (Perfume Oil)", cat:"Wellness & Ritual", gi:false, story:"Fragrance that predates chemistry",         price:"₹100–₹5K",       demand:"Niche Growing",     desc:"Natural attar — rose, jasmine, oud, kewra — sold in tiny glass vials from old perfume shops in Chowk. Varanasi's attar culture is centuries old. No synthetics. The Mughal fragrance tradition lives here."},
+  {n:45, name:"Temple Prasad & Bhog Items", cat:"Wellness & Ritual", gi:false, story:"Consecrated in Kashi Vishwanath",           price:"₹10–₹200",       demand:"Very High Pilgrim", desc:"Sacred prasad from Kashi Vishwanath Temple — wheat flour prasad, panchamrit, and specially packed devotional items. Pilgrims travel specifically to receive and carry home Kashi's sacred offerings."},
+
+  // MUSIC & CULTURE (5)
+  {n:46, name:"Shehnai (Bismillah Khan's Varanasi)",cat:"Music & Culture",gi:false,story:"Bismillah Khan played it at Independence",price:"₹500–₹25K",    demand:"Niche Premium",     desc:"The shehnai is synonymous with Varanasi — Bismillah Khan, who defined the instrument, played it at India's Independence Day. Varanasi is the home of Banaras Gharana. Authentic shehnais made by local craftsmen."},
+  {n:47, name:"Tabla (Banaras Gharana)",    cat:"Music & Culture",   gi:false, story:"The Banaras Gharana beats since Tansen",     price:"₹1K–₹30K",       demand:"Moderate + NRI",    desc:"The Banaras Gharana has one of India's oldest tabla traditions. Handcrafted tablas in various qualities — from student-grade to concert-grade. Deep connection to the city's classical music identity."},
+  {n:48, name:"Sitar",                     cat:"Music & Culture",    gi:false, story:"Pandit Ravi Shankar's city",                 price:"₹3K–₹1.5L",      demand:"Moderate + Export", desc:"Varanasi is the home of Pandit Ravi Shankar. Sitar-making is a serious craft here — the wood quality and resonator design are critical. Sought by students and collectors globally."},
+  {n:49, name:"Bhadohi Hand-knotted Carpet",cat:"Music & Culture",   gi:false, story:"Persia to Kashi, knotted by hand",          price:"₹2K–₹5L",        demand:"High Export",       desc:"From nearby Bhadohi — the largest handmade carpet-weaving cluster in India, engaging 3.2 million people. Persian and Mughal motifs. Varanasi is the trading hub. USA is the top buyer at 38% of exports."},
+  {n:50, name:"Varanasi Temple Coin & Miniature Shrines",cat:"Music & Culture",gi:false,story:"Sacred geometry in your pocket",    price:"₹20–₹2K",        demand:"High Tourist",      desc:"Coins engraved with Kashi Vishwanath, miniature temple shrines in brass and wood, sacred geometry objects. The perfect small souvenir that carries the full weight of Kashi's spiritual civilisation."},
+];
+
+function render(f){
+  const g=document.getElementById('grid');
+  g.innerHTML='';
+  let shown=0;
+  P.forEach((p,i)=>{
+    const ok=f==='all'||p.cat===f||(f==='gi'&&p.gi);
+    if(!ok)return;
+    shown++;
+    const d=document.createElement('div');
+    d.className='card';
+    d.style.animationDelay=(shown*0.035)+'s';
+    d.innerHTML=`
+      <div class="card-header">
+        <span class="card-num">${String(p.n).padStart(2,'0')}</span>
+        <div class="tags">
+          ${p.gi?'<span class="tag t-gi">GI Tagged</span>':''}
+          <span class="tag t-cat">${p.cat}</span>
+        </div>
+      </div>
+      <div class="card-name">${p.name}</div>
+      <div class="card-story">${p.story}</div>
+      <div class="card-desc">${p.desc}</div>
+      <div class="card-foot">
+        <div class="chip">Price <span>${p.price}</span></div>
+        <div class="chip">Demand <span>${p.demand}</span></div>
+      </div>`;
+    g.appendChild(d);
+  });
+  document.getElementById('countNum').textContent=shown;
+}
+
+document.querySelectorAll('.fbtn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    render(b.dataset.f);
+  });
+});
+
+render('all');
+</script>
+</body>
+</html>

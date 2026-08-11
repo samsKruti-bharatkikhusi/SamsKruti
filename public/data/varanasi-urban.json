@@ -1,0 +1,37 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Varanasi",
+        "kind": "urban-area",
+        "note": "Approximate built-up extent of the city (not an official municipal boundary). Hand-traced along the Ganga's west bank from Assi to Adampura."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [82.992, 25.262],
+            [83.004, 25.268],
+            [83.013, 25.281],
+            [83.014, 25.298],
+            [83.014, 25.312],
+            [83.010, 25.326],
+            [83.012, 25.340],
+            [83.004, 25.350],
+            [82.992, 25.353],
+            [82.978, 25.351],
+            [82.965, 25.345],
+            [82.962, 25.330],
+            [82.966, 25.312],
+            [82.974, 25.296],
+            [82.982, 25.280],
+            [82.988, 25.270],
+            [82.992, 25.262]
+          ]
+        ]
+      }
+    }
+  ]
+}

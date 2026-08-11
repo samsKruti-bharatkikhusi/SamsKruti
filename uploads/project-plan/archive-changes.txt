@@ -1,0 +1,23 @@
+A. Component for the entire hero section - Done
+
+Home Page: 
+1. The change in the gradient of the home page as of now it look like a partition. - Done
+2. The google map is showing only for development purpose. - Done
+3. The current J&K border is not right. - Done
+4. The map overlay seems very lighter and moving more towards the right - Done
+
+Varansi: 
+1. The gradient overlay in the varanasi hero section. - Done
+2. Fix the borders of the varanasi it is not showing properly - Done
+
+Maps: - Paused
+1. Check the map navigation.
+2. It should be give feeling that we are exploring the india. 
+3. The city can be zoomed and more dots can appear. 
+4. The entire plan can be put down here.
+
+Transition:
+1. From Varanasi - Samskruti
+2. From Varanasi - Hriday
+3. From Hriday - Varanasi 
+

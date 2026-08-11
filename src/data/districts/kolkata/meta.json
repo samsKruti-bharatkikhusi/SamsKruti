@@ -1,0 +1,34 @@
+{
+  "_id": "3d2be5b6-5479-4176-9a17-a8bf0d9f6f73",
+  "slug": "kolkata",
+  "name": "Kolkata",
+  "hindi": "कोलकाता",
+  "state": "west-bengal",
+  "stateName": "West Bengal",
+  "featured": true,
+  "coordinates": [22.5726, 88.3639],
+  "tagline": "Where the past is always present.",
+  "description": "Kolkata is a city of layered contradictions — colonial grandeur and revolutionary fire, intellectual tradition and chaotic warmth. It invented modern India and now quietly watches what became of it.",
+  "dimensions": {
+    "culture": {
+      "title": "The intellectual city",
+      "body": "Kolkata produced Tagore, Ray, and Sen. It hosts the largest book fair in Asia. It has a coffee house where the same conversations have been happening since 1942. It is a city that takes ideas seriously.",
+      "accentColor": "#C8652A"
+    },
+    "craft": {
+      "title": "The terracotta villages",
+      "body": "The patachitra tradition — storytelling through painted scrolls — survives in the hands of the Chitrakar community in the villages surrounding Kolkata.",
+      "accentColor": "#D4922A"
+    },
+    "people": {
+      "title": "The adda culture",
+      "body": "Adda is the Kolkata practice of purposeless conversation — loitering with words. It is not idle gossip. It is a civilisational practice that produced some of the finest minds in Indian history.",
+      "accentColor": "#7A9A6A"
+    },
+    "memory": {
+      "title": "Empire's echo",
+      "body": "Every colonial building in Kolkata tells two stories simultaneously — the story of who built it, and the story of who was displaced to build it. The city holds both without resolving them.",
+      "accentColor": "#6A8AB8"
+    }
+  }
+}

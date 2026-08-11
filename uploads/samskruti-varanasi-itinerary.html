@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SamsKruti | Varanasi — A 4-Day Civilizational Journey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-earth: #1F0F06;
+    --terracotta: #C8652A;
+    --ochre: #E8A870;
+    --ochre-light: #F0C898;
+    --ivory: #FAF7F3;
+    --ivory-dark: #F0EAE0;
+    --smoke: #8B7355;
+    --gold: #D4A853;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep-earth);
+    color: var(--ivory);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem 5vw 5rem;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(200,101,42,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(212,168,83,0.08) 0%, transparent 50%),
+      var(--deep-earth);
+    overflow: hidden;
+  }
+
+  .hero-mandala {
+    position: absolute;
+    top: -10vw;
+    right: -10vw;
+    width: 55vw;
+    max-width: 700px;
+    opacity: 0.055;
+    pointer-events: none;
+  }
+
+  .hero-divider {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--terracotta), transparent);
+    margin-bottom: 2.5rem;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  .hero-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ivory);
+    margin-bottom: 0.4rem;
+    animation: fadeUp 1s 0.35s ease both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--ochre);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    color: var(--smoke);
+    font-weight: 300;
+    margin-bottom: 3rem;
+    animation: fadeUp 1s 0.5s ease both;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    animation: fadeUp 1s 0.65s ease both;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--ochre);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    font-weight: 400;
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 5vw;
+    writing-mode: vertical-rl;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeUp 1s 1s ease both;
+  }
+
+  .hero-scroll-hint::after {
+    content: '';
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--smoke), transparent);
+  }
+
+  /* ── FOUNDING MEMBER BANNER ── */
+  .founding-banner {
+    background: var(--terracotta);
+    padding: 1.2rem 5vw;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .founding-banner p {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ivory);
+  }
+
+  .founding-banner span {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 400;
+    opacity: 0.85;
+  }
+
+  /* ── SECTION LAYOUT ── */
+  .section {
+    padding: 6rem 5vw;
+    position: relative;
+  }
+
+  .section-intro {
+    max-width: 680px;
+    margin-bottom: 5rem;
+  }
+
+  .section-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ivory);
+    margin-bottom: 1.2rem;
+  }
+
+  .section-heading em {
+    font-style: italic;
+    color: var(--ochre);
+  }
+
+  .section-body {
+    font-size: 0.92rem;
+    line-height: 1.85;
+    color: var(--smoke);
+    font-weight: 300;
+  }
+
+  /* ── DAY CARDS ── */
+  .days-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .day-block {
+    border-top: 1px solid rgba(139,115,85,0.2);
+    padding: 4rem 0;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 4rem;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .day-block.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .day-block:last-child {
+    border-bottom: 1px solid rgba(139,115,85,0.2);
+  }
+
+  .day-aside {
+    position: sticky;
+    top: 3rem;
+    align-self: start;
+  }
+
+  .day-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: rgba(200,101,42,0.15);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 0.5rem;
+  }
+
+  .day-theme-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+
+  .day-theme {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ochre);
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+
+  .day-tagline {
+    font-size: 0.72rem;
+    line-height: 1.7;
+    color: var(--smoke);
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* ── STOPS ── */
+  .stops-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .stop {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .stop::before {
+    content: '';
+    position: absolute;
+    left: 38px;
+    top: 2.5rem;
+    bottom: -2.5rem;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(200,101,42,0.3), transparent);
+  }
+
+  .stops-list .stop:last-child::before { display: none; }
+
+  .stop-time-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.15rem;
+    gap: 0.5rem;
+  }
+
+  .stop-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(200,101,42,0.15);
+  }
+
+  .stop-time {
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    color: var(--smoke);
+    text-align: center;
+    font-weight: 400;
+    white-space: nowrap;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-transform: uppercase;
+  }
+
+  .stop-content {}
+
+  .stop-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--ivory);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .stop-desc {
+    font-size: 0.84rem;
+    line-height: 1.8;
+    color: var(--smoke);
+    font-weight: 300;
+    margin-bottom: 0.7rem;
+  }
+
+  .stop-story {
+    font-size: 0.78rem;
+    line-height: 1.75;
+    color: rgba(232,168,112,0.75);
+    font-style: italic;
+    font-weight: 300;
+    padding-left: 1rem;
+    border-left: 2px solid rgba(200,101,42,0.4);
+  }
+
+  .stop-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(139,115,85,0.7);
+    margin-top: 0.6rem;
+    font-weight: 400;
+  }
+
+  .stop-duration::before {
+    content: '◷';
+    font-size: 0.7rem;
+  }
+
+  /* ── DIVIDER ORNAMENT ── */
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 5vw;
+    margin: 2rem 0;
+  }
+
+  .ornament-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(200,101,42,0.3), transparent);
+  }
+
+  .ornament-symbol {
+    color: var(--terracotta);
+    font-size: 1.2rem;
+    opacity: 0.6;
+  }
+
+  /* ── OPERATIONAL NOTES ── */
+  .ops-section {
+    background: rgba(200,101,42,0.05);
+    border: 1px solid rgba(200,101,42,0.15);
+    border-radius: 2px;
+    padding: 3rem 5vw;
+    margin: 0 5vw 5rem;
+  }
+
+  .ops-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  .ops-item {}
+
+  .ops-item-icon {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .ops-item-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .ops-item-body {
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: var(--smoke);
+    font-weight: 300;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid rgba(139,115,85,0.2);
+    padding: 3rem 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--ochre);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-tagline {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    margin-top: 0.4rem;
+    font-weight: 300;
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-url {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: rgba(139,115,85,0.6);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .day-block {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .day-aside {
+      position: static;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .day-number {
+      font-size: 3.5rem;
+    }
+
+    .hero-meta { gap: 2rem; }
+
+    .footer { flex-direction: column; align-items: flex-start; }
+    .footer-right { text-align: left; }
+
+    .stop {
+      grid-template-columns: 50px 1fr;
+    }
+
+    .stop-time {
+      writing-mode: horizontal-tb;
+      transform: none;
+      font-size: 0.55rem;
+    }
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; color: black; }
+    .hero { min-height: auto; padding: 2rem; }
+    .day-block { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- Mandala SVG -->
+  <svg class="hero-mandala" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="250" cy="250" r="240" stroke="#C8652A" stroke-width="0.5"/>
+    <circle cx="250" cy="250" r="200" stroke="#C8652A" stroke-width="0.5"/>
+    <circle cx="250" cy="250" r="160" stroke="#C8652A" stroke-width="0.5"/>
+    <circle cx="250" cy="250" r="120" stroke="#C8652A" stroke-width="0.5"/>
+    <circle cx="250" cy="250" r="80" stroke="#C8652A" stroke-width="0.5"/>
+    <circle cx="250" cy="250" r="40" stroke="#C8652A" stroke-width="1"/>
+    <!-- Radial lines -->
+    <line x1="250" y1="10" x2="250" y2="490" stroke="#C8652A" stroke-width="0.3"/>
+    <line x1="10" y1="250" x2="490" y2="250" stroke="#C8652A" stroke-width="0.3"/>
+    <line x1="80" y1="80" x2="420" y2="420" stroke="#C8652A" stroke-width="0.3"/>
+    <line x1="420" y1="80" x2="80" y2="420" stroke="#C8652A" stroke-width="0.3"/>
+    <line x1="40" y1="165" x2="460" y2="335" stroke="#C8652A" stroke-width="0.2"/>
+    <line x1="460" y1="165" x2="40" y2="335" stroke="#C8652A" stroke-width="0.2"/>
+    <line x1="165" y1="40" x2="335" y2="460" stroke="#C8652A" stroke-width="0.2"/>
+    <line x1="335" y1="40" x2="165" y2="460" stroke="#C8652A" stroke-width="0.2"/>
+    <!-- Petal shapes -->
+    <ellipse cx="250" cy="130" rx="18" ry="40" stroke="#C8652A" stroke-width="0.5" transform="rotate(0 250 250)"/>
+    <ellipse cx="250" cy="130" rx="18" ry="40" stroke="#C8652A" stroke-width="0.5" transform="rotate(45 250 250)"/>
+    <ellipse cx="250" cy="130" rx="18" ry="40" stroke="#C8652A" stroke-width="0.5" transform="rotate(90 250 250)"/>
+    <ellipse cx="250" cy="130" rx="18" ry="40" stroke="#C8652A" stroke-width="0.5" transform="rotate(135 250 250)"/>
+    <ellipse cx="250" cy="130" rx="18" ry="40" stroke="#C8652A" stroke-width="0.5" transform="rotate(180 250 250)"/>
+    <ellipse cx="250" cy="130" rx="18" ry="40" stroke="#C8652A" stroke-width="0.5" transform="rotate(225 250 250)"/>
+    <ellipse cx="250" cy="130" rx="18" ry="40" stroke="#C8652A" stroke-width="0.5" transform="rotate(270 250 250)"/>
+    <ellipse cx="250" cy="130" rx="18" ry="40" stroke="#C8652A" stroke-width="0.5" transform="rotate(315 250 250)"/>
+  </svg>
+
+  <div class="hero-divider"></div>
+  <p class="hero-label">SamsKruti &nbsp;·&nbsp; Varanasi Chapter &nbsp;·&nbsp; Founding Experience</p>
+  <h1 class="hero-title">Kashi<br><em>Darshan</em></h1>
+  <p class="hero-subtitle">A 4-day civilizational journey through the world's oldest living city</p>
+  <div class="hero-meta">
+    <div class="hero-stat">
+      <span class="hero-stat-num">4</span>
+      <span class="hero-stat-label">Days</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">18</span>
+      <span class="hero-stat-label">Stops</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">4–6</span>
+      <span class="hero-stat-label">Founding Members</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">₹10K</span>
+      <span class="hero-stat-label">Per Person</span>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">Scroll to explore</div>
+</section>
+
+<!-- FOUNDING MEMBER BANNER -->
+<div class="founding-banner">
+  <p>Founding Member Experience &nbsp;<span>This is not a tourist trip. You are a co-creator of SamsKruti.</span></p>
+  <p style="letter-spacing:0.05em; text-transform:none; font-size:0.8rem; font-style:italic; font-family:'Cormorant Garamond',serif; font-weight:300;">Kashi is circular — every journey ends where it begins</p>
+</div>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="section-intro">
+    <span class="section-tag">The Philosophy</span>
+    <h2 class="section-heading">Not a tour.<br><em>A civilizational encounter.</em></h2>
+    <p class="section-body">Varanasi is not one story — it is 3,000 years of stories layered on top of each other, each one still alive. This itinerary is designed so you feel each layer before you understand it. The SamsKruti founder walks with you as guide. Every stop has a civilizational context that no guidebook carries. You will leave Kashi knowing why it matters — not just that it is old.</p>
+  </div>
+
+  <!-- DAYS -->
+  <div class="days-grid">
+
+    <!-- DAY 1 -->
+    <div class="day-block" data-day="1">
+      <div class="day-aside">
+        <div class="day-number">01</div>
+        <span class="day-theme-label">Day One</span>
+        <div class="day-theme">Kashi ki Aatma</div>
+        <p class="day-tagline">The Soul of the City. Begin before dawn. The ghats in these hours belong only to Kashi's own.</p>
+      </div>
+      <div class="stops-list">
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">5:00 AM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Assi Ghat — Sunrise Boat Ride</div>
+            <p class="stop-desc">The boat moves northward across all 84 ghats as the city wakes. Sadhus at morning puja, the smell of incense on the water, temple bells echoing across the river. The SamsKruti founder narrates the arc of Kashi as you float through it.</p>
+            <p class="stop-story">Assi Ghat is the mythic southern threshold of Kashi — where the Assi river meets the Ganga. To enter Kashi from here is to enter from the feet of the city.</p>
+            <span class="stop-duration">90 minutes</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">7:00 AM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Shri Kashi Vishwanath Temple</div>
+            <p class="stop-desc">Morning darshan of the Jyotirlinga — one of 12 sacred Shiva Jyotirlingas. Phones not allowed inside, which forces pure presence. Arrive early to avoid the queue.</p>
+            <p class="stop-story">This temple was demolished and rebuilt multiple times over centuries. Mughal rulers razed it; Hindu kings rebuilt it. Its very survival is Kashi's civilizational story — the city that cannot be erased.</p>
+            <span class="stop-duration">60 minutes</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">8:30 AM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Manikarnika Ghat — Reflective Walk</div>
+            <p class="stop-desc">No photography. A brief, respectful, deeply interior stop. The eternal flame burns here, believed to have been kept alive for centuries without interruption.</p>
+            <p class="stop-story">Named for Sati's earring (manikarnika) that fell here when Shiva carried her body. This is where Kashi's philosophy of moksha is made visible — dying here is believed to grant liberation. Life and death share the same ground.</p>
+            <span class="stop-duration">45 minutes</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">10:00 AM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Panchganga Ghat + Alamgir Mosque</div>
+            <p class="stop-desc">Five sacred rivers are said to converge here invisibly — Ganga, Yamuna, Saraswati, Kirana, and Dhutapapa. The Alamgir Mosque sits directly above, built by Aurangzeb on a Vishnu temple. The terrace offers one of the finest views of the Ganga in Varanasi.</p>
+            <p class="stop-story">This single spot holds the deepest civilizational tension in Varanasi — and yet the city absorbed it and moved on. The mosque and the ghat below it coexist. That coexistence is Kashi's oldest teaching.</p>
+            <span class="stop-duration">60 minutes</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">6:00 PM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Dashashwamedh Ghat — Grand Ganga Aarti</div>
+            <p class="stop-desc">The most spectacular daily ritual in India. Seven priests perform synchronized aarti with fire lamps, incense, conch shells, and chanting. Arrive by 6 PM — founding members are seated at preferred viewing positions, not standing in the tourist crowd.</p>
+            <p class="stop-story">Lord Brahma is said to have performed ten Ashwamedha yajnas here to welcome Shiva back to the city. The evening aarti is a re-enactment of that welcome, every single night, without fail, for centuries.</p>
+            <span class="stop-duration">90 minutes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-block" data-day="2">
+      <div class="day-aside">
+        <div class="day-number">02</div>
+        <span class="day-theme-label">Day Two</span>
+        <div class="day-theme">Kashi ka Hunar</div>
+        <p class="day-tagline">Craft, Artisans & Living Heritage. Into the lanes. The weavers, the perfumers — artisans whose lineage stretches back centuries.</p>
+      </div>
+      <div class="stops-list">
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">6:30 AM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Sankat Mochan Hanuman Temple</div>
+            <p class="stop-desc">Morning prayers at the temple founded by Tulsidas on the spot where he reportedly had a divine vision of Hanuman. Lush greenery, cool air, continuous chanting. Not crowded at this hour.</p>
+            <p class="stop-story">The only temple in Varanasi where Hanuman's idol faces Rama directly — an unusual devotional arrangement. Malaviya, who built BHU, helped construct the modern structure. Two of Varanasi's greatest builders, one temple.</p>
+            <span class="stop-duration">45 minutes</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">7:30 AM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Tulsi Manas Temple</div>
+            <p class="stop-desc">White marble temple built on the exact site where Tulsidas composed the Ramcharitmanas. The entire text of the epic is engraved in marble on the temple walls — you can walk the text as you walk the temple.</p>
+            <p class="stop-story">Tulsidas chose to write in Awadhi, not Sanskrit — a conscious act of democratizing scripture for ordinary people who could not access the priestly language. That instinct — making the sacred accessible — is what SamsKruti is building.</p>
+            <span class="stop-duration">45 minutes</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">10:00 AM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Banarasi Silk Weaver — Workshop Visit</div>
+            <p class="stop-desc">Live loom demonstration at an artisan's home workshop. Watch a Banarasi silk saree being woven — the intricacy of the zari work, the rhythm of the loom, the time each piece takes. Hear the weaver's lineage story directly.</p>
+            <p class="stop-story">Founding members receive the first prototype of the SamsKruti vendor story card — the same card that will appear on the platform. Your visit today is the origin of that card. Optional: purchase a silk piece directly at loom price.</p>
+            <span class="stop-duration">2 hours</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">12:30 PM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Vishwanath Gali — Artisan Lane Walk + Lunch</div>
+            <p class="stop-desc">The ancient lane behind Kashi Vishwanath Temple — brass artisans, Rudraksha sellers, traditional attar perfumers, old sweet shops. Lunch at a local Banarasi kachori-sabji stall. Not a restaurant. A heritage experience.</p>
+            <p class="stop-story">This lane has functioned as a living marketplace for centuries, virtually unchanged. The artisans here have their craft in their hands the way others have education in their degrees — inherited, embodied, and irreplaceable.</p>
+            <span class="stop-duration">90 minutes</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">6:30 PM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Dashashwamedh Ghat — Artisan Debrief</div>
+            <p class="stop-desc">Chai on the ghat steps. Informal conversation — which artisan story moved you most? What surprised you? What must the platform carry about these people?</p>
+            <p class="stop-story">This conversation is not just reflective. It is design input for SamsKruti. Your answer shapes which vendors are featured first, and how their stories are told.</p>
+            <span class="stop-duration">60 minutes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-block" data-day="3">
+      <div class="day-aside">
+        <div class="day-number">03</div>
+        <span class="day-theme-label">Day Three</span>
+        <div class="day-theme">Kashi ka Vistaar</div>
+        <p class="day-tagline">Beyond the Ghats. Varanasi is not just its river. It is a civilizational crossroads of faiths and empires.</p>
+      </div>
+      <div class="stops-list">
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">7:30 AM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Sarnath — Buddhist Temple & Dhamek Stupa</div>
+            <p class="stop-desc">A morning at Sarnath, 10 km from the city. The Dhamek Stupa marks the exact spot where the Buddha gave his first sermon after attaining enlightenment. Clean, meditative, deeply quiet.</p>
+            <p class="stop-story">Varanasi is not a Hindu city. It is a civilizational crossroads. The Kashi Vishwanath Jyotirlinga and Sarnath's Dhamek Stupa both sit within 15 km of each other. Two of the world's great traditions — Shaivism and Buddhism — born in the same geography, within the same century.</p>
+            <span class="stop-duration">2 hours</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">11:00 AM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Ramnagar Fort</div>
+            <p class="stop-desc">The Kashi Naresh (King of Varanasi) still lives here. The museum holds vintage arms, palanquins, royal costumes, and old photographs of the kingdom. Rustic, not polished — which is exactly the point.</p>
+            <p class="stop-story">The Kashi Naresh has presided over the Ram Nagar Ramlila for centuries — a 31-day open-air epic performance of the Ramayana, staged entirely without a covered stage. It is a living cultural scripture that never stopped. The king is the institution.</p>
+            <span class="stop-duration">90 minutes</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">2:30 PM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Chunar Fort</div>
+            <p class="stop-desc">A 40-km drive to the red sandstone fort perched on the Ganga. Sher Shah Suri, the Mughals, and the British all fought to control this single fort. Minimal crowds; the view from the battlements over the river is extraordinary.</p>
+            <p class="stop-story">Chunar is the source of the sandstone used in Sarnath's Ashoka Pillar — the same pillar whose four lions now form India's national emblem. One stone, from this quarry, to nationhood. That continuity is what SamsKruti is documenting.</p>
+            <span class="stop-duration">90 minutes</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">6:00 PM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Assi Ghat — Sunset & Live Music</div>
+            <p class="stop-desc">Return to Assi Ghat for sunset. This is where Varanasi's musicians, scholars, and poets gather in the evenings — very different energy from Dashashwamedh. Often live classical music or bhajans on the ghat steps.</p>
+            <p class="stop-story">Assi is the intellectual and artistic soul of Varanasi. The ghats at dusk here are where the city's living cultural traditions — not just its ancient ones — are made and performed in real time.</p>
+            <span class="stop-duration">60 minutes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="day-block" data-day="4">
+      <div class="day-aside">
+        <div class="day-number">04</div>
+        <span class="day-theme-label">Day Four</span>
+        <div class="day-theme">Kashi ka Chintan</div>
+        <p class="day-tagline">Knowledge, Memory & Closing. The most interior day. What does India need to remember?</p>
+      </div>
+      <div class="stops-list">
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">10:30 AM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Bharat Kala Bhavan Museum — BHU</div>
+            <p class="stop-desc">One of India's finest collections — Gupta-era miniature paintings, ancient coins, temple sculptures, and textiles. Phones not allowed inside, which forces slow, unhurried looking. Open Tuesday–Saturday.</p>
+            <p class="stop-story">This museum is exactly what SamsKruti is trying to build digitally — a place where civilizational memory is preserved in a form people can access and feel. Walking through it is the best orientation to what the platform is for.</p>
+            <span class="stop-duration">2 hours</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">1:00 PM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Banaras Hindu University — Campus Walk</div>
+            <p class="stop-desc">A slow walk through Asia's largest campus — the New Vishwanath Temple inside, tree-lined roads, the quiet of a place that takes knowledge seriously. Lunch on campus.</p>
+            <p class="stop-story">Malaviya built BHU in 1916 as a civilizational institution — a place where ancient and modern India would meet on equal terms. The same instinct that created BHU is what SamsKruti is building for the digital age: a platform where India's heritage meets contemporary reach.</p>
+            <span class="stop-duration">60 minutes</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot"></div>
+            <span class="stop-time">3:30 PM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name">Kashi Vishwanath Temple — Final Darshan</div>
+            <p class="stop-desc">Evening darshan to close the 4-day arc. You began here on Day 1 morning. Returning closes the circle — a deliberate design of this journey.</p>
+            <p class="stop-story">Kashi is circular. Every pilgrimage here is a parikrama — a circumambulation that ends where it begins. Returning to the Vishwanath temple on Day 4 is not repetition. It is completion.</p>
+            <span class="stop-duration">45 minutes</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="stop-time-wrap">
+            <div class="stop-dot" style="background:var(--gold); box-shadow: 0 0 0 3px rgba(212,168,83,0.2);"></div>
+            <span class="stop-time">5:30 PM</span>
+          </div>
+          <div class="stop-content">
+            <div class="stop-name" style="color:var(--ochre);">Assi Ghat — SamsKruti Founding Circle ✦</div>
+            <p class="stop-desc">The experience ends not at a hotel, but at the river. Chai, open conversation — "What did you feel? What story must not be lost? What should the platform carry?" Each founding member receives a handcrafted Varanasi gift: a Rudraksha mala or silk token.</p>
+            <p class="stop-story">This debrief is not a satisfaction survey. It is co-design. What you share here directly shapes SamsKruti's vendor curation, content priorities, and how the Varanasi chapter is built on the platform. You are not customers. You are the origin story.</p>
+            <span class="stop-duration">90 minutes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ORNAMENT -->
+<div class="ornament">
+  <div class="ornament-line"></div>
+  <span class="ornament-symbol">❋</span>
+  <div class="ornament-line"></div>
+</div>
+
+<!-- OPERATIONAL NOTES -->
+<div class="ops-section">
+  <span class="section-tag">Operational Notes</span>
+  <h3 class="section-heading" style="font-size:1.8rem; margin-bottom:0;">For the <em>SamsKruti Founder</em></h3>
+  <div class="ops-grid">
+    <div class="ops-item">
+      <span class="ops-item-icon">📋</span>
+      <span class="ops-item-title">Pre-Trip Brief</span>
+      <p class="ops-item-body">Send each member a one-page "Kashi Brief" 3 days before arrival — the civilizational context so they arrive prepared to feel, not just see. Frame the trip explicitly as a co-design founding experience.</p>
+    </div>
+    <div class="ops-item">
+      <span class="ops-item-icon">🏛️</span>
+      <span class="ops-item-title">Recommended Stay</span>
+      <p class="ops-item-body">Heritage guesthouses near Assi Ghat: Brijrama Palace, Shivala area properties. Proximity to Assi enables early morning walks without logistics. Avoid hotels in the Cantonment area — wrong energy for this trip.</p>
+    </div>
+    <div class="ops-item">
+      <span class="ops-item-icon">⚠️</span>
+      <span class="ops-item-title">Chunar Fort Note</span>
+      <p class="ops-item-body">Recent visitor reports flag partial army occupation limiting public access. Verify current access before booking Day 3. Alternate: replace with a Ganga boat crossing to the opposite bank for a riverside chai and landscape session.</p>
+    </div>
+    <div class="ops-item">
+      <span class="ops-item-icon">🎁</span>
+      <span class="ops-item-title">Closing Gift</span>
+      <p class="ops-item-body">Rudraksha mala or a handwoven silk token purchased directly from the Day 2 artisan visit. The gift carries the vendor's name and story — a physical prototype of what the SamsKruti platform will do digitally.</p>
+    </div>
+    <div class="ops-item">
+      <span class="ops-item-icon">📝</span>
+      <span class="ops-item-title">Day 4 Debrief Design</span>
+      <p class="ops-item-body">The closing circle at Assi Ghat is the most important session of the four days. Prepare 3 questions in advance. Take voice notes (with consent). The feedback directly enters SamsKruti's content and vendor planning for the platform launch.</p>
+    </div>
+    <div class="ops-item">
+      <span class="ops-item-icon">🗓️</span>
+      <span class="ops-item-title">Best Season</span>
+      <p class="ops-item-body">October–February for ideal conditions. Avoid peak summer (April–June). The Dev Deepawali festival (Kartik Purnima, typically November) coincides with the most spectacular Ganga Aarti of the year — plan at least one batch around this date.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <div class="footer-brand">SamsKruti</div>
+    <p class="footer-tagline">Civilizational Storytelling &amp; Cultural Heritage</p>
+  </div>
+  <div class="footer-right">
+    <p class="footer-url">www.samskruti.life</p>
+    <p style="font-size:0.6rem; color:rgba(139,115,85,0.4); margin-top:0.4rem; letter-spacing:0.1em;">Varanasi Chapter · Founding Experience · 2026</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll-triggered reveal for day blocks
+  const blocks = document.querySelectorAll('.day-block');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  blocks.forEach(b => observer.observe(b));
+</script>
+</body>
+</html>

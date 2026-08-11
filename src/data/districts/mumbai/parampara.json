@@ -1,0 +1,17 @@
+[
+  {
+    "_id": "1f8ad963-9af0-4518-8907-f752d3a6e676",
+    "name": "Vada Pav",
+    "slug": "vada-pav",
+    "districtSlug": "mumbai",
+    "districtName": "Mumbai",
+    "category": "Working City Food",
+    "featured": true,
+    "excerpt": "Mumbai's working-class answer to the burger — a spiced potato fritter in a bread roll with three chutneys. Invented in 1966 outside Dadar Station. It still feeds millions.",
+    "body": "Ashok Vaidya invented the Vada Pav in 1966 when he opened a stall outside Dadar railway station. He wanted to sell something that mill workers could eat while standing, that cost almost nothing, and that provided enough calories to last a shift.\n\nThe formula: a pav (small bread roll brought to India by the Portuguese), split and filled with a batata vada — a spiced mashed potato ball dipped in gram flour batter and deep-fried. Three chutneys: garlic dry chutney (powder), green chutney (coriander and chilli), and tamarind. Optional: a fried green chilli.\n\nThe price has gone up, but the idea has not changed. Mumbai runs partly on Vada Pav. It is eaten at train stations, bus stops, college canteens, office buildings. A city that never stops moving needs a food that does not ask you to sit down.\n\n\"If you understand Vada Pav, you understand Mumbai,\" a railway commuter says between bites. \"Fast, cheap, and better than it has any right to be.\"",
+    "gradient": { "g1": "#2A1A08", "g2": "#7A5020" },
+    "tags": ["Working class", "Invention", "Street Food"],
+    "districtId": "1eec6b5d-a0e3-4861-91e4-ba86ec06d193",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]

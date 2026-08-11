@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "ae0b72b7-f983-479b-8c3b-55d919bc93a8",
+    "name": "Old Delhi Chaat",
+    "slug": "old-delhi-chaat",
+    "districtSlug": "delhi",
+    "districtName": "Delhi",
+    "category": "Layered Pleasure",
+    "featured": true,
+    "excerpt": "Delhi's chaat is not a dish — it is a philosophy. Sweet, sour, spicy, crunchy, and soft, all at once. It was designed to overwhelm you pleasantly, and it does.",
+    "body": "Chaat in Delhi is traced to the Mughal period, when the royal kitchens began combining fried bread with tamarind water and spiced potato as a digestive. The word comes from the Hindi verb chaatna — to lick.\n\nIn Old Delhi, chaat is still made at shops that have occupied the same corner for three or four generations. The base is puri (puffed fried bread) or tikki (potato patty). On top goes boiled chickpeas, potatoes, yoghurt, tamarind chutney, green chutney, chaat masala, and pomegranate seeds. Then sev — fried gram flour threads — for crunch.\n\nThe specific order of ingredients matters. The tamarind goes on last so the crunch survives long enough to register.\n\n\"A good chaat is a sequence,\" says Mohan Lal, whose family has run a chaat shop in Chandni Chowk since 1946. \"If you eat it slowly, you have missed the point. You have to eat it as fast as it is made — before it becomes something else.\"",
+    "gradient": { "g1": "#3A1820", "g2": "#9A4050" },
+    "tags": ["Mughal", "Street Food", "Multi-layered"],
+    "districtId": "69b46960-d094-4824-ac3d-959b8c556843",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  },
+  {
+    "_id": "3054475b-deb3-4282-90b1-80581db6ad87",
+    "name": "Nihari",
+    "slug": "nihari",
+    "districtSlug": "delhi",
+    "districtName": "Delhi",
+    "category": "Dawn Feast",
+    "featured": false,
+    "excerpt": "A slow-cooked meat broth from Mughal kitchens, eaten at dawn, traditionally by those finishing their night prayers. Delhi's most atmospheric food experience.",
+    "body": "Nihari is not breakfast food the way the West understands breakfast. It is dawn food — the food eaten after Fajr prayers by the Muslim community of Old Delhi, specifically by those who had been fasting through the night.\n\nThe name comes from the Arabic nahar — morning, after dawn. The broth is made from slow-cooked shank meat, bone marrow, and a spice mixture that includes fennel, cardamom, and Kashmiri chillies. It has been cooking overnight before you arrive.\n\nIn Old Delhi's Jama Masjid area, Nihari shops open at 4:30 AM. By 7 AM, many are sold out. The broth is ladled into wide plates, a long shank bone placed across, garnished with ginger, lime, fresh coriander, and crisp fried onions. You eat it with naan.\n\n\"My grandfather served Nihari to people who came from the Mughal court,\" says the owner of Al-Jawahar, one of the oldest Nihari shops in Delhi. \"Now I serve it to anyone who wakes up early enough. The recipe has not changed. Only the customers have.\"",
+    "gradient": { "g1": "#1A0A0A", "g2": "#6A2010" },
+    "tags": ["Mughal", "Dawn", "Slow-cooked"],
+    "districtId": "69b46960-d094-4824-ac3d-959b8c556843",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "cd8f638f-1789-4b0c-a7e3-b8fa1dcbf7ba",
+    "name": "Rajan Kolhapuri — Leather Craftsman",
+    "slug": "rajan-kolhapuri-leather",
+    "districtSlug": "mumbai",
+    "districtName": "Mumbai",
+    "craft": "Kolhapuri Chappal Making",
+    "generation": "Third",
+    "featured": false,
+    "excerpt": "The Kolhapuri chappal is a UNESCO-recognized craft — hand-stitched leather sandals from Maharashtra that have been worn since before colonial times. Rajan's workshop in Dharavi is one of the last to make them the old way.",
+    "body": "Kolhapuri chappals are named for the city of Kolhapur in Maharashtra, where the craft originated. The sandals are made from vegetable-tanned leather, hand-punched with elaborate geometric patterns, and stitched using a single thick thread.\n\nRajan Kolhapuri — a surname he chose when he moved to Mumbai twenty years ago — works in a narrow shop in Dharavi. He makes forty pairs a month. The genuine article takes three days per pair.\n\nThe problem is simple: machine-made chappals from factories in Agra look identical to a casual buyer and cost one-tenth as much.\n\n\"My grandfather made chappals for the district collector, the maharaja's household,\" Rajan says. \"My father made them for families who had worn Kolhapuri for three generations. I make them for people who know the difference. That market is not growing.\"\n\nHe is training his daughter. She is not certain she will continue. \"I tell her: learn it first. Decide later. You cannot unlearn a craft.\"",
+    "gradient": { "g1": "#3A1A08", "g2": "#9A4A18" },
+    "tags": ["Leather", "Kolhapuri", "Maharashtra", "Hand-stitched"],
+    "districtId": "1eec6b5d-a0e3-4861-91e4-ba86ec06d193",
+    "publishedAt": "2026-05-20T20:01:52.875Z"
+  }
+]
