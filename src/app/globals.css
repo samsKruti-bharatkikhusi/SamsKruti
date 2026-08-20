@@ -5,6 +5,14 @@
 
 @import "tailwindcss";
 
+/* ── The design system. tokens.css is the single source of truth;
+   components.css is the .sk-* primitive layer. Everything below this
+   point is LEGACY: 615 route-scoped classes from the v2 build, frozen
+   and still working. Migrate page by page onto .sk-* — do not restyle
+   the screens the redesign deletes. Spec: /design/design-system.html ── */
+@import "./tokens.css";
+@import "./components.css";
+
 /* ── TOKENS ──────────────────────────────────────────── */
 :root {
   --deep-earth:  #1F0F06;
@@ -54,6 +62,15 @@ body {
 a { color: inherit; }
 
 button { font: inherit; }
+
+/* The audit found 0 focus-visible rules in 7,135 lines — the product
+   could not be operated by keyboard at all. This is the global floor;
+   components may refine it, none may remove it. */
+:focus-visible {
+  outline: 2px solid var(--sk-focus);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
 
 ::selection {
   background: var(--terracotta);
@@ -5173,6 +5190,25 @@ button { font: inherit; }
   width: clamp(64px, 7vw, 88px);
   height: auto;
   display: block;
+}
+
+/* ── The mark, above the wordmark on the home hero ────────────────────
+   The seal artwork carries its own cream field, so on the deep-earth
+   hero it is masked to a disc and given a hairline accent ring — it
+   then reads as a medallion pressed onto the surface rather than a
+   pale rectangle floating on it. Enters just ahead of the wordmark. */
+.lp-mark {
+  margin-bottom: 1.15rem;
+  opacity: 0;
+  animation: lpFadeUp 1s ease 0.25s both;
+}
+.lp-mark img {
+  width: clamp(104px, 11.5vw, 158px);
+  height: clamp(104px, 11.5vw, 158px);
+  border-radius: 50%;
+  /* The crest is cropped to its own medallion edge, so it needs no accent
+     ring — only a shadow to lift it off the deep-earth ground. */
+  box-shadow: 0 18px 42px -20px rgba(0, 0, 0, 0.8);
 }
 
 .lp-wordmark {

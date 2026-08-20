@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Noto_Serif_Devanagari } from "next/font/google";
 import "./globals.css";
 import { SiteEffects } from "@/components/site/site-effects";
+import { ThemeScript } from "@/components/site/theme-toggle";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -40,8 +41,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${notoDevanagari.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${cormorant.variable} ${notoDevanagari.variable}`}
+    >
       <body>
+        {/* Stamps the saved theme before first paint — no flash. */}
+        <ThemeScript />
         {children}
         <SiteEffects />
       </body>

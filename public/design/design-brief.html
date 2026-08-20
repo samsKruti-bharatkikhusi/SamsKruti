@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>SamsKruti Design Brief</title>
+<style>
+  :root {
+    --ground:#F4F2ED; --raised:#FBFAF7;
+    --ink:#16202B; --ink-soft:#3C4A57; --muted:#6B7883;
+    --rule:#D8D4CA; --rule-firm:#BDB8AC;
+    --river:#173A56; --river-wash:#E7EDF2;
+    --marigold:#D9820A;
+    --bad:#A33417; --good:#2E6B4F;
+    --voice: Georgia,"Iowan Old Style","Times New Roman",serif;
+    --util: "Segoe UI",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    --data: ui-monospace,"Cascadia Mono",Consolas,"SF Mono",monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#101820; --raised:#17222C;
+      --ink:#E7EAEC; --ink-soft:#B9C3CB; --muted:#7C8B97;
+      --rule:#263440; --rule-firm:#35485A;
+      --river:#7FB0D4; --river-wash:#1B2937;
+      --marigold:#F0A83C;
+      --bad:#E2795C; --good:#6FB894;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#101820; --raised:#17222C;
+    --ink:#E7EAEC; --ink-soft:#B9C3CB; --muted:#7C8B97;
+    --rule:#263440; --rule-firm:#35485A;
+    --river:#7FB0D4; --river-wash:#1B2937;
+    --marigold:#F0A83C;
+    --bad:#E2795C; --good:#6FB894;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:0 22px 110px; background:var(--ground); color:var(--ink);
+    font-family:var(--util); font-size:17px; line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px;margin:0 auto}
+  h1,h2,h3{font-family:var(--voice);font-weight:400;text-wrap:balance}
+  p{max-width:68ch}
+
+  .eyebrow{font-family:var(--data);font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+
+  header.mast{padding:76px 0 44px;border-bottom:1px solid var(--rule-firm)}
+  .mast h1{font-size:clamp(38px,7vw,64px);line-height:1.02;margin:0 0 24px;letter-spacing:-.02em}
+  .mast .stand{font-family:var(--voice);font-style:italic;font-size:clamp(19px,2.6vw,23px);
+    line-height:1.5;color:var(--river);margin:0 0 22px;max-width:44ch;
+    padding-left:20px;border-left:2px solid var(--river)}
+  .mast .for{color:var(--muted);font-size:14.5px;margin:0}
+
+  section{padding:60px 0 0}
+  section>h2{font-size:clamp(26px,4vw,34px);margin:0 0 10px;letter-spacing:-.01em}
+  .lede{color:var(--ink-soft);margin:0 0 28px;max-width:66ch}
+
+  .scroll{overflow-x:auto}
+  table.audit{width:100%;border-collapse:collapse;font-size:14.5px;min-width:540px}
+  table.audit th{text-align:left;font-family:var(--data);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);font-weight:400;
+    padding:0 14px 10px 0;border-bottom:1px solid var(--rule-firm)}
+  table.audit td{padding:11px 14px 11px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+  table.audit .num{font-family:var(--data);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .flag{color:var(--bad);font-weight:600}
+  .ok{color:var(--good)}
+
+  .verdict{margin:30px 0 0;padding:22px 24px;background:var(--raised);
+    border:1px solid var(--rule);border-left:3px solid var(--marigold)}
+  .verdict p{margin:0 0 12px;font-size:16.5px}
+  .verdict p:last-child{margin:0}
+  .verdict b{color:var(--ink)}
+
+  ol.principles{list-style:none;padding:0;margin:0;counter-reset:p}
+  ol.principles li{counter-increment:p;display:grid;grid-template-columns:38px 1fr;gap:18px;
+    padding:19px 0;border-top:1px solid var(--rule)}
+  ol.principles li::before{content:counter(p,decimal-leading-zero);font-family:var(--data);
+    font-size:12px;color:var(--marigold);padding-top:5px}
+  ol.principles b{display:block;font-size:18px;margin-bottom:3px;font-weight:600}
+  ol.principles p{margin:0;color:var(--ink-soft);font-size:15.5px}
+
+  .regs{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:20px}
+  .reg{border:1px solid var(--rule);padding:22px 24px}
+  .regA{background:#FAF5E9;border-color:#C6B48F;color:#2A1A0E}
+  .regB{background:#101820;border-color:#2B3B49;color:#E7EAEC}
+  .reg h3{margin:0 0 3px;font-size:21px}
+  .reg .rtag{font-family:var(--data);font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;margin:0 0 12px}
+  .regA .rtag{color:#8A6520}
+  .regB .rtag{color:#F0A83C}
+  .reg dl{margin:0;font-size:14.5px}
+  .reg dt{font-family:var(--data);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    margin-top:13px}
+  .regA dt{color:#7C6A50}
+  .regB dt{color:#7C8B97}
+  .reg dd{margin:3px 0 0}
+  .regA dd{color:#55432E}
+  .regB dd{color:#B9C3CB}
+
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;margin:0 0 26px}
+  .sw{border:1px solid var(--rule);background:var(--raised)}
+  .sw .chip{height:52px}
+  .sw .meta{padding:9px 11px;font-family:var(--data);font-size:10.5px;line-height:1.55}
+  .sw .role{color:var(--ink);display:block;letter-spacing:.1em;text-transform:uppercase}
+  .sw .hex{color:var(--muted)}
+
+  table.tok{width:100%;border-collapse:collapse;font-size:14px;min-width:460px}
+  table.tok th{text-align:left;font-family:var(--data);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);font-weight:400;padding:0 14px 9px 0;
+    border-bottom:1px solid var(--rule-firm)}
+  table.tok td{padding:8px 14px 8px 0;border-bottom:1px solid var(--rule)}
+  table.tok .mono{font-family:var(--data);font-variant-numeric:tabular-nums;color:var(--river)}
+
+  .rule-note{margin:22px 0 0;padding:16px 20px;border:1px dashed var(--marigold);
+    color:var(--ink-soft);font-size:15px}
+  .rule-note b{color:var(--marigold)}
+
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 30px}
+  ul.inv{list-style:none;padding:0;margin:0}
+  ul.inv li{padding:9px 0;border-top:1px solid var(--rule);font-size:15px;
+    display:flex;gap:11px;align-items:baseline}
+  ul.inv li span{font-family:var(--data);font-size:10px;color:var(--marigold);flex-shrink:0}
+  ul.inv li em{font-style:normal;color:var(--muted);font-size:13px}
+
+  ol.screens{list-style:none;padding:0;margin:0}
+  ol.screens li{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:17px 0;
+    border-top:1px solid var(--rule)}
+  ol.screens .pri{font-family:var(--data);font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--river);padding-top:5px}
+  ol.screens b{display:block;font-size:17px;margin-bottom:3px;font-weight:600}
+  ol.screens p{margin:0;color:var(--ink-soft);font-size:14.5px}
+
+  .tests{display:grid;gap:2px;background:var(--rule);border:1px solid var(--rule)}
+  .tests>div{background:var(--raised);padding:17px 20px;display:grid;
+    grid-template-columns:118px 1fr;gap:18px;align-items:baseline}
+  .tests .tname{font-family:var(--data);font-size:11px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--marigold)}
+  .tests p{margin:0;font-size:15px;color:var(--ink-soft)}
+
+  ul.kill{list-style:none;padding:0;margin:0}
+  ul.kill li{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;
+    padding:11px 0;border-bottom:1px solid var(--rule)}
+  ul.kill .w{color:var(--muted);text-decoration:line-through;
+    text-decoration-color:var(--bad);font-size:15px}
+  ul.kill .y{color:var(--ink-soft);font-size:13.5px;text-align:right;max-width:34ch}
+
+  .closer{margin-top:64px;padding-top:30px;border-top:1px solid var(--rule-firm);
+    font-family:var(--voice);font-style:italic;font-size:20px;line-height:1.55;color:var(--ink-soft)}
+  .closer b{color:var(--river);font-style:normal;font-weight:500}
+
+  code{font-family:var(--data);font-size:.88em;color:var(--river)}
+  a{color:var(--river)}
+  :focus-visible{outline:2px solid var(--river);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+  @media (max-width:560px){
+    ul.kill li{grid-template-columns:1fr;gap:2px}
+    ul.kill .y{text-align:left;max-width:none}
+    .tests>div{grid-template-columns:1fr;gap:5px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">SamsKruti &middot; Design brief &middot; For handoff</p>
+  <h1>From identity to system</h1>
+  <p class="stand">SamsKruti has a visual identity. It does not have a design system.</p>
+  <p class="for">Written for the designer taking this on. Sections 01&ndash;03 are the argument; 04&ndash;09 are the work. Every number below was measured against the repository, not estimated.</p>
+</header>
+
+<section>
+  <p class="eyebrow">01 &middot; The analysis</p>
+  <h2>What the audit found</h2>
+  <p class="lede">Nine signals, measured directly from <code>src/</code>. Together they describe a codebase styled page by page rather than built from parts.</p>
+
+  <div class="scroll">
+  <table class="audit">
+    <thead><tr><th>Signal</th><th>Found today</th><th>Should be</th></tr></thead>
+    <tbody>
+      <tr><td>Global stylesheet</td><td class="num flag">7,135 lines</td><td class="num">under ~800, plus components</td></tr>
+      <tr><td>Design tokens defined</td><td class="num">19</td><td class="num">40&ndash;60 across colour, type, space</td></tr>
+      <tr><td>Hardcoded hex inside components</td><td class="num flag">473</td><td class="num ok">0</td></tr>
+      <tr><td>Distinct font-size values</td><td class="num flag">114</td><td class="num">8, as a scale</td></tr>
+      <tr><td>Class selectors, route-prefixed</td><td class="num flag">615</td><td class="num">named by component, not route</td></tr>
+      <tr><td>Reusable primitives</td><td class="num flag">2 &mdash; btn-primary, btn-ghost</td><td class="num">~12</td></tr>
+      <tr><td>Generic component files</td><td class="num flag">0 of 34</td><td class="num">~12</td></tr>
+      <tr><td><code>:focus-visible</code> rules</td><td class="num flag">0</td><td class="num">every interactive element</td></tr>
+      <tr><td>Light mode</td><td class="num flag">none</td><td class="num">required &mdash; see 03</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="verdict">
+    <p><b>The diagnosis.</b> Nineteen tokens exist and are bypassed 473 times &mdash; a ratio of about 25 to 1. The tokens are decorative; the real values live inline. The top route prefixes (<code>seg-</code> 139, <code>hub-</code> 92, <code>side-</code> 60, <code>hr-</code> 58) confirm it: styling is organised by <em>page</em>, so nothing is reusable and every new screen starts from zero.</p>
+    <p><b>The deeper problem is what colour means.</b> Today colour encodes <em>editorial identity</em> &mdash; jade is the streets segment, red is food, indigo is crafts. It does not encode <em>function</em>. There is no colour that means &ldquo;this is the primary action&rdquo; or &ldquo;this is destructive.&rdquo; A designer cannot answer &ldquo;what colour is the button&rdquo; without first asking &ldquo;which page is it on.&rdquo; That is an expression system, and it is why the product cannot be designed consistently.</p>
+    <p><b>Not a criticism of the taste.</b> The identity is genuinely good and much of it deserves to survive. What is missing is the layer underneath it: parts, states, and rules.</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">02 &middot; The user</p>
+  <h2>One person, and only him</h2>
+  <p class="lede">Every decision resolves against Aklavya: a first-time visitor to Varanasi with no prior knowledge of the city, its streets, or its customs. He is not a culture enthusiast browsing at leisure. He is anxious, and he wants to be told what to do next.</p>
+  <p>He works bottom-up through his needs. He cannot feel anything about the ghats at dawn while he is still unsure whether the man following him is a threat, what a boat should cost, or whether his shoes are about to cause offence. <b>Utility first, then emotion.</b> A design that opens with atmosphere and defers logistics has the order backwards.</p>
+  <p>He also does not speak the product&rsquo;s internal language. He does not know what <em>Galiyan</em>, <em>Swaad</em> or <em>Hriday</em> mean, and asking him to choose between them asks him to already understand the city he arrived confused about.</p>
+</section>
+
+<section>
+  <p class="eyebrow">03 &middot; The structural decision</p>
+  <h2>Two registers, one brand</h2>
+  <p class="lede">This is the single most important thing in the brief. One visual treatment cannot serve both moments, and the current system only serves the first.</p>
+  <div class="regs">
+    <div class="reg regA">
+      <p class="rtag">Register I</p>
+      <h3>Planning</h3>
+      <dl>
+        <dt>Where he is</dt><dd>At home, weeks out, laptop, unhurried</dd>
+        <dt>His state</dt><dd>Curious, evaluating, has time to read</dd>
+        <dt>Density</dt><dd>Editorial. Imagery. The long why.</dd>
+        <dt>Type</dt><dd>Display sizes welcome, generous measure</dd>
+        <dt>Motion</dt><dd>Slow reveals are appropriate</dd>
+        <dt>Its job</dt><dd>Earn his trust</dd>
+      </dl>
+    </div>
+    <div class="reg regB">
+      <p class="rtag">Register II</p>
+      <h3>Field</h3>
+      <dl>
+        <dt>Where he is</dt><dd>In a lane, phone in sun, one hand free</dd>
+        <dt>His state</dt><dd>Anxious, hurried, possibly lost</dd>
+        <dt>Density</dt><dd>One card. One next thing. Nothing else.</dd>
+        <dt>Type</dt><dd>18px floor, high contrast, no fine print</dd>
+        <dt>Motion</dt><dd>None</dd>
+        <dt>Its job</dt><dd>Stop him panicking</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="rule-note"><b>Consequence:</b> the system must be designed <b>light-first</b>. The harder surface is a phone screen at midday, and the current dark-only palette cannot do that job at all. Night becomes the secondary mode, not the default &mdash; the reverse of how it is built now.</div>
+</section>
+
+<section>
+  <p class="eyebrow">04 &middot; Principles</p>
+  <h2>Five rules to design against</h2>
+  <ol class="principles">
+    <li><div><b>Colour encodes function, not location</b><p>One calm identity colour and one action colour. A hot colour appears only where something will happen if pressed. Segment colours retire.</p></div></li>
+    <li><div><b>Light first</b><p>Design every screen for outdoor legibility, then derive the night palette. Body text at 4.5:1 minimum, large text 3:1.</p></div></li>
+    <li><div><b>One thing per screen</b><p>A menu handed to a confused person hands his confusion back. Ask one question, show one next step, offer one way out.</p></div></li>
+    <li><div><b>The voice is a person, not an institution</b><p>A serif carries the guide&rsquo;s own sentences; a sans carries logistics. The split is meaningful and should be held consistently.</p></div></li>
+    <li><div><b>Certainty over atmosphere</b><p>Mood is welcome only after the question is answered. If a screen looks beautiful and leaves him unsure what to do, it has failed.</p></div></li>
+  </ol>
+</section>
+
+<section>
+  <p class="eyebrow">05 &middot; The system</p>
+  <h2>Tokens, as a starting point</h2>
+  <p class="lede">A proposal, not a mandate &mdash; the palette is drawn from Varanasi seen from the water at dawn: limewash walls, mist, grey-green river. Adjust freely, but keep the shape: one identity colour, one action colour, blue-biased neutrals.</p>
+
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#F4F2ED"></div><div class="meta"><span class="role">Ground</span><span class="hex">#F4F2ED limewash</span></div></div>
+    <div class="sw"><div class="chip" style="background:#16202B"></div><div class="meta"><span class="role">Ink</span><span class="hex">#16202B blue-biased</span></div></div>
+    <div class="sw"><div class="chip" style="background:#173A56"></div><div class="meta"><span class="role">River &middot; identity</span><span class="hex">#173A56</span></div></div>
+    <div class="sw"><div class="chip" style="background:#D9820A"></div><div class="meta"><span class="role">Marigold &middot; action</span><span class="hex">#D9820A</span></div></div>
+    <div class="sw"><div class="chip" style="background:#101820"></div><div class="meta"><span class="role">Night ground</span><span class="hex">#101820</span></div></div>
+    <div class="sw"><div class="chip" style="background:#6B7883"></div><div class="meta"><span class="role">Muted</span><span class="hex">#6B7883</span></div></div>
+  </div>
+
+  <div class="scroll">
+  <table class="tok">
+    <thead><tr><th>Axis</th><th>Scale</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td>Type &mdash; size</td><td class="mono">12 &middot; 14 &middot; 15.5 &middot; 17 &middot; 19.5 &middot; 24 &middot; 32 &middot; 48</td><td>Eight steps. Nothing off-scale. 114 values today.</td></tr>
+      <tr><td>Type &mdash; voice</td><td class="mono">Georgia / serif</td><td>The guide speaking. Never for labels or data.</td></tr>
+      <tr><td>Type &mdash; utility</td><td class="mono">system sans</td><td>Everything functional. 18px floor in the field.</td></tr>
+      <tr><td>Type &mdash; data</td><td class="mono">mono</td><td>Times, costs, labels. Tabular numerals on.</td></tr>
+      <tr><td>Space</td><td class="mono">4 &middot; 8 &middot; 12 &middot; 16 &middot; 24 &middot; 32 &middot; 48 &middot; 64 &middot; 96</td><td>4px base. Layout uses gap, never stacked margins.</td></tr>
+      <tr><td>Radius</td><td class="mono">0 &middot; 2 &middot; 999</td><td>2px default &mdash; reads printed, not SaaS. 999 for chips only.</td></tr>
+      <tr><td>Motion</td><td class="mono">140ms &middot; 420ms</td><td>Micro and screen-entry. One easing. Off under reduced-motion.</td></tr>
+      <tr><td>Target size</td><td class="mono">44px min</td><td>Thumb-reachable, one-handed, in the field register.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="rule-note"><b>The rule that matters most:</b> no hex value may appear outside the token file. That single rule is what turns 473 inline colours into a system that can be re-themed in one place.</div>
+</section>
+
+<section>
+  <p class="eyebrow">06 &middot; Components</p>
+  <h2>The inventory that does not exist yet</h2>
+  <p class="lede">Twelve parts cover every screen in the product. Each needs all eight states drawn, not just the resting one &mdash; the missing states are where the current build hurts most.</p>
+  <div class="grid2">
+    <ul class="inv">
+      <li><span>01</span>Button <em>&mdash; primary / secondary / ghost</em></li>
+      <li><span>02</span>Option <em>&mdash; the large tap target</em></li>
+      <li><span>03</span>TextField <em>&mdash; label, hint, error</em></li>
+      <li><span>04</span>Chip <em>&mdash; single and multi select</em></li>
+      <li><span>05</span>Progress ticks</li>
+      <li><span>06</span>Panel <em>&mdash; the raised surface</em></li>
+    </ul>
+    <ul class="inv">
+      <li><span>07</span>StopRow <em>&mdash; collapsed and open</em></li>
+      <li><span>08</span>LostNote <em>&mdash; the confusion callout</em></li>
+      <li><span>09</span>CostTag <em>&mdash; money, always mono</em></li>
+      <li><span>10</span>LifelineBar <em>&mdash; persistent, one tap</em></li>
+      <li><span>11</span>EmptyState</li>
+      <li><span>12</span>Error / toast</li>
+    </ul>
+  </div>
+  <div class="rule-note"><b>Eight states each:</b> default, hover, focus-visible, active, selected, disabled, loading, error. There are currently <b>zero</b> focus styles in the entire codebase &mdash; the product cannot be operated by keyboard today.</div>
+</section>
+
+<section>
+  <p class="eyebrow">07 &middot; Scope</p>
+  <h2>Screens to design, in order</h2>
+  <ol class="screens">
+    <li><span class="pri">P0</span><div><b>The Door</b><p>One screen. The problem named, and one way out. No nav, no map, no menu.</p></div></li>
+    <li><span class="pri">P0</span><div><b>The Asking &mdash; four states</b><p>Three questions, one per screen, then the handoff. Options are feelings, not categories.</p></div></li>
+    <li><span class="pri">P1</span><div><b>The Stop &mdash; collapsed and open</b><p>The atom of the whole product. Carries what, why, how, cost, one tip, and the confusion note. Design this before the pages that contain it.</p></div></li>
+    <li><span class="pri">P1</span><div><b>The Plan</b><p>Three movements: Settle, Your days, Keep. A skimmable spine by default, depth on tap.</p></div></li>
+    <li><span class="pri">P2</span><div><b>The Ground</b><p>Stay, money, transport, SIM, water, safety, etiquette. Unglamorous and non-negotiable.</p></div></li>
+    <li><span class="pri">P2</span><div><b>The Walk</b><p>Field register, in full. Now, next, lost. The register switch happens here.</p></div></li>
+  </ol>
+</section>
+
+<section>
+  <p class="eyebrow">08 &middot; Out of scope</p>
+  <h2>What we are removing</h2>
+  <p class="lede">Each of these serves a real person &mdash; a browser, a gift-giver, a diaspora reader. None of them is Aklavya. Do not design around them.</p>
+  <ul class="kill">
+    <li><span class="w">The India map and twelve-city chapter</span><span class="y">He is going to one city</span></li>
+    <li><span class="w">Delhi, Jaipur, Kolkata, Mumbai</span><span class="y">Varanasi&rsquo;s own content is unfinished</span></li>
+    <li><span class="w">Segment pages as destinations</span><span class="y">He does not know those words</span></li>
+    <li><span class="w">Cart, gift box, build-your-own</span><span class="y">Serves a gift-giver</span></li>
+    <li><span class="w">Newsletter</span><span class="y">He wants a trip, not a subscription</span></li>
+    <li><span class="w">The sidebar</span><span class="y">A menu is his confusion, returned</span></li>
+  </ul>
+</section>
+
+<section>
+  <p class="eyebrow">09 &middot; Acceptance</p>
+  <h2>How to know a screen is finished</h2>
+  <p class="lede">Run all seven before calling anything done. Any failure sends the screen back, however good it looks.</p>
+  <div class="tests">
+    <div><span class="tname">Squint</span><p>Blur your eyes. Is exactly one thing obviously the next action?</p></div>
+    <div><span class="tname">Sun</span><p>Legible on a phone at 30% brightness outdoors. Body 4.5:1, large text 3:1.</p></div>
+    <div><span class="tname">Panic</span><p>Can he reach a human in one tap, from this screen, without opening a menu?</p></div>
+    <div><span class="tname">Stranger</span><p>Does it still work for someone who reads no Devanagari and knows nothing of the city?</p></div>
+    <div><span class="tname">Vocabulary</span><p>Does it require knowing &ldquo;Galiyan&rdquo;, &ldquo;Swaad&rdquo; or &ldquo;Hriday&rdquo;? If yes, rewrite it.</p></div>
+    <div><span class="tname">Thumb</span><p>Every target 44px or larger, reachable one-handed on a 6-inch phone.</p></div>
+    <div><span class="tname">Keyboard</span><p>Tab through it. Every interactive element shows a visible focus ring.</p></div>
+  </div>
+</section>
+
+<p class="closer">The test behind all the others: <b>does this make one anxious first-timer feel that someone is walking beside him?</b> If answering takes a paragraph, the answer is no.</p>
+
+</div>
+</body>
+</html>

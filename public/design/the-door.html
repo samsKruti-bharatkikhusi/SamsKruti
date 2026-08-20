@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>First time in Varanasi?</title>
+<style>
+  /* ─────────────────────────────────────────────────────────────
+     THE DOOR — route "/"
+     Brand: limewash & river-ink. Light-first, night-capable.
+     One screen. No nav, no map, no menu. He has one job.
+     ───────────────────────────────────────────────────────────── */
+
+  :root {
+    /* ground & ink */
+    --ground:    #F4F2ED;   /* limewash */
+    --ground-2:  #EBE8E0;
+    --ink:       #16202B;   /* near-black, blue-biased */
+    --ink-soft:  #3C4A57;
+    --muted:     #6B7883;
+    --rule:      #D8D4CA;
+
+    /* identity + action */
+    --river:     #173A56;   /* river-ink — calm, trustworthy */
+    --river-soft:#2E5A7D;
+    --marigold:  #D9820A;   /* the ONLY hot colour: act now */
+    --marigold-t:#16202B;   /* text that sits on marigold */
+
+    --mark:      #173A56;
+    --focus:     #173A56;
+
+    --face-voice: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --face-util:  "Segoe UI", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --face-data:  ui-monospace, "Cascadia Mono", Consolas, "SF Mono", monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:    #101820;   /* the river at night */
+      --ground-2:  #17222C;
+      --ink:       #E7EAEC;
+      --ink-soft:  #B9C3CB;
+      --muted:     #7C8B97;
+      --rule:      #263440;
+
+      --river:     #7FB0D4;
+      --river-soft:#9CC4E2;
+      --marigold:  #F0A83C;
+      --marigold-t:#12191F;
+
+      --mark:      #9CC4E2;
+      --focus:     #9CC4E2;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:    #101820;
+    --ground-2:  #17222C;
+    --ink:       #E7EAEC;
+    --ink-soft:  #B9C3CB;
+    --muted:     #7C8B97;
+    --rule:      #263440;
+
+    --river:     #7FB0D4;
+    --river-soft:#9CC4E2;
+    --marigold:  #F0A83C;
+    --marigold-t:#12191F;
+
+    --mark:      #9CC4E2;
+    --focus:     #9CC4E2;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--face-util);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    overflow-x: hidden;
+  }
+
+  /* ── The wordmark: quiet, top-left. The sentence is the hero. ── */
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    padding: 30px clamp(24px, 7vw, 88px) 0;
+    flex-shrink: 0;
+  }
+  .brand svg { display: block; overflow: visible; }
+  .brand-name {
+    font-family: var(--face-data);
+    font-size: 12px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── The one screen ─────────────────────────────────────────── */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 40px clamp(24px, 7vw, 88px);
+  }
+  .door { max-width: 20.5em; }
+
+  h1 {
+    font-family: var(--face-voice);
+    font-weight: 400;
+    font-size: clamp(40px, 8.2vw, 74px);
+    line-height: 1.03;
+    letter-spacing: -.02em;
+    text-wrap: balance;
+    margin: 0 0 26px;
+  }
+
+  .pain {
+    font-size: clamp(17px, 2.3vw, 19.5px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 27ch;
+    margin: 0 0 30px;
+  }
+
+  /* Serif italic = a human is speaking. The one promise. */
+  .promise {
+    font-family: var(--face-voice);
+    font-style: italic;
+    font-size: clamp(19px, 2.6vw, 23px);
+    line-height: 1.45;
+    color: var(--river);
+    max-width: 24ch;
+    margin: 0 0 40px;
+    position: relative;
+    padding-left: 20px;
+  }
+  .promise::before {
+    content: "";
+    position: absolute; left: 0; top: .32em; bottom: .28em;
+    width: 2px; background: var(--river);
+    opacity: .45;
+  }
+
+  /* ── The only hot thing on the page ─────────────────────────── */
+  .cta {
+    display: inline-flex; align-items: center; gap: 14px;
+    background: var(--marigold);
+    color: var(--marigold-t);
+    font-family: var(--face-util);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: .01em;
+    text-decoration: none;
+    padding: 17px 30px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform .16s ease, box-shadow .16s ease;
+    box-shadow: 0 1px 0 rgba(0,0,0,.12);
+  }
+  .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px -8px rgba(0,0,0,.5); }
+  .cta:active { transform: translateY(0); }
+  .cta .arrow { transition: transform .16s ease; }
+  .cta:hover .arrow { transform: translateX(3px); }
+
+  .fine {
+    font-family: var(--face-data);
+    font-size: 12px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 18px 0 0;
+  }
+
+  /* ── Footer: the differentiator, stated plainly ─────────────── */
+  footer {
+    flex-shrink: 0;
+    padding: 0 clamp(24px, 7vw, 88px) 34px;
+  }
+  .horizon {
+    height: 1px;
+    background: var(--rule);
+    margin-bottom: 18px;
+    max-width: 620px;
+  }
+  .byline {
+    font-size: 14.5px;
+    color: var(--muted);
+    margin: 0;
+    max-width: 46ch;
+  }
+  .byline b { color: var(--ink-soft); font-weight: 600; }
+
+  /* ── Entrance: one gentle move, not a performance ───────────── */
+  .rise { animation: rise .7s cubic-bezier(.2,.7,.3,1) backwards; }
+  .rise:nth-of-type(1) { animation-delay: .05s; }
+  h1.rise            { animation-delay: .05s; }
+  .pain.rise         { animation-delay: .15s; }
+  .promise.rise      { animation-delay: .25s; }
+  .act.rise          { animation-delay: .35s; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  @media (max-width: 420px) {
+    .door { max-width: none; }
+    .pain, .promise { max-width: none; }
+    .cta { width: 100%; justify-content: space-between; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- The mark: a chalk caret. What a guide scratches on a wall to say "this way". -->
+  <div class="brand">
+    <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+      <path d="M3 15.5 L11 5.5 L19 15.5" fill="none" stroke="var(--mark)"
+            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="brand-name">SamsKruti</span>
+  </div>
+
+  <main>
+    <div class="door">
+      <h1 class="rise">First time in Varanasi?</h1>
+
+      <p class="pain rise">Forty videos in, and you still don&rsquo;t know where to start, what things should cost, or what you&rsquo;re not supposed to do.</p>
+
+      <p class="promise rise">I&rsquo;ll walk you through it &mdash; from before you land to your last morning.</p>
+
+      <div class="act rise">
+        <a class="cta" href="/guide">
+          Guide me
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <p class="fine">Free &middot; three questions &middot; two minutes</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="horizon"></div>
+    <p class="byline"><b>Written by hand, by someone who walks these lanes.</b> Not generated, not scraped from a hundred videos.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
-import { HeroMandalaHub } from "./seals";
+import { HeroMandalaHub, Crest } from "./seals";
 
 /** Per-page hero palette. Any omitted field falls back to the home defaults. */
 export interface HeroTheme {
@@ -28,6 +28,8 @@ interface SiteHeroProps {
   eyebrow?: ReactNode;
   /** Roman numeral / chapter mark shown beside the eyebrow. */
   roman?: ReactNode;
+  /** Show the SamsKruti crest above the wordmark. Home screen only. */
+  mark?: boolean;
   /** Main wordmark / heading. */
   title: ReactNode;
   devanagari?: ReactNode;
@@ -56,6 +58,7 @@ export function SiteHero({
   mandala,
   eyebrow,
   roman,
+  mark = false,
   title,
   devanagari,
   tagline,
@@ -95,6 +98,11 @@ export function SiteHero({
                 {roman && <span className="lp-roman">{roman}</span>}
                 {eyebrow}
               </p>
+            )}
+            {mark && (
+              <div className="lp-mark">
+                <Crest size={148} alt="" />
+              </div>
             )}
             <h1 className="lp-wordmark">{title}</h1>
             {devanagari && <p className="lp-devanagari">{devanagari}</p>}

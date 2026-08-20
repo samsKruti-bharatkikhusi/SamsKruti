@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Guiding Aklavya</title>
+<style>
+  /* ── Tokens: light is the bare :root, dark redefines ────────────── */
+  :root {
+    --ground:   #EFE7D6;
+    --panel:    #FAF5E9;
+    --panel-2:  #E6DBC3;
+    --ink:      #2A1A0E;
+    --ink-soft: #55432E;
+    --muted:    #7C6A50;
+    --rule:     #D3C4A6;
+    --rule-firm:#B9A57F;
+    --accent:   #B0521F;
+    --accent-dim:#8E4419;
+    --gold:     #8A6520;
+    --jade:     #3D7050;
+    --dead:     #9C8E76;
+    --shadow:   0 1px 0 rgba(42,26,14,.06), 0 12px 30px -18px rgba(42,26,14,.45);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:   #140A05;
+      --panel:    #1F0F06;
+      --panel-2:  #2A180C;
+      --ink:      #EADDC6;
+      --ink-soft: #C9B695;
+      --muted:    #9C8A70;
+      --rule:     #3A2413;
+      --rule-firm:#54351C;
+      --accent:   #D97A38;
+      --accent-dim:#B0521F;
+      --gold:     #C09547;
+      --jade:     #6FA383;
+      --dead:     #6B5A44;
+      --shadow:   0 1px 0 rgba(0,0,0,.4), 0 14px 34px -18px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:   #140A05;
+    --panel:    #1F0F06;
+    --panel-2:  #2A180C;
+    --ink:      #EADDC6;
+    --ink-soft: #C9B695;
+    --muted:    #9C8A70;
+    --rule:     #3A2413;
+    --rule-firm:#54351C;
+    --accent:   #D97A38;
+    --accent-dim:#B0521F;
+    --gold:     #C09547;
+    --jade:     #6FA383;
+    --dead:     #6B5A44;
+    --shadow:   0 1px 0 rgba(0,0,0,.4), 0 14px 34px -18px rgba(0,0,0,.8);
+  }
+
+  :root {
+    --serif: "Palatino Linotype", "Book Antiqua", "Iowan Old Style", Palatino, Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Segoe UI", -apple-system, system-ui, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    margin: 0;
+    padding: 0 22px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 780px; margin: 0 auto; }
+
+  /* ── Utility face: structure, data, field register ─────────────── */
+  .mono, .tier-n, .eyebrow, .rt th, .rt td, .field-demo,
+  .atom, .step-n, .reg-tag {
+    font-family: ui-monospace, "Cascadia Mono", "Cascadia Code", Consolas, monospace;
+  }
+
+  .eyebrow {
+    font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold); margin: 0 0 14px;
+  }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; text-wrap: balance; }
+
+  /* ── Masthead ──────────────────────────────────────────────────── */
+  .mast { padding: 74px 0 46px; border-bottom: 1px solid var(--rule-firm); }
+  .mast h1 {
+    font-size: clamp(38px, 7vw, 62px); line-height: 1.02;
+    margin: 0 0 26px; letter-spacing: -.015em;
+  }
+  .mast h1 em { font-style: italic; color: var(--accent); }
+  .mast .thesis {
+    font-family: var(--serif); font-size: clamp(19px, 2.6vw, 23px);
+    line-height: 1.55; color: var(--ink-soft); margin: 0 0 20px; max-width: 60ch;
+  }
+  .mast .sub { color: var(--muted); font-size: 14.5px; margin: 0; max-width: 62ch; }
+
+  /* ── Section frame ─────────────────────────────────────────────── */
+  section { padding: 58px 0 0; }
+  section > h2 {
+    font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; letter-spacing: -.01em;
+  }
+  section > h2 em { font-style: italic; color: var(--accent); }
+  .lede { color: var(--ink-soft); margin: 0 0 30px; max-width: 66ch; font-size: 17px; }
+  p { max-width: 66ch; }
+
+  /* ── Persona card ──────────────────────────────────────────────── */
+  .who {
+    background: var(--panel); border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    padding: 26px 28px; box-shadow: var(--shadow);
+  }
+  .who p { margin: 0 0 16px; }
+  .who p:last-child { margin-bottom: 0; }
+  .who .quote {
+    font-family: var(--serif); font-style: italic; font-size: 19px;
+    color: var(--ink); line-height: 1.5;
+  }
+  .needs {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+    gap: 0 26px; margin: 26px 0 0; padding: 0; list-style: none;
+  }
+  .needs li {
+    padding: 7px 0; border-top: 1px solid var(--rule);
+    font-size: 14.5px; color: var(--ink-soft);
+    display: flex; gap: 11px; align-items: baseline;
+  }
+  .needs li span {
+    font-family: ui-monospace, Consolas, monospace; font-size: 11px;
+    color: var(--gold); flex-shrink: 0;
+  }
+
+  /* ── The ladder ────────────────────────────────────────────────── */
+  .ladder { margin: 0; display: flex; flex-direction: column-reverse; }
+  .tier {
+    display: grid; grid-template-columns: 62px 1fr; gap: 20px;
+    padding: 20px 0; border-top: 1px solid var(--rule);
+  }
+  .tier-n {
+    font-size: 11px; letter-spacing: .1em; color: var(--gold);
+    padding-top: 4px;
+  }
+  .tier h3 { margin: 0 0 5px; font-size: 20px; }
+  .tier .need { color: var(--ink-soft); margin: 0 0 7px; font-size: 15px; }
+  .tier .bites { color: var(--muted); font-size: 13.5px; margin: 0; font-style: italic; }
+  .tier[data-band="ground"] { border-left: 3px solid var(--jade); padding-left: 18px; }
+  .tier[data-band="days"]   { border-left: 3px solid var(--accent); padding-left: 18px; }
+  .band-tag {
+    display: inline-block; font-family: ui-monospace, Consolas, monospace;
+    font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+    padding: 3px 9px; margin-bottom: 9px;
+  }
+  .band-ground { color: var(--jade); border: 1px solid var(--jade); }
+  .band-days   { color: var(--accent); border: 1px solid var(--accent); }
+  .lifeline-bar {
+    margin: 22px 0 0; padding: 16px 20px;
+    border: 1px dashed var(--accent); color: var(--ink-soft); font-size: 15px;
+  }
+  .lifeline-bar strong { color: var(--accent); font-weight: 600; }
+
+  /* ── Three things ──────────────────────────────────────────────── */
+  .three { display: grid; gap: 2px; background: var(--rule); border: 1px solid var(--rule); }
+  .three > div { background: var(--panel); padding: 24px 26px; }
+  .three h3 { margin: 0 0 4px; font-size: 22px; }
+  .three .role { font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin: 0 0 12px; font-family: ui-monospace, Consolas, monospace; }
+  .three p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+
+  /* ── Phone screens ─────────────────────────────────────────────── */
+  .screens {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 26px; margin-top: 8px;
+  }
+  .screen { display: flex; flex-direction: column; gap: 11px; }
+  .screen > figcaption { font-size: 13.5px; color: var(--muted); }
+  .screen > figcaption b { color: var(--ink); font-weight: 600; display: block; font-size: 15px; }
+  .phone {
+    border: 1px solid var(--rule-firm); background: var(--panel);
+    padding: 20px 17px; min-height: 340px;
+    display: flex; flex-direction: column; font-size: 13px; line-height: 1.5;
+    box-shadow: var(--shadow);
+  }
+  .phone.dark { background: #1B0D05; border-color: #4A2E17; color: #E7DAC3; }
+  .phone.dark .ph-muted { color: #9B8A6F; }
+  .phone.dark .ph-rule { background: #3A2413; }
+  .phone.light { background: #FAF5E9; border-color: #C6B48F; color: #2A1A0E; }
+  .phone.light .ph-muted { color: #7C6A50; }
+  .phone.light .ph-rule { background: #D3C4A6; }
+  .ph-muted { color: var(--muted); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-family: ui-monospace, Consolas, monospace; }
+  .ph-rule { height: 1px; background: var(--rule); margin: 12px 0; }
+  .ph-big { font-family: var(--serif); font-size: 27px; line-height: 1.12; margin: 6px 0 10px; }
+  .ph-say { font-size: 13.5px; line-height: 1.55; }
+  .ph-btn {
+    border: 1px solid var(--accent); color: var(--accent);
+    padding: 10px 13px; text-align: center; font-size: 13px; margin-top: auto;
+  }
+  .ph-btn.solid { background: var(--accent); color: #FBF3E6; border-color: var(--accent); }
+  .ph-opt {
+    border: 1px solid currentColor; padding: 8px 11px; margin-bottom: 7px;
+    font-size: 12.5px; opacity: .62;
+  }
+  .ph-opt.on { opacity: 1; border-color: var(--accent); color: var(--accent); }
+  .ph-row {
+    display: flex; justify-content: space-between; gap: 10px;
+    padding: 6px 0; font-size: 12.5px; border-bottom: 1px solid var(--rule);
+  }
+  .phone.dark .ph-row { border-color: #3A2413; }
+  .ph-fine { font-size: 11px; margin-top: 10px; }
+
+  /* ── Atom / code ───────────────────────────────────────────────── */
+  .atom {
+    background: var(--panel); border: 1px solid var(--rule);
+    border-top: 3px solid var(--gold);
+    padding: 20px 22px; font-size: 13px; line-height: 1.72;
+    overflow-x: auto; white-space: pre; box-shadow: var(--shadow);
+  }
+  .atom .k { color: var(--accent); }
+  .atom .c { color: var(--muted); font-style: italic; }
+  .atom .hot { color: var(--gold); font-weight: 700; }
+
+  .field-demo {
+    margin: 26px 0 0; border: 1px solid var(--rule-firm);
+    background: var(--panel-2); padding: 18px 20px; font-size: 13px;
+    line-height: 1.7; overflow-x: auto;
+  }
+  .field-demo .lbl { color: var(--gold); }
+
+  /* ── Two registers ─────────────────────────────────────────────── */
+  .regs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; }
+  .reg { border: 1px solid var(--rule); padding: 22px 24px; }
+  .reg-tag { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; margin: 0 0 10px; }
+  .reg h3 { margin: 0 0 14px; font-size: 21px; }
+  .reg dl { margin: 0; font-size: 14px; }
+  .reg dt { color: var(--muted); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-family: ui-monospace, Consolas, monospace; margin-top: 13px; }
+  .reg dd { margin: 3px 0 0; color: var(--ink-soft); }
+  .reg-plan { background: #1B0D05; border-color: #4A2E17; }
+  .reg-plan h3, .reg-plan .reg-tag { color: #E7DAC3; }
+  .reg-plan .reg-tag { color: #C09547; }
+  .reg-plan dt { color: #9B8A6F; }
+  .reg-plan dd { color: #C9B695; }
+  .reg-field { background: #FAF5E9; border-color: #C6B48F; }
+  .reg-field h3 { color: #2A1A0E; }
+  .reg-field .reg-tag { color: #8A6520; }
+  .reg-field dt { color: #7C6A50; }
+  .reg-field dd { color: #55432E; }
+
+  /* ── Kill list ─────────────────────────────────────────────────── */
+  .kill { list-style: none; padding: 0; margin: 0; }
+  .kill li {
+    display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;
+    padding: 12px 0; border-bottom: 1px solid var(--rule);
+  }
+  .kill .what { color: var(--dead); text-decoration: line-through; text-decoration-color: var(--accent-dim); font-size: 15px; }
+  .kill .why { color: var(--ink-soft); font-size: 13.5px; text-align: right; max-width: 32ch; }
+  .kill-punch {
+    margin: 26px 0 0; padding: 20px 22px; background: var(--panel);
+    border-left: 3px solid var(--accent);
+    font-family: var(--serif); font-size: 19px; font-style: italic;
+    line-height: 1.5; color: var(--ink);
+  }
+
+  /* ── Routes table ──────────────────────────────────────────────── */
+  .scroll-x { overflow-x: auto; }
+  .rt { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 480px; }
+  .rt th {
+    text-align: left; font-weight: 400; font-size: 10.5px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--gold);
+    padding: 0 16px 9px 0; border-bottom: 1px solid var(--rule-firm);
+  }
+  .rt td { padding: 9px 16px 9px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .rt .gone { color: var(--dead); text-decoration: line-through; }
+  .rt .keep { color: var(--accent); }
+
+  /* ── Build order ───────────────────────────────────────────────── */
+  .steps { list-style: none; padding: 0; margin: 0; }
+  .steps li {
+    display: grid; grid-template-columns: 44px 1fr; gap: 18px;
+    padding: 17px 0; border-top: 1px solid var(--rule);
+  }
+  .step-n { color: var(--accent); font-size: 13px; padding-top: 2px; }
+  .steps b { display: block; font-size: 16.5px; font-weight: 600; margin-bottom: 3px; }
+  .steps p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+  .steps .writing b::after {
+    content: "writing, not code"; font-family: ui-monospace, Consolas, monospace;
+    font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--gold);
+    padding: 2px 7px; margin-left: 11px; vertical-align: 2px; font-weight: 400;
+  }
+
+  .closer {
+    margin-top: 62px; padding-top: 30px; border-top: 1px solid var(--rule-firm);
+    font-family: var(--serif); font-size: 20px; line-height: 1.55;
+    color: var(--ink-soft); font-style: italic;
+  }
+  .closer strong { color: var(--accent); font-style: normal; font-weight: 500; }
+
+  .caveat {
+    margin-top: 20px; font-size: 13px; color: var(--muted);
+    border-left: 2px solid var(--rule-firm); padding-left: 16px;
+  }
+
+  a { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  @media (max-width: 560px) {
+    .kill li { grid-template-columns: 1fr; gap: 3px; }
+    .kill .why { text-align: left; max-width: none; }
+    .tier { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">SamsKruti · Application redesign · One persona</p>
+    <h1>Guiding <em>Aklavya</em></h1>
+    <p class="thesis">He is not here to browse Varanasi. He is here to be told what to do next — from the night he books until the night he gets home.</p>
+    <p class="sub">Every screen below answers one question for one anxious first-timer. Anything that serves a browser, a gift-giver, a diaspora reader, or a collector is cut — not deferred, cut.</p>
+  </header>
+
+  <section>
+    <p class="eyebrow">Who we are building for</p>
+    <h2>One man, and <em>eleven questions</em></h2>
+    <div class="who">
+      <p class="quote">“He does not know the streets, the customs, or where to begin.”</p>
+      <p>First-time visitor to Varanasi. No prior knowledge of the city. Arrives as a tourist and stays anxious until someone answers the things below — in order. He cannot feel the ghats at dawn while he is still wondering whether the man following him is a threat.</p>
+      <ul class="needs">
+        <li><span>01</span>What is my budget</li>
+        <li><span>02</span>Is it safe · what scams</li>
+        <li><span>03</span>Where do I stay</li>
+        <li><span>04</span>How do I get around</li>
+        <li><span>05</span>Where do I go · when</li>
+        <li><span>06</span>What must I never do</li>
+        <li><span>07</span>What do I eat · is water safe</li>
+        <li><span>08</span>SIM, network, language</li>
+        <li><span>09</span>What can I photograph</li>
+        <li><span>10</span>What experiences do I want</li>
+        <li><span>11</span>What can I buy · cash or UPI</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The structural claim</p>
+    <h2>His ladder <em>is</em> the architecture</h2>
+    <p class="lede">Maslow's tiers and the trip's timeline are the same line. Read it bottom-up, the way he lives it. Tiers one to three must be cleared before tiers four and five can land at all — which is exactly why the three storytelling segments never worked as the front door.</p>
+
+    <div class="ladder">
+      <div class="tier" data-band="days">
+        <div class="tier-n">TIER 5</div>
+        <div>
+          <span class="band-tag band-days">The Days</span>
+          <h3>Self-actualisation</h3>
+          <p class="need">Where to go · the experience he came for</p>
+          <p class="bites">Bites during the trip — the payoff.</p>
+        </div>
+      </div>
+      <div class="tier" data-band="days">
+        <div class="tier-n">TIER 4</div>
+        <div>
+          <h3>Esteem</h3>
+          <p class="need">Pictures he can click · what to buy · the famous tastes</p>
+          <p class="bites">Bites mid-trip, once he has relaxed.</p>
+        </div>
+      </div>
+      <div class="tier" data-band="ground">
+        <div class="tier-n">TIER 3</div>
+        <div>
+          <h3>Belonging</h3>
+          <p class="need">Etiquette — what never to do · will anyone understand me</p>
+          <p class="bites">Bites the moment he steps out of the room.</p>
+        </div>
+      </div>
+      <div class="tier" data-band="ground">
+        <div class="tier-n">TIER 2</div>
+        <div>
+          <h3>Safety</h3>
+          <p class="need">Budget · scams · getting around · SIM · cash vs UPI</p>
+          <p class="bites">Bites before he books, and again the hour he lands.</p>
+        </div>
+      </div>
+      <div class="tier" data-band="ground">
+        <div class="tier-n">TIER 1</div>
+        <div>
+          <span class="band-tag band-ground">The Ground</span>
+          <h3>Physiological</h3>
+          <p class="need">Where to stay · what to eat · is the water safe</p>
+          <p class="bites">Bites before he books, and every single day.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lifeline-bar">
+      <strong>The Lifeline cuts across all five.</strong> Being lost is not a tier — it happens at any height, at any hour. So it is never a page. It is always on screen.
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">What the application becomes</p>
+    <h2>Three things, <em>not seven</em></h2>
+    <p class="lede">Tiers one to three collapse into one surface. Tiers four and five collapse into another. The lifeline is the third. That is the entire product.</p>
+    <div class="three">
+      <div>
+        <p class="role">Tiers 1–3</p>
+        <h3>The Ground</h3>
+        <p>Everything that must be true before he can feel anything. Stay, money, transport, SIM, water, scams, etiquette. Written once for the city, not per trip. Unglamorous and non-negotiable.</p>
+      </div>
+      <div>
+        <p class="role">Tiers 4–5</p>
+        <h3>The Days</h3>
+        <p>His trip, hour by hour, each stop carrying the <em>why</em> only someone who loves the city knows. This is where the three segments survive — as texture inside a day, never as a doorway.</p>
+      </div>
+      <div>
+        <p class="role">All tiers, always</p>
+        <h3>The Lifeline</h3>
+        <p>A named human, one tap, no menu. This is what he is actually paying for: not paper, not an app. The certainty that he cannot end up stranded.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The four screens</p>
+    <h2>Ask, write, walk, <em>call</em></h2>
+    <p class="lede">He gets one thing at a time. A menu handed to a confused person is his confusion handed back to him.</p>
+
+    <div class="screens">
+
+      <figure class="screen">
+        <div class="phone dark">
+          <p class="ph-muted">samskruti</p>
+          <p class="ph-big">First time in Varanasi?</p>
+          <p class="ph-say">You've watched forty videos and you still don't know where to start.</p>
+          <div class="ph-btn solid">Let me guide you &nbsp;→</div>
+          <p class="ph-fine ph-muted">Free · 3 questions · 2 min</p>
+        </div>
+        <figcaption><b>The Door &nbsp;/</b> The wound, named, and one way out. No map, no nav, no segments.</figcaption>
+      </figure>
+
+      <figure class="screen">
+        <div class="phone dark">
+          <p class="ph-muted">Question 2 of 3</p>
+          <p class="ph-big">What pulls you?</p>
+          <div class="ph-opt">The river and the rituals</div>
+          <div class="ph-opt">The food</div>
+          <div class="ph-opt">The makers and their hands</div>
+          <div class="ph-opt">Just walking</div>
+          <div class="ph-opt on">I don't know — you decide</div>
+        </div>
+        <figcaption><b>The Asking &nbsp;/</b> Feelings, not categories — he doesn't know what “Hriday” means. The last option is the most important one on the screen.</figcaption>
+      </figure>
+
+      <figure class="screen">
+        <div class="phone dark">
+          <p class="ph-muted">Arjun's Varanasi</p>
+          <p class="ph-big">3 days, slow</p>
+          <p class="ph-muted">Settle</p>
+          <div class="ph-row"><span>Before you land</span><span>›</span></div>
+          <div class="ph-row"><span>What things cost</span><span>›</span></div>
+          <div class="ph-row"><span>What never to do</span><span>›</span></div>
+          <div class="ph-rule"></div>
+          <p class="ph-muted">Day one</p>
+          <div class="ph-row"><span>06:40 &nbsp;Boat, Assi → Manikarnika</span><span>›</span></div>
+          <div class="ph-row"><span>08:15 &nbsp;Kachori, Thatheri Bazar</span><span>›</span></div>
+          <div class="ph-btn">Lost? Call Vishal</div>
+        </div>
+        <figcaption><b>The Plan &nbsp;/</b> His name at the top. Collapsed to a skimmable spine; the soul opens on tap. Ground first, always.</figcaption>
+      </figure>
+
+      <figure class="screen">
+        <div class="phone light">
+          <p class="ph-muted">Day 2 · 07:12</p>
+          <p class="ph-muted" style="color:#B0521F">Now</p>
+          <p class="ph-big">Kachori sabzi</p>
+          <p class="ph-say">Thatheri Bazar, second lane.<br>≈₹60 for two · cash only<br>Say: “do kachori, ek chai”</p>
+          <div class="ph-rule"></div>
+          <p class="ph-muted">Next · 09:00</p>
+          <p class="ph-say">Kashi Vishwanath →</p>
+          <div class="ph-btn solid">I'm lost — call</div>
+        </div>
+        <figcaption><b>The Walk &nbsp;/</b> The register flips: paper-light, huge type, one card. He is standing in a lane in the sun, not reading an essay.</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The data model</p>
+    <h2>One atom replaces <em>six</em></h2>
+    <p class="lede">Today there are six content shapes — Story, Food, Artisan, ItineraryStop, GuidePage (thirteen kinds), Product — all of them different ways of saying “a thing in Varanasi.” Aklavya needs one.</p>
+
+    <div class="atom"><span class="c">// The whole application is assembly over this one shape.</span>
+<span class="k">type</span> Stop = {
+  name:    string          <span class="c">// "Manikarnika Ghat"</span>
+  kind:    <span class="k">"place"</span> | <span class="k">"eat"</span> | <span class="k">"maker"</span> | <span class="k">"move"</span> | <span class="k">"rest"</span>
+  when:    string          <span class="c">// "05:40" · "before sunrise"</span>
+  minutes: number
+
+  why:     string          <span class="c">// TIER 5 — the guiding. What only</span>
+                           <span class="c">//   someone who loves it would tell you.</span>
+  how:     string          <span class="c">// TIER 2 — from the last stop</span>
+  cost:    string          <span class="c">// TIER 2 — "~₹150, agree first"</span>
+  tip:     string          <span class="c">// one thing, never a list</span>
+  <span class="hot">lost:    string</span>          <span class="c">// ← "if you're confused here…"</span>
+
+  etiquette?: string       <span class="c">// TIER 3 — at the stop, not in a manual</span>
+  photo?:  { ok: boolean; note: string }   <span class="c">// TIER 4</span>
+  buy?:    { what; where; fair: string }   <span class="c">// TIER 4</span>
+  coords?: [number, number]
+}
+
+Day  = { n, theme, stops: Stop[] }
+Ground = { stay, money, transport, sim, water, safety, etiquette }
+Plan = <span class="c">his answers</span> + Ground + Day[]</div>
+
+    <p style="margin-top:26px"><strong style="color:var(--gold)">Two things worth naming.</strong> First: <code style="font-family:ui-monospace,Consolas,monospace">kind</code> is where Galiyan, Swaad and Hriday go. They stop being navigation and become a tag on a stop — they survive as texture, and he never has to learn their names to use the product. Second: <code style="font-family:ui-monospace,Consolas,monospace">lost</code> does not exist anywhere in the codebase today, and it is the highest-value field in the model. It is the entire difference between an itinerary and a guide.</p>
+
+    <div class="field-demo"><span class="lbl">stop</span>    Kashi Vishwanath, 09:00
+<span class="lbl">why</span>     …
+<span class="lbl">lost</span>    You'll be told to leave your phone before
+        entering. That part is real — there are
+        official deposit counters at the gate.
+        Anyone approaching you outside offering
+        "VIP darshan" for a fee is not official.
+        Keep walking. You do not need them.
+
+<span class="lbl">note</span>    Placeholder shape only. Every `lost` string
+        must come from Phase A field research —
+        this is content, and content is the product.</div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The design decision that falls out of the persona</p>
+    <h2>Two registers, <em>one brand</em></h2>
+    <p class="lede">The same visual world cannot serve a calm man on a laptop and a sweating man in a lane. Split the register, keep the brand.</p>
+    <div class="regs">
+      <div class="reg reg-plan">
+        <p class="reg-tag">Register I</p>
+        <h3>Planning</h3>
+        <dl>
+          <dt>Where he is</dt><dd>At home, weeks out, laptop, unhurried</dd>
+          <dt>Ground</dt><dd>Deep earth #1F0F06</dd>
+          <dt>Type</dt><dd>Cormorant display, generous measure</dd>
+          <dt>Density</dt><dd>Editorial. Imagery. The long why.</dd>
+          <dt>Motion</dt><dd>Slow reveals welcome</dd>
+          <dt>Its job</dt><dd>Make him trust you</dd>
+        </dl>
+      </div>
+      <div class="reg reg-field">
+        <p class="reg-tag">Register II</p>
+        <h3>Field</h3>
+        <dl>
+          <dt>Where he is</dt><dd>In the lane, phone in sun, anxious</dd>
+          <dt>Ground</dt><dd>Paper #FAF5E9 — glare-legible</dd>
+          <dt>Type</dt><dd>Sans, 18px floor, high contrast</dd>
+          <dt>Density</dt><dd>One card. One next thing.</dd>
+          <dt>Motion</dt><dd>None</dd>
+          <dt>Its job</dt><dd>Make him not panic</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The cut</p>
+    <h2>What dies, and <em>why</em></h2>
+    <p class="lede">Each of these serves a real person. None of them is Aklavya.</p>
+    <ul class="kill">
+      <li><span class="what">The India map · 12 Jyotirlinga chapter</span><span class="why">Serves a browser. He is going to one city.</span></li>
+      <li><span class="what">Delhi, Jaipur, Kolkata, Mumbai</span><span class="why">Four cities of content while Varanasi's own backlog sits at 0 of 19.</span></li>
+      <li><span class="what">/varanasi/galiyan · /parampara · /hriday</span><span class="why">He does not know what those words mean.</span></li>
+      <li><span class="what">/cart · build-a-box · box-3d · hriday-shop</span><span class="why">Serves a gift-giver. Already parked in the plan.</span></li>
+      <li><span class="what">The newsletter</span><span class="why">Serves an audience. He wants a trip, not a subscription.</span></li>
+      <li><span class="what">/maps, standalone</span><span class="why">A map with no question attached to it.</span></li>
+      <li><span class="what">Prisma: City · Story · Food · Artisan</span><span class="why">Models a catalogue. Nothing reads it today anyway.</span></li>
+      <li><span class="what">The 5 / 8 / 14-day book tabs</span><span class="why">He has one trip length. Ask him — don't offer tabs.</span></li>
+      <li><span class="what">The three-doorway hub page</span><span class="why">A choice he is not equipped to make.</span></li>
+    </ul>
+    <p class="kill-punch">And the sidebar goes first. A first-timer handed a menu of twelve cities and three untranslated segment names has been handed his own confusion back, in a nicer font.</p>
+    <p class="caveat">Nothing here is deleted from history — <code style="font-family:ui-monospace,Consolas,monospace">/internal</code> stays as your own instrument, and the researched craft and food content becomes <code style="font-family:ui-monospace,Consolas,monospace">Stop</code> records rather than being thrown away. What dies is their status as destinations.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Routes</p>
+    <h2>Nine become <em>four</em></h2>
+    <div class="scroll-x">
+      <table class="rt">
+        <thead><tr><th>Today</th><th>Redesigned</th><th>Answers</th></tr></thead>
+        <tbody>
+          <tr><td class="gone">/</td><td class="keep">/</td><td>The Door — the wound and one way out</td></tr>
+          <tr><td class="gone">/varanasi</td><td class="keep">/guide</td><td>The Asking — 3 questions + when he lands</td></tr>
+          <tr><td class="gone">/varanasi/galiyan</td><td class="keep">/plan/&lt;key&gt;</td><td>Ground · Days · Keep — his plan, his name</td></tr>
+          <tr><td class="gone">/varanasi/parampara</td><td class="keep">/now</td><td>The Walk — field register, phase two</td></tr>
+          <tr><td class="gone">/varanasi/hriday</td><td>—</td><td></td></tr>
+          <tr><td class="gone">/varanasi/itinerary</td><td>—</td><td></td></tr>
+          <tr><td class="gone">/varanasi/guidebook</td><td>—</td><td></td></tr>
+          <tr><td class="gone">/cart</td><td>—</td><td></td></tr>
+          <tr><td class="gone">/maps</td><td>—</td><td></td></tr>
+          <tr><td>/internal</td><td>/internal</td><td>Yours, not his. Unchanged.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caveat">The Lifeline is deliberately absent from this table. It is an action available on every screen, not a destination.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Sequence</p>
+    <h2>Finish one thing to <em>done</em></h2>
+    <p class="lede">Ordered so that a guided soul is possible before most of the code exists.</p>
+    <ol class="steps">
+      <li><span class="step-n">01</span><div><b>The Door and The Asking</b><p>Captures a soul with zero content behind it. Two screens, a form, a WhatsApp field. Shippable this week.</p></div></li>
+      <li class="writing"><span class="step-n">02</span><div><b>Write one plan by hand</b><p>For Soul #001, the real traveller who already asked. You are the guide. The plan is the product; the app is the wrapper around it.</p></div></li>
+      <li><span class="step-n">03</span><div><b>/plan renders that plan</b><p>Now the thing you wrote by hand becomes reusable. The <code style="font-family:ui-monospace,Consolas,monospace">Stop</code> shape gets proven against real content, not invented ahead of it.</p></div></li>
+      <li class="writing"><span class="step-n">04</span><div><b>Fill <code style="font-family:ui-monospace,Consolas,monospace">lost</code> for the dozen places first-timers actually get confused</b><p>Phase A field research. The queue, the deposit counter, the boat price, the wood donation, the lane after dark. This is the moat.</p></div></li>
+      <li><span class="step-n">05</span><div><b>The Ground</b><p>Stay, money, transport, SIM, water, safety, etiquette. Written once. Tiers one to three, finally owned by something.</p></div></li>
+      <li><span class="step-n">06</span><div><b>/now — the field register</b><p>Only after a real traveller has walked a plan and told you where it broke. Building this first would be guessing.</p></div></li>
+    </ol>
+    <p class="caveat">Steps 02 and 04 are the actual product and neither is a coding task. The application is perhaps a fifth of this work — which is the honest reason the current build looks finished and still guides nobody.</p>
+  </section>
+
+  <p class="closer">The test for every screen, every field, and every cut: <strong>does this make one anxious first-timer feel that someone is walking beside him?</strong> If the answer needs a paragraph, it is a no.</p>
+
+</div>
+</body>
+</html>

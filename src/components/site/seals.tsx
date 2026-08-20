@@ -1,139 +1,79 @@
 import type { SVGProps } from "react";
 
-/* ── Master mark ───────────────────────────────────────────────────────────
-   The lotus-S emblem is the universal logo, tinted to each section's accent
-   (hub/earth, galiyan/green, parampara/terracotta, hriday/blue). The untinted
-   S is the global favicon (src/app/icon.png); the full medallion lives at
-   /brand/samskruti-medallion.png for OG/large use. Assets are cut + tinted
-   from the source artwork by scripts/logo-lab/process-logo.js.                */
-function SealS({ theme, alt }: { theme: string; alt: string }) {
-  return <img className="nav-seal nav-seal-img" src={`/brand/s-${theme}.png`} alt={alt} />;
-}
+/* ── THE MARK ──────────────────────────────────────────────────────────────
+   ONE logo, one form, every size: the glyph — the S alone, no ring.
 
-export function NavSealHub() {
-  return <SealS theme="hub" alt="SamsKruti — A Living Culture of India" />;
-}
-export function NavSealGaliyan() {
-  return <SealS theme="galiyan" alt="Sheher Ki Galiyan" />;
-}
-export function NavSealParampara() {
-  return <SealS theme="parampara" alt="Sheher Ka Swaad" />;
-}
-export function NavSealHriday() {
-  return <SealS theme="hriday" alt="Sheher Ka Hriday" />;
-}
+   The ringed seal exists as an asset (public/brand/seal-*.webp) but is NOT
+   used in the interface. In the app the mark is always the bare glyph, so
+   there is no size switch, no variant, and nothing that can drift.
 
-export function CardSealGaliyan(props: SVGProps<SVGSVGElement>) {
+   The crest (public/brand/crest-*) is an illustration for print and OG at
+   96px and above. It has no component, deliberately.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const STEPS = [64, 128, 256, 512] as const;
+
+export function Mark({
+  size = 44,
+  className,
+  alt = "SamsKruti",
+}: {
+  size?: number;
+  className?: string;
+  alt?: string;
+}) {
+  const px = size * 2; // 2× so it stays crisp on retina
+  const step = STEPS.find((s) => s >= px) ?? 512;
   return (
-    <svg
-      className="seg-seal"
-      viewBox="0 0 160 160"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      {...props}
-    >
-      <circle cx="80" cy="80" r="74" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
-      <circle cx="80" cy="80" r="67" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
-      <g transform="translate(80,80)" fill="currentColor" opacity="0.6">
-        <polygon points="0,-34 8,-20 6,-20 6,10 -6,10 -6,-20 -8,-20" />
-        <rect x="-20" y="10" width="40" height="6" />
-        <rect x="-24" y="16" width="48" height="4" />
-        <polygon points="-18,-22 -12,-12 -12,10 -18,10" opacity="0.5" />
-        <polygon points="18,-22 12,-12 12,10 18,10" opacity="0.5" />
-        <line x1="0" y1="-34" x2="0" y2="-42" stroke="currentColor" strokeWidth="1" />
-        <polygon points="0,-42 8,-38 0,-34" opacity="0.7" />
-      </g>
-      <path id="galiyanTop" d="M 14,80 A 66,66 0 0,1 146,80" fill="none" />
-      <path id="galiyanBot" d="M 146,82 A 66,66 0 0,1 14,82" fill="none" />
-      <text fontFamily="'Trebuchet MS',sans-serif" fontSize="9.5" letterSpacing="2.5" fill="currentColor" opacity="0.7">
-        <textPath href="#galiyanTop" startOffset="8%">SHEHER KI GALIYAN</textPath>
-      </text>
-      <text fontFamily="'Trebuchet MS',sans-serif" fontSize="7.5" letterSpacing="2" fill="currentColor" opacity="0.5">
-        <textPath href="#galiyanBot" startOffset="15%">STREETS OF THE CITY</textPath>
-      </text>
-    </svg>
+    // Pre-sized WebP: 1–15KB each. next/image would re-encode for nothing.
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      className={className ? `nav-seal nav-seal-img ${className}` : "nav-seal nav-seal-img"}
+      src={`/brand/glyph-${step}.webp`}
+      width={size}
+      height={size}
+      alt={alt}
+      decoding="async"
+    />
   );
 }
 
-export function CardSealParampara(props: SVGProps<SVGSVGElement>) {
+/** The illustrated medallion. 96px and above only — never interface chrome.
+    No small exports exist, so it cannot be used at a UI size by accident. */
+export function Crest({
+  size = 256,
+  className,
+  alt = "",
+}: {
+  size?: number;
+  className?: string;
+  alt?: string;
+}) {
+  const px = size * 2;
+  const step = px <= 256 ? 256 : px <= 512 ? 512 : 1024;
   return (
-    <svg
-      className="seg-seal"
-      viewBox="0 0 160 160"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      {...props}
-    >
-      <circle cx="80" cy="80" r="74" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
-      <circle cx="80" cy="80" r="67" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
-      <g transform="translate(80,80)" fill="currentColor" opacity="0.6">
-        <path d="M -18,0 Q -22,16 0,20 Q 22,16 18,0 Z" />
-        <ellipse cx="0" cy="0" rx="18" ry="5" />
-        <path d="M -18,0 Q -26,-2 -24,-8 Q -22,-14 -18,-10" fill="none" stroke="currentColor" strokeWidth="2.5" />
-        <path d="M 18,0 Q 26,-2 24,-8 Q 22,-14 18,-10" fill="none" stroke="currentColor" strokeWidth="2.5" />
-        <path d="M -6,-6 Q -4,-14 -6,-20" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
-        <path d="M 0,-8 Q 2,-16 0,-22" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
-        <path d="M 6,-6 Q 8,-14 6,-20" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
-        <g transform="translate(22, 8)" opacity="0.8">
-          <path d="M -5,4 Q 0,7 5,4 Q 4,0 0,-2 Q -4,0 -5,4 Z" />
-          <path d="M 0,-2 Q 1,-8 0,-12" fill="none" stroke="currentColor" strokeWidth="1.5" />
-          <ellipse cx="0" cy="-12" rx="2" ry="3" opacity="0.7" />
-        </g>
-      </g>
-      <path id="paramparaTop" d="M 14,80 A 66,66 0 0,1 146,80" fill="none" />
-      <path id="paramparaBot" d="M 146,82 A 66,66 0 0,1 14,82" fill="none" />
-      <text fontFamily="'Trebuchet MS',sans-serif" fontSize="9.5" letterSpacing="2.5" fill="currentColor" opacity="0.7">
-        <textPath href="#paramparaTop" startOffset="8%">SHEHER KA SWAAD</textPath>
-      </text>
-      <text fontFamily="'Trebuchet MS',sans-serif" fontSize="7.5" letterSpacing="2.5" fill="currentColor" opacity="0.5">
-        <textPath href="#paramparaBot" startOffset="13%">TASTE OF THE CITY</textPath>
-      </text>
-    </svg>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      className={className}
+      src={`/brand/crest-${step}.webp`}
+      width={size}
+      height={size}
+      alt={alt}
+      decoding="async"
+    />
   );
 }
 
-export function CardSealHriday(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      className="seg-seal"
-      viewBox="0 0 160 160"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      {...props}
-    >
-      <circle cx="80" cy="80" r="74" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
-      <circle cx="80" cy="80" r="67" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
-      <g transform="translate(80,84)" fill="currentColor" opacity="0.6">
-        <rect x="-24" y="4" width="48" height="2.5" rx="1" />
-        <rect x="-24" y="12" width="48" height="2.5" rx="1" />
-        <line x1="-14" y1="4" x2="-10" y2="14" stroke="currentColor" strokeWidth="1" />
-        <line x1="-6" y1="4" x2="-4" y2="14" stroke="currentColor" strokeWidth="1" />
-        <line x1="2" y1="4" x2="2" y2="14" stroke="currentColor" strokeWidth="1" />
-        <line x1="10" y1="4" x2="8" y2="14" stroke="currentColor" strokeWidth="1" />
-        <line x1="18" y1="4" x2="16" y2="14" stroke="currentColor" strokeWidth="1" />
-        <path
-          d="M -20,-2 Q -26,6 -18,10 Q -10,12 -4,8 L 0,4 L 4,8 Q 10,12 18,10 Q 26,6 20,-2 Q 10,-8 0,-10 Q -10,-8 -20,-2 Z"
-          opacity="0.5"
-        />
-        <g transform="translate(0,-22)">
-          <ellipse cx="0" cy="0" rx="5" ry="10" opacity="0.9" />
-          <ellipse cx="-7" cy="2" rx="4" ry="8" transform="rotate(-25,0,0)" opacity="0.7" />
-          <ellipse cx="7" cy="2" rx="4" ry="8" transform="rotate(25,0,0)" opacity="0.7" />
-          <ellipse cx="-12" cy="4" rx="3" ry="6" transform="rotate(-45,0,0)" opacity="0.5" />
-          <ellipse cx="12" cy="4" rx="3" ry="6" transform="rotate(45,0,0)" opacity="0.5" />
-        </g>
-      </g>
-      <path id="hridayTop" d="M 14,80 A 66,66 0 0,1 146,80" fill="none" />
-      <path id="hridayBot" d="M 146,82 A 66,66 0 0,1 14,82" fill="none" />
-      <text fontFamily="'Trebuchet MS',sans-serif" fontSize="9.5" letterSpacing="2.5" fill="currentColor" opacity="0.7">
-        <textPath href="#hridayTop" startOffset="8%">SHEHER KA HRIDAY</textPath>
-      </text>
-      <text fontFamily="'Trebuchet MS',sans-serif" fontSize="7.5" letterSpacing="2.5" fill="currentColor" opacity="0.5">
-        <textPath href="#hridayBot" startOffset="14%">HEART OF THE CITY</textPath>
-      </text>
-    </svg>
-  );
-}
+/* Every previous seal name resolves to the same single mark, so no call
+   site has to change and no variant can creep back in. */
+export const NavSealHub = Mark;
+export const NavSealGaliyan = Mark;
+export const NavSealParampara = Mark;
+export const NavSealHriday = Mark;
+
+/* ── Page ornaments (not marks) ──────────────────────────────────────────
+   Decorative only — a footer rule-seal and the hero mandala. Kept as-is:
+   they never stood in for the logo. ────────────────────────────────────── */
 
 export function FooterSeal(props: SVGProps<SVGSVGElement>) {
   return (

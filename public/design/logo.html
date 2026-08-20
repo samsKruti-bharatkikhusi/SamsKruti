@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>SamsKruti Mark</title>
+<style>
+:root{
+  --g1:#F8F3EB;--g2:#EFE3D2;--card:#FFFFFF;--sunk:#F4EBDD;--hair:#EBE0D0;
+  --ink:#241A10;--ink-2:#4A3728;--muted:#6E5D4B;
+  --terracotta:#C8652A;--action:#B85A22;--action-text:#9C4A1B;--on-action:#FFFFFF;--wash:#FBEDE3;
+  --caution:#A83828;--caution-wash:#FBEAE7;--safe:#3D7050;--safe-wash:#E9F2EC;
+  --r-card:20px;--r-sheet:28px;--r-pill:999px;
+  --e1:0 1px 2px rgba(74,55,40,.04),0 4px 14px -6px rgba(74,55,40,.10);
+  --e2:0 2px 4px rgba(74,55,40,.05),0 14px 30px -10px rgba(74,55,40,.16);
+  --e3:0 8px 20px -6px rgba(74,55,40,.14),0 30px 60px -20px rgba(74,55,40,.24);
+  --voice:Georgia,"Iowan Old Style",serif;
+  --ui:"Segoe UI",-apple-system,system-ui,sans-serif;
+  --data:ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --g1:#150E07;--g2:#0A0603;--card:#2E2016;--sunk:#221709;--hair:#41301F;
+  --ink:#F4ECE2;--ink-2:#D8C7B4;--muted:#A08D77;
+  --terracotta:#E08246;--action:#E08246;--action-text:#E08246;--on-action:#241A10;--wash:#3A2317;
+  --caution:#E07A62;--caution-wash:#3A201A;--safe:#7FB394;--safe-wash:#1E2E25;
+  --e1:0 1px 2px rgba(0,0,0,.32),0 4px 14px -6px rgba(0,0,0,.52);
+  --e2:0 2px 4px rgba(0,0,0,.36),0 14px 30px -10px rgba(0,0,0,.62);
+  --e3:0 8px 20px -6px rgba(0,0,0,.5),0 30px 60px -20px rgba(0,0,0,.7);
+}}
+:root[data-theme="dark"]{
+  --g1:#150E07;--g2:#0A0603;--card:#2E2016;--sunk:#221709;--hair:#41301F;
+  --ink:#F4ECE2;--ink-2:#D8C7B4;--muted:#A08D77;
+  --terracotta:#E08246;--action:#E08246;--action-text:#E08246;--on-action:#241A10;--wash:#3A2317;
+  --caution:#E07A62;--caution-wash:#3A201A;--safe:#7FB394;--safe-wash:#1E2E25;
+  --e1:0 1px 2px rgba(0,0,0,.32),0 4px 14px -6px rgba(0,0,0,.52);
+  --e2:0 2px 4px rgba(0,0,0,.36),0 14px 30px -10px rgba(0,0,0,.62);
+  --e3:0 8px 20px -6px rgba(0,0,0,.5),0 30px 60px -20px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{margin:0;padding:0 20px 120px;color:var(--ink);font-family:var(--ui);font-size:17px;line-height:1.62;
+  background:linear-gradient(172deg,var(--g1),var(--g2)) no-repeat fixed;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto}
+p{max-width:66ch}
+h1,h2,h3{font-family:var(--ui);font-weight:700;letter-spacing:-.025em;text-wrap:balance}
+.kicker{font-family:var(--data);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.controls{position:sticky;top:0;z-index:40;display:flex;gap:10px;align-items:center;padding:14px 0 16px;
+  background:linear-gradient(180deg,var(--g1) 62%,transparent)}
+.seg{display:inline-flex;background:var(--card);border-radius:var(--r-pill);box-shadow:var(--e1);overflow:hidden}
+.seg button{background:transparent;border:none;padding:9px 17px;cursor:pointer;font-family:var(--ui);
+  font-size:13.5px;font-weight:500;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--action);color:var(--on-action)}
+.ctl-label{font-family:var(--data);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+header.mast{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;padding:26px 0 60px}
+.mast h1{font-size:clamp(36px,5.4vw,58px);line-height:1.03;margin:0 0 16px}
+.mast h1 em{font-style:normal;color:var(--terracotta)}
+.mast .stand{font-family:var(--voice);font-style:italic;font-size:clamp(18px,2.3vw,22px);
+  color:var(--ink-2);margin:0;max-width:44ch}
+.mast img{width:190px;height:190px;border-radius:50%;box-shadow:var(--e3);display:block}
+
+section{padding:56px 0 0}
+section>h2{font-size:clamp(25px,3.3vw,34px);margin:0 0 10px}
+section>h2 em{font-style:normal;color:var(--terracotta)}
+.lede{color:var(--ink-2);margin:0 0 26px;max-width:64ch;font-size:17px}
+h3.sub{font-size:19px;margin:36px 0 14px}
+.box{background:var(--card);border-radius:var(--r-card);box-shadow:var(--e1);padding:19px 22px;
+  border-left:4px solid var(--terracotta);color:var(--ink-2);font-size:15.5px;margin:22px 0 0}
+.box.warn{border-left-color:var(--caution)}.box.good{border-left-color:var(--safe)}
+.box b{color:var(--ink)}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:18px}
+.three-up{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:18px}
+.asset{background:var(--card);border-radius:var(--r-card);box-shadow:var(--e1);overflow:hidden}
+.asset .stage{padding:28px;display:grid;place-items:center;background:var(--sunk)}
+.asset .stage img{width:172px;height:172px;border-radius:50%;display:block}
+.asset .body{padding:18px 22px 22px}
+.asset .n{font-family:var(--data);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:5px}
+.asset h4{margin:0 0 8px;font-size:19px}
+.asset p{margin:0 0 12px;font-size:14.5px;color:var(--ink-2)}
+.asset dl{margin:0;font-family:var(--data);font-size:12px;color:var(--muted);line-height:1.8}
+
+.ladder{background:var(--card);border-radius:var(--r-card);box-shadow:var(--e1);padding:22px 24px;margin-bottom:14px}
+.ladder h4{margin:0 0 4px;font-size:16px}
+.ladder .why{margin:0 0 18px;font-size:14px;color:var(--muted);max-width:58ch}
+.sizes{display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.sz{display:flex;flex-direction:column;align-items:center;gap:8px}
+.sz .cap{font-family:var(--data);font-size:10px;color:var(--muted)}
+.sz img{border-radius:50%;display:block}
+
+.uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:16px}
+.use{background:var(--card);border-radius:var(--r-card);box-shadow:var(--e1);padding:20px;
+  display:flex;flex-direction:column;gap:14px;align-items:center}
+.use .lbl{font-family:var(--data);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:9px;background:var(--sunk);border-radius:var(--r-pill);
+  padding:7px 16px 7px 8px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.chip img{width:30px;height:30px;border-radius:50%}
+.tab{display:flex;align-items:center;gap:8px;background:var(--sunk);border-radius:9px 9px 0 0;
+  padding:8px 14px;font-size:12px;color:var(--ink-2);max-width:196px}
+.tab img{width:16px;height:16px;border-radius:50%;flex-shrink:0}
+.tab span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.avatar img{width:56px;height:56px;border-radius:50%;display:block;box-shadow:var(--e1)}
+.wm{display:flex;align-items:center;gap:14px}
+.wm img{width:44px;height:44px;border-radius:50%}
+.wm span{font-family:var(--voice);font-size:26px;color:var(--ink)}
+
+.grounds{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.gr{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--e1)}
+.gr .hd{padding:12px 18px;font-family:var(--data);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);background:var(--card);border-bottom:1px solid var(--hair)}
+.gr .body{padding:34px 18px;display:flex;gap:26px;align-items:center;justify-content:center}
+.gr.dark .body{background:#1F0F06}
+.gr.light .body{background:#F8F3EB}
+.gr .body img{width:84px;height:84px;border-radius:50%;
+  box-shadow:0 0 0 1px rgba(200,101,42,.34),0 16px 34px -18px rgba(0,0,0,.8)}
+
+.scroll{overflow-x:auto}
+table.t{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px;background:var(--card);
+  border-radius:var(--r-card);box-shadow:var(--e1);overflow:hidden}
+table.t th{text-align:left;font-family:var(--data);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);font-weight:400;padding:15px 18px 11px}
+table.t td{padding:11px 18px;border-top:1px solid var(--hair);vertical-align:top}
+table.t .mono{font-family:var(--data);font-size:12.5px;color:var(--action-text);white-space:nowrap}
+table.t .ok{color:var(--safe);font-family:var(--data);font-size:12.5px}
+table.t .no{color:var(--caution);font-family:var(--data);font-size:12.5px}
+
+.dd{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:16px}
+.dd>div{background:var(--card);border-radius:var(--r-card);box-shadow:var(--e1);padding:20px 22px}
+.dd h4{margin:0 0 12px;font-size:15px;display:flex;align-items:center;gap:9px}
+.dd .mk{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;color:#fff}
+.dd .do .mk{background:var(--safe)}.dd .dont .mk{background:var(--caution)}
+.dd ul{margin:0;padding-left:18px}
+.dd li{font-size:14.5px;color:var(--ink-2);margin-bottom:7px}
+code{font-family:var(--data);font-size:.87em;color:var(--action-text)}
+:focus-visible{outline:2px solid var(--action-text);outline-offset:3px;border-radius:8px}
+@media (max-width:760px){header.mast{grid-template-columns:1fr;gap:28px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="controls">
+    <span class="ctl-label">Theme</span>
+    <div class="seg" role="group" aria-label="Theme">
+      <button type="button" data-set="light" aria-pressed="false">Light</button>
+      <button type="button" data-set="dark" aria-pressed="false">Dark</button>
+      <button type="button" data-set="system" aria-pressed="true">System</button>
+    </div>
+  </div>
+
+  <header class="mast">
+    <div>
+      <p class="kicker">SamsKruti &middot; The mark &middot; Final</p>
+      <h1>One mark, <em>two densities</em>.</h1>
+      <p class="stand">A winding road that reads as an S. Drawn by hand, framed by arithmetic.</p>
+    </div>
+    <img src="/brand/seal-512.webp" alt="The SamsKruti seal">
+  </header>
+
+  <section>
+    <p class="kicker">01 &middot; The assets</p>
+    <h2>Crest, seal, <em>glyph</em></h2>
+    <p class="lede">Three assets, one form. The seal and the glyph are the same drawing at two densities and together they are <em>the logo</em>. The crest is an illustration that shares their S &mdash; it is not a third logo, and it never appears in interface chrome.</p>
+    <div class="three-up">
+      <div class="asset">
+        <div class="stage"><img src="/brand/crest-512.webp" alt="The crest"></div>
+        <div class="body">
+          <span class="n">96px and above &middot; not the UI</span>
+          <h4>The Crest</h4>
+          <p>The layered medallion: the S set in a landscape with the wheel, the botanical, the faint map. Book cover, OG card, print, the keepsake.</p>
+          <dl><code>/brand/crest-{256,512,1024}.webp</code><br><code>crest-1024.avif</code> &middot; 17&ndash;104KB</dl>
+        </div>
+      </div>
+      <div class="asset">
+        <div class="stage"><img src="/brand/seal-512.webp" alt="The seal"></div>
+        <div class="body">
+          <span class="n">44px and above</span>
+          <h4>The Seal</h4>
+          <p>The glyph inside a single rust-brown outline, in the S&rsquo;s own colour. The default mark: navigation, the home hero, avatars, the Apple touch icon.</p>
+          <dl><code>/brand/seal-{64,128,256,512}.webp</code><br>1&ndash;17KB</dl>
+        </div>
+      </div>
+      <div class="asset">
+        <div class="stage"><img src="/brand/glyph-512.webp" alt="The glyph"></div>
+        <div class="body">
+          <span class="n">Below 44px</span>
+          <h4>The Glyph</h4>
+          <p>The S alone, scaled to fill. Wherever the ring would close into a dark rim: favicon, notifications, dense lists.</p>
+          <dl><code>/brand/glyph-{64,128,256,512}.webp</code><br>1&ndash;20KB</dl>
+        </div>
+      </div>
+    </div>
+    <div class="box"><b>The S meets the ring; it does not float inside it.</b> The glyph source ships on an opaque cream field, so composited straight in it punched a square hole through the outline. That field is knocked out to transparency first, which then allows the S to be scaled to <b>0.90</b> of the canvas &mdash; its tips reaching the ring&rsquo;s inner edge &mdash; instead of the <b>0.56</b> it sat at, where its ink reached only 64% of the usable radius and the seal read as mostly empty.</div>
+
+    <div class="box warn"><b>Why the outline is heavy, and why the earlier one failed.</b> The first seal used two hairline rings at 3.4px and 2.2px on a 1024px canvas. At 44px &mdash; the size it is actually used &mdash; that renders as <b>0.26px</b>: below one pixel, so it cannot draw a line and turns into a faint grey haze. It read as a circle-ish smudge rather than a pressed seal. The outline is now a single stroke at <b>24px</b>, which is <b>1.03px at 44</b> &mdash; the lightest weight that still renders as a line rather than a smear &mdash; while the S is scaled so its tips <b>meet the ring</b>, the way they do in the crest. Its colour is <code>#604020</code>, <b>sampled from the S itself</b> (65% of the glyph&rsquo;s ink), so the ring reads as the same material as the mark rather than a foreign circle drawn around it. Contrast on cream: 8.3:1. The S is also nudged <b>+28px right</b>: its ink mass measured 10% left of the geometric centre, so a mathematically centred placement looked visibly off.</div>
+
+    <div class="box"><b>The mark switch is automatic; the crest is a deliberate choice.</b> <code>&lt;Mark size={n} /&gt;</code> picks the seal at 44 and above, the glyph below it, and selects the nearest export up from <code>size &times; 2</code>. The crest has no component and no small exports &mdash; it must be reached for on purpose, which is what stops it drifting into the interface.</div>
+  </section>
+
+  <section>
+    <p class="kicker">02 &middot; The crest</p>
+    <h2>Why it is <em>not</em> the logo</h2>
+    <p class="lede">The crest was chosen from eight candidates. It is the layered paper-cut version &mdash; dimensional depth that is a liability in a logo and an asset in a print piece. It is still the wrong object for a 44px slot &mdash; which is the whole reason the seal and glyph exist.</p>
+    <div class="scroll">
+      <table class="t">
+        <thead><tr><th>Measured</th><th>Crest</th><th>Seal</th><th>Glyph</th></tr></thead>
+        <tbody>
+          <tr><td>Saturated area</td><td class="mono">32%</td><td class="mono">&mdash;</td><td class="mono">&mdash;</td></tr>
+          <tr><td>Warm-earth only</td><td class="ok">100%</td><td class="ok">100%</td><td class="ok">100%</td></tr>
+          <tr><td>Structure surviving 44px</td><td class="no">43.9 &mdash; but incoherent</td><td class="ok">56.4</td><td class="ok">41.9</td></tr>
+          <tr><td>Distinct elements</td><td class="no">dozens</td><td class="ok">2</td><td class="ok">1</td></tr>
+          <tr><td>Legible in a browser tab</td><td class="no">no</td><td class="no">no</td><td class="ok">yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box warn"><b>Read the 44px row carefully.</b> The crest scores highest of the three, and the number is misleading in exactly the way it was throughout this process: it counts surviving <em>contrast</em>, not whether that contrast resolves into a shape anyone recognises. At 44px the crest's landscape, wheel and botanical average into a mottled disc. High score, unreadable mark.</div>
+    <h3 class="sub">The crest at interface sizes &mdash; why it is banned there</h3>
+    <div class="ladder">
+      <div class="sizes">
+        <div class="sz"><img src="/brand/crest-256.webp" width="16" height="16" alt=""><span class="cap">16</span></div>
+        <div class="sz"><img src="/brand/crest-256.webp" width="24" height="24" alt=""><span class="cap">24</span></div>
+        <div class="sz"><img src="/brand/crest-256.webp" width="44" height="44" alt=""><span class="cap">44 &middot; nav</span></div>
+        <div class="sz"><img src="/brand/crest-256.webp" width="96" height="96" alt=""><span class="cap">96 &middot; floor</span></div>
+        <div class="sz"><img src="/brand/crest-512.webp" width="160" height="160" alt=""><span class="cap">160</span></div>
+        <div class="sz"><img src="/brand/crest-512.webp" width="240" height="240" alt=""><span class="cap">240 &middot; cover</span></div>
+      </div>
+    </div>
+    <div class="box good"><b>Where it earns its place.</b> Held at 100mm on a book cover, every element that mushes at 44px becomes the reason someone keeps the object. A crest is a print device. Give it print, and give the interface the seal.</div>
+  </section>
+
+  <section>
+    <p class="kicker">03 &middot; The size rule</p>
+    <h2>Why <em>44 pixels</em></h2>
+    <div class="ladder">
+      <h4>The seal</h4>
+      <p class="why">Holds from 44 up. Below that the outline thickens into a solid rim and starts crowding the S, which is what the glyph exists for.</p>
+      <div class="sizes">
+        <div class="sz"><img src="/brand/seal-64.webp" width="16" height="16" alt=""><span class="cap">16</span></div>
+        <div class="sz"><img src="/brand/seal-64.webp" width="24" height="24" alt=""><span class="cap">24</span></div>
+        <div class="sz"><img src="/brand/seal-128.webp" width="32" height="32" alt=""><span class="cap">32</span></div>
+        <div class="sz"><img src="/brand/seal-128.webp" width="44" height="44" alt=""><span class="cap">44 &middot; nav</span></div>
+        <div class="sz"><img src="/brand/seal-256.webp" width="64" height="64" alt=""><span class="cap">64</span></div>
+        <div class="sz"><img src="/brand/seal-256.webp" width="104" height="104" alt=""><span class="cap">104 &middot; hero</span></div>
+      </div>
+    </div>
+    <div class="ladder">
+      <h4>The glyph</h4>
+      <p class="why">With the ring gone the S fills the frame instead of sitting inside a circle. Below 44px this is the only version where the S keeps enough room to be recognised.</p>
+      <div class="sizes">
+        <div class="sz"><img src="/brand/glyph-64.webp" width="16" height="16" alt=""><span class="cap">16</span></div>
+        <div class="sz"><img src="/brand/glyph-64.webp" width="24" height="24" alt=""><span class="cap">24</span></div>
+        <div class="sz"><img src="/brand/glyph-128.webp" width="32" height="32" alt=""><span class="cap">32</span></div>
+        <div class="sz"><img src="/brand/glyph-128.webp" width="44" height="44" alt=""><span class="cap">44</span></div>
+        <div class="sz"><img src="/brand/glyph-256.webp" width="64" height="64" alt=""><span class="cap">64</span></div>
+        <div class="sz"><img src="/brand/glyph-256.webp" width="104" height="104" alt=""><span class="cap">104</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">04 &middot; How it was made</p>
+    <h2>Drawn glyph, <em>generated frame</em></h2>
+    <p class="lede">This split is the useful finding, and it took roughly a dozen rejected candidates to arrive at.</p>
+    <div class="scroll">
+      <table class="t">
+        <thead><tr><th>Part</th><th>Made by</th><th>Because</th></tr></thead>
+        <tbody>
+          <tr><td>The S, the copper ribbon, the cobbled road</td><td class="mono">drawn</td><td>Organic calligraphic form. Generators are excellent at this and code is hopeless at it.</td></tr>
+          <tr><td>The ring, its concentric hairline</td><td class="mono">generated geometry</td><td>Exact circle from arithmetic. Generators get this subtly wrong every single time.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box warn"><b>The measurement that proved it.</b> The supplied seal artwork was checked before use: its ring measured <b>351 &times; 364</b> &mdash; an oval, 3.6% taller than wide, with the radius varying &plusmn;1.32%. Invisible in a nav bar, clearly out of round on a book cover. The design was kept and the geometry rebuilt: <b>382 &times; 382, aspect 1.0000</b>.</div>
+  </section>
+
+  <section>
+    <p class="kicker">05 &middot; In place</p>
+    <h2>Where each one <em>appears</em></h2>
+    <div class="uses">
+      <div class="use"><span class="lbl">Nav &middot; seal 44</span>
+        <span class="chip"><img src="/brand/seal-128.webp" alt="">SamsKruti</span></div>
+      <div class="use"><span class="lbl">Browser tab &middot; glyph 16</span>
+        <span class="tab"><img src="/brand/glyph-64.webp" alt=""><span>First time in Varanasi?</span></span></div>
+      <div class="use"><span class="lbl">Avatar &middot; seal 56</span>
+        <span class="avatar"><img src="/brand/seal-128.webp" alt=""></span></div>
+      <div class="use"><span class="lbl">Lockup &middot; seal 44</span>
+        <span class="wm"><img src="/brand/seal-128.webp" alt=""><span>SamsKruti</span></span></div>
+    </div>
+
+    <h3 class="sub">On both grounds</h3>
+    <div class="grounds">
+      <div class="gr dark"><div class="hd">Deep earth &mdash; the home hero</div>
+        <div class="body"><img src="/brand/seal-256.webp" alt=""><img src="/brand/glyph-256.webp" alt=""></div></div>
+      <div class="gr light"><div class="hd">Aged ivory &mdash; the light default</div>
+        <div class="body"><img src="/brand/seal-256.webp" alt=""><img src="/brand/glyph-256.webp" alt=""></div></div>
+    </div>
+    <div class="box"><b>The artwork carries its own cream field</b> rather than being transparent, so on the deep-earth hero it is masked to a disc and given a hairline accent ring. It then reads as a medallion pressed into the surface instead of a pale square floating on it.</div>
+  </section>
+
+  <section>
+    <p class="kicker">06 &middot; Rules</p>
+    <h2>Do, and <em>do not</em></h2>
+    <div class="dd">
+      <div class="do">
+        <h4><span class="mk">&#10003;</span>Do</h4>
+        <ul>
+          <li>Use <code>&lt;Mark size={n} /&gt;</code> and let it choose</li>
+          <li>Mask to a disc on any dark ground</li>
+          <li>Pair with the wordmark until recognition exists</li>
+          <li>Keep clear space of at least half the mark&rsquo;s width</li>
+          <li>Reach for the crest only at 96px and above</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <h4><span class="mk">&times;</span>Don&rsquo;t</h4>
+        <ul>
+          <li>Recolour it, tint it, or make a per-section variant</li>
+          <li>Use the seal below 44px &mdash; the ring closes up</li>
+          <li>Stretch it; the ring is a true circle and must stay one</li>
+          <li>Reintroduce any of the retired marks</li>
+          <li>Put the crest anywhere in the interface</li>
+        </ul>
+      </div>
+    </div>
+    <div class="box"><b>The favicon is a circle, not a square.</b> CSS rounds the mark everywhere else, but the browser draws the favicon file exactly as given &mdash; so <code>icon.png</code> is masked to a disc with transparent corners, and the S is scaled to 90% of the radius so its extremes are not clipped by the mask. The Apple touch icon deliberately stays <em>square</em>: iOS applies its own rounding, and transparent corners there render as black.</div>
+
+    <div class="box warn"><b>One flaw still open.</b> A faint vertical seam runs through the glyph where the automatic trim caught a slight variation in the source background. Invisible at interface sizes; it would show on a large print. Regenerate the glyph on a perfectly flat ground before it goes on a cover.</div>
+  </section>
+
+  <section>
+    <p class="kicker">07 &middot; What it replaced</p>
+    <h2>Seven marks became <em>one</em></h2>
+    <div class="scroll">
+      <table class="t">
+        <thead><tr><th>Retired</th><th>Was</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Lotus-S emblem &times;4 segment tints</td><td>nav, sidebar, loading</td><td class="no">deleted</td></tr>
+          <tr><td><code>samskruti-medallion.png</code> &mdash; 1.4MB</td><td>OG / large use</td><td class="no">deleted</td></tr>
+          <tr><td><code>samskruti-s.png</code>, <code>samskruti-arch-logo.png</code></td><td>unused</td><td class="no">deleted</td></tr>
+          <tr><td>Circular <code>CardSeal*</code> SVGs</td><td>segment cards</td><td class="no">deleted</td></tr>
+          <tr><td>Seven crest candidates</td><td>evaluated, rejected</td><td class="ok">archived</td></tr>
+          <tr><td>Crest G</td><td>won on measurement</td><td class="ok">kept &mdash; print only</td></tr>
+          <tr><td>A hand-authored SVG seal</td><td>briefly shipped, then removed</td><td class="no">deleted</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box good"><b>Everything is recoverable.</b> The deleted files are tracked in git; the rejected crest candidates are in <code>uploads/logo-candidates/</code> &mdash; kept, but outside <code>public/</code> so they are not shipped. Full history in <code>docs/DESIGN-CHANGELOG.md</code>, Entry 008.</div>
+  </section>
+
+</div>
+<script>
+(function(){var r=document.documentElement,b=document.querySelectorAll('.seg button[data-set]');
+function a(m){m==='system'?r.removeAttribute('data-theme'):r.setAttribute('data-theme',m);
+ b.forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.set===m));});
+ try{localStorage.setItem('sk-theme',m);}catch(e){}}
+var s='system';try{s=localStorage.getItem('sk-theme')||'system';}catch(e){}a(s);
+b.forEach(function(x){x.addEventListener('click',function(){a(x.dataset.set);});});})();
+</script>
+</body>
+</html>

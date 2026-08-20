@@ -1,0 +1,80 @@
+/* ─────────────────────────────────────────────────────────────────
+   BRAND SCOPE — an alias layer, not a second source of truth.
+
+   Every value comes from src/app/tokens.css. This file only maps the
+   global --sk-* tokens onto the short local names the page modules
+   use, and paints the page ground. Keeping the values in one file is
+   what stops the app and the spec drifting apart.
+
+   Apply `.scope` to a page's outermost element.
+   ───────────────────────────────────────────────────────────────── */
+
+.scope {
+  /* ground */
+  --ground-a: var(--sk-g1);
+  --ground-b: var(--sk-g2);
+  --card: var(--sk-card);
+  --card-sunk: var(--sk-sunk);
+  --hair: var(--sk-hair);
+
+  /* ink */
+  --ink: var(--sk-ink);
+  --ink-soft: var(--sk-ink-2);
+  --muted: var(--sk-muted);
+
+  /* brand */
+  --terracotta: var(--sk-terracotta);
+  --action: var(--sk-action);
+  --action-press: var(--sk-action-press);
+  --action-text: var(--sk-action-text);
+  --on-action: var(--sk-on-action);
+  --action-wash: var(--sk-wash);
+
+  /* semantic */
+  --caution: var(--sk-caution);
+  --caution-wash: var(--sk-caution-wash);
+  --safe: var(--sk-safe);
+  --safe-wash: var(--sk-safe-wash);
+  --info: var(--sk-info);
+  --info-wash: var(--sk-info-wash);
+
+  /* state */
+  --disabled-ink: var(--sk-disabled-ink);
+  --skeleton: var(--sk-skeleton);
+  --focus: var(--sk-focus);
+  --scrim: var(--sk-scrim);
+
+  /* shape */
+  --r-chip: var(--sk-r-chip);
+  --r-input: var(--sk-r-input);
+  --r-card: var(--sk-r-card);
+  --r-sheet: var(--sk-r-sheet);
+  --r-pill: var(--sk-r-pill);
+
+  /* elevation */
+  --e1: var(--sk-e1);
+  --e2: var(--sk-e2);
+  --e-action: var(--sk-e-act);
+
+  /* type */
+  --face-voice: var(--sk-voice);
+  --face-util: var(--sk-ui);
+  --face-data: var(--sk-data);
+
+  /* The wrapper paints its own ground, so the global
+     `body { background: var(--aged-ivory) }` never shows through. */
+  min-height: 100svh;
+  background: linear-gradient(175deg, var(--ground-a) 0%, var(--ground-b) 100%) no-repeat;
+  background-size: cover;
+  color: var(--ink);
+  font-family: var(--face-util);
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.scope :focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: var(--r-chip);
+}

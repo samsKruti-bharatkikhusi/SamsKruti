@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Crest Finalists</title>
+<style>
+:root{
+  --g1:#F8F3EB;--g2:#EFE3D2;--card:#FFFFFF;--sunk:#F4EBDD;--hair:#EBE0D0;
+  --ink:#241A10;--ink-2:#4A3728;--muted:#6E5D4B;
+  --terracotta:#C8652A;--action:#B85A22;--action-text:#9C4A1B;--on-action:#FFFFFF;--wash:#FBEDE3;
+  --caution:#A83828;--caution-wash:#FBEAE7;--safe:#3D7050;--safe-wash:#E9F2EC;
+  --r-card:20px;--r-sheet:28px;--r-pill:999px;
+  --e1:0 1px 2px rgba(74,55,40,.04),0 4px 14px -6px rgba(74,55,40,.10);
+  --e2:0 2px 4px rgba(74,55,40,.05),0 14px 30px -10px rgba(74,55,40,.16);
+  --voice:Georgia,"Iowan Old Style",serif;
+  --ui:"Segoe UI",-apple-system,system-ui,sans-serif;
+  --data:ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --g1:#150E07;--g2:#0A0603;--card:#2E2016;--sunk:#221709;--hair:#41301F;
+  --ink:#F4ECE2;--ink-2:#D8C7B4;--muted:#A08D77;
+  --terracotta:#E08246;--action:#E08246;--action-text:#E08246;--on-action:#241A10;--wash:#3A2317;
+  --caution:#E07A62;--caution-wash:#3A201A;--safe:#7FB394;--safe-wash:#1E2E25;
+  --e1:0 1px 2px rgba(0,0,0,.32),0 4px 14px -6px rgba(0,0,0,.52);
+  --e2:0 2px 4px rgba(0,0,0,.36),0 14px 30px -10px rgba(0,0,0,.62);
+}}
+:root[data-theme="dark"]{
+  --g1:#150E07;--g2:#0A0603;--card:#2E2016;--sunk:#221709;--hair:#41301F;
+  --ink:#F4ECE2;--ink-2:#D8C7B4;--muted:#A08D77;
+  --terracotta:#E08246;--action:#E08246;--action-text:#E08246;--on-action:#241A10;--wash:#3A2317;
+  --caution:#E07A62;--caution-wash:#3A201A;--safe:#7FB394;--safe-wash:#1E2E25;
+  --e1:0 1px 2px rgba(0,0,0,.32),0 4px 14px -6px rgba(0,0,0,.52);
+  --e2:0 2px 4px rgba(0,0,0,.36),0 14px 30px -10px rgba(0,0,0,.62);
+}
+*{box-sizing:border-box}
+body{margin:0;padding:0 20px 120px;color:var(--ink);font-family:var(--ui);font-size:17px;line-height:1.6;
+  background:linear-gradient(172deg,var(--g1),var(--g2)) no-repeat fixed;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto}
+p{max-width:66ch}
+h1,h2,h3{font-family:var(--ui);font-weight:700;letter-spacing:-.025em;text-wrap:balance}
+.kicker{font-family:var(--data);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.controls{position:sticky;top:0;z-index:40;display:flex;gap:10px;align-items:center;padding:14px 0 16px;
+  background:linear-gradient(180deg,var(--g1) 62%,transparent)}
+.seg{display:inline-flex;background:var(--card);border-radius:var(--r-pill);box-shadow:var(--e1);overflow:hidden}
+.seg button{background:transparent;border:none;padding:9px 17px;cursor:pointer;font-family:var(--ui);
+  font-size:13.5px;font-weight:500;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--action);color:var(--on-action)}
+.ctl-label{font-family:var(--data);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+header.mast{padding:30px 0 46px}
+.mast h1{font-size:clamp(34px,5.2vw,54px);line-height:1.04;margin:0 0 16px}
+.mast h1 em{font-style:normal;color:var(--terracotta)}
+.mast .stand{font-family:var(--voice);font-style:italic;font-size:clamp(18px,2.3vw,22px);
+  color:var(--ink-2);margin:0;max-width:50ch}
+section{padding:54px 0 0}
+section>h2{font-size:clamp(25px,3.2vw,33px);margin:0 0 10px}
+section>h2 em{font-style:normal;color:var(--terracotta)}
+.lede{color:var(--ink-2);margin:0 0 26px;max-width:62ch;font-size:17px}
+.box{background:var(--card);border-radius:var(--r-card);box-shadow:var(--e1);padding:19px 22px;
+  border-left:4px solid var(--terracotta);color:var(--ink-2);font-size:15.5px;margin:22px 0 0}
+.box.warn{border-left-color:var(--caution)}.box.good{border-left-color:var(--safe)}
+.box b{color:var(--ink)}
+
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+.opt{background:var(--card);border-radius:var(--r-card);box-shadow:var(--e1);overflow:hidden}
+.opt.win{box-shadow:var(--e2),0 0 0 2px var(--action)}
+.opt .top{padding:14px 20px;border-bottom:1px solid var(--hair);display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.opt .top b{font-size:16px}
+.opt .top span{font-family:var(--data);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.opt.win .top span{color:var(--action-text)}
+.opt .stage{padding:22px;display:grid;place-items:center;background:var(--sunk)}
+.opt .stage img{width:100%;max-width:210px;aspect-ratio:1;border-radius:50%;display:block}
+.opt .facts{padding:14px 20px 18px;font-size:14px;color:var(--ink-2)}
+.opt .facts div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-top:1px solid var(--hair)}
+.opt .facts div:first-child{border-top:none}
+.opt .facts .k{color:var(--muted);font-size:13px}
+.opt .facts .v{font-family:var(--data);font-size:13px}
+.opt .facts .hot{color:var(--action-text);font-weight:700}
+
+.ladder{background:var(--card);border-radius:var(--r-card);box-shadow:var(--e1);padding:20px 24px;margin-bottom:12px}
+.ladder h4{margin:0 0 12px;font-size:15.5px}
+.sizes{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap}
+.sz{display:flex;flex-direction:column;align-items:center;gap:7px}
+.sz .cap{font-family:var(--data);font-size:10px;color:var(--muted)}
+.sz img{border-radius:50%;display:block}
+
+.grounds{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.gr{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--e1)}
+.gr .hd{padding:12px 18px;font-family:var(--data);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);background:var(--card);border-bottom:1px solid var(--hair)}
+.gr .body{padding:30px 18px;display:flex;gap:22px;align-items:center;justify-content:center;flex-wrap:wrap}
+.gr.dark .body{background:#1F0F06}
+.gr.light .body{background:#F8F3EB}
+.gr .body figure{margin:0;text-align:center}
+.gr .body img{width:78px;height:78px;border-radius:50%;display:block;
+  box-shadow:0 0 0 1px rgba(200,101,42,.34),0 16px 34px -18px rgba(0,0,0,.8)}
+.gr .body figcaption{margin-top:8px;font-size:11px;font-family:var(--data);letter-spacing:.1em}
+.gr.dark figcaption{color:#C9B695}.gr.light figcaption{color:#6E5D4B}
+
+.ctxs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.ctx{background:var(--card);border-radius:var(--r-card);box-shadow:var(--e1);padding:20px;
+  display:flex;flex-direction:column;gap:13px;align-items:center}
+.ctx .lbl{font-family:var(--data);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ctxrow{display:flex;align-items:center;gap:10px;background:var(--sunk);border-radius:var(--r-pill);
+  padding:7px 16px 7px 8px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.ctxrow img{width:30px;height:30px;border-radius:50%}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--action);color:var(--on-action);
+  border-radius:var(--r-pill);padding:13px 24px;font-size:15px;font-weight:600;
+  box-shadow:0 6px 18px -6px rgba(184,90,34,.46)}
+
+.scroll{overflow-x:auto}
+table.t{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px;background:var(--card);
+  border-radius:var(--r-card);box-shadow:var(--e1);overflow:hidden}
+table.t th{text-align:left;font-family:var(--data);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);font-weight:400;padding:15px 16px 11px}
+table.t td{padding:11px 16px;border-top:1px solid var(--hair);vertical-align:top}
+table.t .a{color:var(--safe);font-family:var(--data);font-size:12.5px}
+table.t .b{color:var(--caution);font-family:var(--data);font-size:12.5px}
+table.t .m{color:var(--muted);font-family:var(--data);font-size:12.5px}
+
+.verdict{margin-top:28px;background:var(--card);border-radius:var(--r-sheet);box-shadow:var(--e2);padding:28px 30px}
+.verdict h3{margin:0 0 12px;font-size:22px}
+.verdict p{margin:0 0 12px;color:var(--ink-2);font-size:16px}
+.verdict p:last-child{margin:0}
+.pick{display:inline-flex;align-items:center;gap:11px;background:var(--wash);color:var(--action-text);
+  border-radius:var(--r-pill);padding:8px 20px 8px 9px;font-weight:600;font-size:15px;margin-bottom:14px}
+.pick img{width:30px;height:30px;border-radius:50%}
+:focus-visible{outline:2px solid var(--action-text);outline-offset:3px;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="controls">
+    <span class="ctl-label">Theme</span>
+    <div class="seg" role="group" aria-label="Theme">
+      <button type="button" data-set="light" aria-pressed="false">Light</button>
+      <button type="button" data-set="dark" aria-pressed="false">Dark</button>
+      <button type="button" data-set="system" aria-pressed="true">System</button>
+    </div>
+  </div>
+
+  <header class="mast">
+    <p class="kicker">SamsKruti &middot; Crest A, B or C &middot; Decision</p>
+    <h1>Six versions. <em>F is the one.</em></h1>
+    <p class="stand">Nothing has been changed in the application. F matches the original monochrome for calm and warmth, and repairs the one thing that eliminated it.</p>
+  </header>
+
+  <section>
+    <p class="kicker">01 &middot; Side by side</p>
+    <h2>The three <em>candidates</em></h2>
+    <div class="trio">
+      <div class="opt">
+        <div class="top"><b>A &mdash; Monochrome</b><span>eliminated</span></div>
+        <div class="stage"><img src="/brand/crest-512.webp" alt="Monochrome crest"></div>
+        <div class="facts">
+          <div><span class="k">Saturated</span><span class="v">32%</span></div>
+          <div><span class="k">Warm</span><span class="v">100%</span></div>
+          <div><span class="k">Survives 44px</span><span class="v">37.0</span></div>
+          <div><span class="k">Shows a path</span><span class="v">no</span></div>
+        </div>
+      </div>
+      <div class="opt">
+        <div class="top"><b>B &mdash; Full colour</b><span>eliminated</span></div>
+        <div class="stage"><img src="/brand/crestc-512.webp" alt="Full colour crest"></div>
+        <div class="facts">
+          <div><span class="k">Saturated</span><span class="v">72%</span></div>
+          <div><span class="k">Warm</span><span class="v">93.1%</span></div>
+          <div><span class="k">Survives 44px</span><span class="v">59.1</span></div>
+          <div><span class="k">Shows a path</span><span class="v">no</span></div>
+        </div>
+      </div>
+      <div class="opt">
+        <div class="top"><b>C &mdash; Muted road</b><span>finalist</span></div>
+        <div class="stage"><img src="/brand/crestm-512.webp" alt="Muted road crest"></div>
+        <div class="facts">
+          <div><span class="k">Saturated</span><span class="v">48%</span></div>
+          <div><span class="k">Warm</span><span class="v">99.7%</span></div>
+          <div><span class="k">Survives 44px</span><span class="v">55.5</span></div>
+          <div><span class="k">Shows a path</span><span class="v">yes &mdash; dashed</span></div>
+        </div>
+      </div>
+      <div class="opt">
+        <div class="top"><b>D &mdash; River</b><span>out</span></div>
+        <div class="stage"><img src="/brand/crestr-512.webp" alt="River crest"></div>
+        <div class="facts">
+          <div><span class="k">Saturated</span><span class="v">40%</span></div>
+          <div><span class="k">Warm</span><span class="v">100%</span></div>
+          <div><span class="k">Survives 44px</span><span class="v">44.6</span></div>
+          <div><span class="k">Shows a path</span><span class="v">no</span></div>
+        </div>
+      </div>
+      <div class="opt">
+        <div class="top"><b>E &mdash; Road + river</b><span>out</span></div>
+        <div class="stage"><img src="/brand/creste-512.webp" alt="Road + river crest"></div>
+        <div class="facts">
+          <div><span class="k">Saturated</span><span class="v">40%</span></div>
+          <div><span class="k">Warm</span><span class="v">100%</span></div>
+          <div><span class="k">Survives 44px</span><span class="v">42.7</span></div>
+          <div><span class="k">Shows a path</span><span class="v">pale, low contrast</span></div>
+        </div>
+      </div>
+      <div class="opt win">
+        <div class="top"><b>F &mdash; Earth road</b><span>recommended</span></div>
+        <div class="stage"><img src="/brand/crestf-512.webp" alt="Earth road crest"></div>
+        <div class="facts">
+          <div><span class="k">Saturated</span><span class="v">32%</span></div>
+          <div><span class="k">Warm</span><span class="v hot">100%</span></div>
+          <div><span class="k">Survives 44px</span><span class="v hot">43.9</span></div>
+          <div><span class="k">Shows a path</span><span class="v">yes &mdash; cobbled</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="box good"><b>The measurement that decides it.</b> C is <b>99.7% warm</b>. Its blue is desaturated so far that it does not register as a hue at all &mdash; it reads as a cool grey, which the earth palette accommodates without complaint. B was 93.1% warm with a real blue. So C is not a compromise between A and B: on the palette rule it is <em>as compliant as A</em>, while carrying far more story.</div>
+  </section>
+
+  <section>
+    <p class="kicker">02 &middot; The size test</p>
+    <h2>What survives <em>44 pixels</em></h2>
+    <p class="lede">The nav is where the mark lives most of its life. Watch what happens to the S in each.</p>
+
+    <div class="ladder"><h4>A &mdash; Monochrome</h4>
+      <div class="sizes">
+        <div class="sz"><img src="/brand/crest-64.webp" width="16" height="16" alt=""><span class="cap">16</span></div>
+        <div class="sz"><img src="/brand/crest-64.webp" width="24" height="24" alt=""><span class="cap">24</span></div>
+        <div class="sz"><img src="/brand/crest-128.webp" width="44" height="44" alt=""><span class="cap">44 &middot; nav</span></div>
+        <div class="sz"><img src="/brand/crest-128.webp" width="64" height="64" alt=""><span class="cap">64</span></div>
+        <div class="sz"><img src="/brand/crest-256.webp" width="104" height="104" alt=""><span class="cap">104 &middot; hero</span></div>
+      </div></div>
+    <div class="ladder"><h4>B &mdash; Full colour</h4>
+      <div class="sizes">
+        <div class="sz"><img src="/brand/crestc-64.webp" width="16" height="16" alt=""><span class="cap">16</span></div>
+        <div class="sz"><img src="/brand/crestc-64.webp" width="24" height="24" alt=""><span class="cap">24</span></div>
+        <div class="sz"><img src="/brand/crestc-128.webp" width="44" height="44" alt=""><span class="cap">44 &middot; nav</span></div>
+        <div class="sz"><img src="/brand/crestc-128.webp" width="64" height="64" alt=""><span class="cap">64</span></div>
+        <div class="sz"><img src="/brand/crestc-256.webp" width="104" height="104" alt=""><span class="cap">104 &middot; hero</span></div>
+      </div></div>
+    <div class="ladder"><h4>C &mdash; Muted road</h4>
+      <div class="sizes">
+        <div class="sz"><img src="/brand/crestm-64.webp" width="16" height="16" alt=""><span class="cap">16</span></div>
+        <div class="sz"><img src="/brand/crestm-64.webp" width="24" height="24" alt=""><span class="cap">24</span></div>
+        <div class="sz"><img src="/brand/crestm-128.webp" width="44" height="44" alt=""><span class="cap">44 &middot; nav</span></div>
+        <div class="sz"><img src="/brand/crestm-128.webp" width="64" height="64" alt=""><span class="cap">64</span></div>
+        <div class="sz"><img src="/brand/crestm-256.webp" width="104" height="104" alt=""><span class="cap">104 &middot; hero</span></div>
+      </div></div>
+    <div class="ladder"><h4>D &mdash; River</h4>
+      <div class="sizes">
+        <div class="sz"><img src="/brand/crestr-64.webp" width="16" height="16" alt=""><span class="cap">16</span></div>
+        <div class="sz"><img src="/brand/crestr-64.webp" width="24" height="24" alt=""><span class="cap">24</span></div>
+        <div class="sz"><img src="/brand/crestr-128.webp" width="44" height="44" alt=""><span class="cap">44 &middot; nav</span></div>
+        <div class="sz"><img src="/brand/crestr-128.webp" width="64" height="64" alt=""><span class="cap">64</span></div>
+        <div class="sz"><img src="/brand/crestr-256.webp" width="104" height="104" alt=""><span class="cap">104 &middot; hero</span></div>
+      </div></div>
+    <div class="ladder"><h4>E &mdash; Road + river</h4>
+      <div class="sizes">
+        <div class="sz"><img src="/brand/creste-64.webp" width="16" height="16" alt=""><span class="cap">16</span></div>
+        <div class="sz"><img src="/brand/creste-64.webp" width="24" height="24" alt=""><span class="cap">24</span></div>
+        <div class="sz"><img src="/brand/creste-128.webp" width="44" height="44" alt=""><span class="cap">44 &middot; nav</span></div>
+        <div class="sz"><img src="/brand/creste-128.webp" width="64" height="64" alt=""><span class="cap">64</span></div>
+        <div class="sz"><img src="/brand/creste-256.webp" width="104" height="104" alt=""><span class="cap">104 &middot; hero</span></div>
+      </div></div>
+    <div class="ladder"><h4>F &mdash; Earth road</h4>
+      <div class="sizes">
+        <div class="sz"><img src="/brand/crestf-64.webp" width="16" height="16" alt=""><span class="cap">16</span></div>
+        <div class="sz"><img src="/brand/crestf-64.webp" width="24" height="24" alt=""><span class="cap">24</span></div>
+        <div class="sz"><img src="/brand/crestf-128.webp" width="44" height="44" alt=""><span class="cap">44 &middot; nav</span></div>
+        <div class="sz"><img src="/brand/crestf-128.webp" width="64" height="64" alt=""><span class="cap">64</span></div>
+        <div class="sz"><img src="/brand/crestf-256.webp" width="104" height="104" alt=""><span class="cap">104 &middot; hero</span></div>
+      </div></div>
+
+    <div class="box"><b>The unexpected result.</b> C may hold <em>better</em> than A at small size, not worse. In A the S is described by soft tonal shifts, which are the first thing to vanish when an image is downscaled. In C the S is a <b>dark road against cream</b> &mdash; a genuine contrast edge, and contrast edges survive downscaling. Judge it with your own eyes at 24 and 44; that is the whole test.</div>
+  </section>
+
+  <section>
+    <p class="kicker">03 &middot; On both grounds</p>
+    <h2>Deep earth and <em>ivory</em></h2>
+    <div class="grounds">
+      <div class="gr dark"><div class="hd">Deep earth &mdash; the home hero</div>
+        <div class="body">
+          <figure><img src="/brand/crestm-256.webp" alt=""><figcaption>C</figcaption></figure>
+          <figure><img src="/brand/crestf-256.webp" alt=""><figcaption>F</figcaption></figure>
+        </div></div>
+      <div class="gr light"><div class="hd">Aged ivory &mdash; the light default</div>
+        <div class="body">
+          <figure><img src="/brand/crestm-256.webp" alt=""><figcaption>C</figcaption></figure>
+          <figure><img src="/brand/crestf-256.webp" alt=""><figcaption>F</figcaption></figure>
+        </div></div>
+    </div>
+    <div class="box"><b>Both finalists read as medallions on either ground.</b> F sits closest to the deep-earth hero because it shares its exact hue family; C introduces olive and slate, which sit beside the ground rather than in it.</div>
+  </section>
+
+  <section>
+    <p class="kicker">04 &middot; Beside the button</p>
+    <h2>Does it fight the <em>call to action</em>?</h2>
+    <p class="lede">The system has one hot colour, and its job is making the next step unmissable. This is the frame that rejected B.</p>
+    <div class="ctxs">
+      <div class="ctx"><span class="lbl">C &middot; Muted road</span>
+        <span class="ctxrow"><img src="/brand/crestm-64.webp" alt="">SamsKruti</span>
+        <span class="cta">Guide me &nbsp;&rarr;</span></div>
+      <div class="ctx"><span class="lbl">F &middot; Earth road</span>
+        <span class="ctxrow"><img src="/brand/crestf-64.webp" alt="">SamsKruti</span>
+        <span class="cta">Guide me &nbsp;&rarr;</span></div>
+    </div>
+    <div class="box warn"><b>This is where F pulls ahead.</b> At 32% saturation F is as quiet as the original monochrome, so the button stays the loudest thing in the frame. C at 48% puts a second colourful object beside it.</div>
+  </section>
+
+  <section>
+    <p class="kicker">05 &middot; Scored</p>
+    <h2>Against what we <em>locked</em></h2>
+    <div class="scroll">
+      <table class="t">
+        <thead><tr><th>Criterion</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr></thead>
+        <tbody>
+          <tr><td>Cool hues present</td><td class="a">none</td><td class="b">6.9%</td><td class="m">0.3%</td><td class="a">none</td><td class="a">none</td><td class="a">none</td></tr>
+          <tr><td>Saturation</td><td class="a">32%</td><td class="b">72%</td><td class="m">48%</td><td class="m">40%</td><td class="m">40%</td><td class="a">32%</td></tr>
+          <tr><td>Survives 44px</td><td class="b">37.0</td><td class="m">59.1*</td><td class="a">55.5</td><td class="m">44.6</td><td class="b">42.7</td><td class="m">43.9</td></tr>
+          <tr><td>Shows a path</td><td class="b">no</td><td class="b">no</td><td class="a">dashed road</td><td class="b">no</td><td class="m">pale, weak</td><td class="a">cobbled road</td></tr>
+          <tr><td>Beside the CTA</td><td class="a">quietest</td><td class="b">competes</td><td class="m">slightly loud</td><td class="a">quiet</td><td class="a">quiet</td><td class="a">quietest</td></tr>
+          <tr><td>Single-colour print</td><td class="a">easy</td><td class="b">hard</td><td class="m">moderate</td><td class="m">moderate</td><td class="m">moderate</td><td class="a">easy</td></tr>
+          <tr><td>File at 512px</td><td class="m">51KB</td><td class="b">62KB</td><td class="b">67KB</td><td class="m">51KB</td><td class="m">52KB</td><td class="a">40KB</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13.5px;color:var(--muted);margin-top:10px">* B&rsquo;s 44px score is the highest but misleading &mdash; the metric counts surviving contrast, not whether it forms a legible shape. B&rsquo;s is scattered colour.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">06 &middot; The call</p>
+    <h2>What I&rsquo;d <em>choose</em></h2>
+    <div class="verdict">
+      <span class="pick"><img src="/brand/crestf-512.webp" alt="">F &middot; Earth road</span>
+      <h3>F. It is the monochrome, with the flaw fixed.</h3>
+      <p>A was eliminated for one reason: at nav size it retained the least structure of any candidate (37.0). Its S was drawn in soft tonal shifts, and tonal shifts are what downscaling destroys.</p>
+      <p><b>F is the same palette with that flaw repaired.</b> Identical saturation to A at 32% &mdash; equally calm beside the button &mdash; but the dark brown bands give it genuine light-against-dark structure, and it carries <b>19% more of the mark to 44px</b> (43.9 vs 37.0). It has zero cool hues, it is the only candidate that is 100% warm <em>and</em> as quiet as the original, and it shows a cobbled path winding through the frame.</p>
+      <p><b>C remains the legibility champion</b> at 55.5, and if the mark had to survive at 16px above all else, C would win. But it buys that with 48% saturation and olive-and-slate landscape colour, which makes it a second colourful object next to the one element that must always be loudest.</p>
+      <p><b>D and E are out.</b> Both are calm and warm, but D dropped the path entirely, and E&rsquo;s path is pale cream against cream &mdash; it looks like a road at 512px and disappears by 64px, which is the worst of both.</p>
+      <p>F is also the smallest file of the six at 40KB, which is a small thing that says a true thing: it has the least redundant detail.</p>
+    </div>
+  </section>
+
+</div>
+<script>
+(function(){var r=document.documentElement,b=document.querySelectorAll('.seg button[data-set]');
+function a(m){m==='system'?r.removeAttribute('data-theme'):r.setAttribute('data-theme',m);
+ b.forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.set===m));});
+ try{localStorage.setItem('sk-theme',m);}catch(e){}}
+var s='system';try{s=localStorage.getItem('sk-theme')||'system';}catch(e){}a(s);
+b.forEach(function(x){x.addEventListener('click',function(){a(x.dataset.set);});});})();
+</script>
+</body>
+</html>

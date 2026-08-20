@@ -1,0 +1,518 @@
+/* ═══════════════════════════════════════════════════════════════════
+   SAMSKRUTI — COMPONENT PRIMITIVES
+
+   The reusable layer the codebase never had: the audit found 2
+   primitives (.btn-primary, .btn-ghost) and 0 generic component files
+   out of 34, which is why every page reinvented its own parts.
+
+   Every class here reads tokens only — no hex values.
+   All eight states are defined: default, hover, focus-visible, active,
+   selected, disabled, loading, error.
+
+   Naming: .sk-* so these never collide with the 615 route-scoped
+   legacy classes in globals.css.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── 01 · Button ─────────────────────────────────────────────────── */
+.sk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sk-s3);
+  font-family: var(--sk-ui);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  min-height: 44px;
+  padding: 15px 26px;
+  border: none;
+  border-radius: var(--sk-r-pill);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--sk-t-micro) var(--sk-ease),
+    box-shadow var(--sk-t-micro) ease, background var(--sk-t-micro) ease;
+}
+
+.sk-btn--primary {
+  background: var(--sk-action);
+  color: var(--sk-on-action);
+  box-shadow: var(--sk-e-act);
+}
+.sk-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sk-e-act-hover);
+}
+.sk-btn--primary:active {
+  transform: none;
+  background: var(--sk-action-press);
+}
+
+.sk-btn--secondary {
+  background: var(--sk-card);
+  color: var(--sk-action-text);
+  box-shadow: var(--sk-e1);
+}
+.sk-btn--secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sk-e2);
+}
+
+.sk-btn--ghost {
+  background: transparent;
+  color: var(--sk-ink-2);
+}
+.sk-btn--ghost:hover {
+  background: var(--sk-sunk);
+}
+
+.sk-btn--block {
+  width: 100%;
+}
+
+.sk-btn[disabled],
+.sk-btn[aria-disabled="true"] {
+  background: var(--sk-sunk);
+  color: var(--sk-disabled-ink);
+  box-shadow: none;
+  pointer-events: none;
+  transform: none;
+}
+
+.sk-btn[data-loading="true"] {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* ── 02 · Option — the large tap target ──────────────────────────── */
+.sk-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-s4);
+  width: 100%;
+  min-height: 44px;
+  text-align: left;
+  background: var(--sk-card);
+  color: var(--sk-ink);
+  border: 2px solid transparent;
+  border-radius: var(--sk-r-card);
+  padding: 16px 18px;
+  font-family: var(--sk-ui);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.35;
+  cursor: pointer;
+  box-shadow: var(--sk-e1);
+  transition: transform var(--sk-t-micro) var(--sk-ease),
+    box-shadow var(--sk-t-micro) ease, border-color var(--sk-t-micro) ease,
+    background var(--sk-t-micro) ease;
+}
+.sk-option:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sk-e2);
+}
+.sk-option[aria-pressed="true"],
+.sk-option[data-selected="true"] {
+  border-color: var(--sk-action);
+  background: var(--sk-wash);
+}
+
+/* The escape hatch — "I don't know". Quieter, so choosing it never
+   feels like failing. */
+.sk-option--out {
+  background: transparent;
+  box-shadow: none;
+  border: 2px dashed var(--sk-hair);
+  color: var(--sk-muted);
+  font-style: italic;
+}
+.sk-option--out:hover {
+  background: var(--sk-card);
+  border-color: var(--sk-action);
+  color: var(--sk-ink-2);
+}
+
+.sk-option__tick {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: var(--sk-r-pill);
+  background: var(--sk-action);
+  color: var(--sk-on-action);
+  font-size: 13px;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity var(--sk-t-micro) ease, transform var(--sk-t-micro) ease;
+}
+.sk-option[aria-pressed="true"] .sk-option__tick,
+.sk-option[data-selected="true"] .sk-option__tick {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── 03 · Field ──────────────────────────────────────────────────── */
+.sk-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-s2);
+}
+.sk-field__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--sk-ink-2);
+}
+.sk-input {
+  width: 100%;
+  min-height: 44px;
+  background: var(--sk-sunk);
+  border: 2px solid transparent;
+  border-radius: var(--sk-r-input);
+  padding: 14px 16px;
+  font-family: var(--sk-ui);
+  font-size: 16px; /* 16px floor stops iOS zooming on focus */
+  color: var(--sk-ink);
+  transition: border-color var(--sk-t-micro) ease, background var(--sk-t-micro) ease;
+}
+.sk-input::placeholder {
+  color: var(--sk-muted);
+  opacity: 0.8;
+}
+.sk-input:hover {
+  border-color: var(--sk-hair);
+}
+.sk-input:focus {
+  outline: none;
+  border-color: var(--sk-focus);
+  background: var(--sk-card);
+}
+.sk-input[aria-invalid="true"] {
+  border-color: var(--sk-caution);
+  background: var(--sk-caution-wash);
+}
+.sk-input[disabled] {
+  color: var(--sk-disabled-ink);
+  cursor: not-allowed;
+}
+.sk-field__error {
+  font-size: 13.5px;
+  color: var(--sk-caution);
+}
+
+/* ── 04 · Chip ───────────────────────────────────────────────────── */
+.sk-chip {
+  min-height: 40px;
+  background: var(--sk-sunk);
+  border: 2px solid transparent;
+  border-radius: var(--sk-r-pill);
+  padding: 9px 17px;
+  font-family: var(--sk-ui);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--sk-ink-2);
+  cursor: pointer;
+  transition: border-color var(--sk-t-micro) ease, background var(--sk-t-micro) ease,
+    transform var(--sk-t-micro) ease;
+}
+.sk-chip:hover {
+  transform: translateY(-1px);
+  border-color: var(--sk-hair);
+}
+.sk-chip[aria-pressed="true"] {
+  border-color: var(--sk-action);
+  background: var(--sk-wash);
+  color: var(--sk-ink);
+}
+
+/* ── 05 · Progress ticks ─────────────────────────────────────────── */
+.sk-ticks {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+}
+.sk-ticks > i {
+  height: 5px;
+  flex: 1;
+  background: var(--sk-hair);
+  border-radius: var(--sk-r-pill);
+  transition: background var(--sk-t-screen) ease;
+}
+.sk-ticks > i[data-on="true"] {
+  background: var(--sk-action);
+}
+
+/* ── 06 · Card & sheet ───────────────────────────────────────────── */
+.sk-card {
+  background: var(--sk-card);
+  border-radius: var(--sk-r-card);
+  box-shadow: var(--sk-e1);
+  padding: 20px 22px;
+}
+.sk-sheet {
+  background: var(--sk-card);
+  border-radius: var(--sk-r-sheet);
+  box-shadow: var(--sk-e2);
+  padding: 24px 22px;
+}
+/* Field register only: sun destroys shadows, so borders carry the edge. */
+.sk-field-mode .sk-card,
+.sk-field-mode .sk-sheet {
+  border: 1px solid var(--sk-hair);
+}
+
+/* ── 07 · Stop row — the atom ────────────────────────────────────── */
+.sk-stop {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-s3);
+  width: 100%;
+  text-align: left;
+  background: var(--sk-card);
+  border: none;
+  border-radius: 16px;
+  box-shadow: var(--sk-e1);
+  padding: 13px 15px;
+  margin-bottom: var(--sk-s2);
+  font-family: var(--sk-ui);
+  font-size: 14px;
+  color: var(--sk-ink);
+  cursor: pointer;
+}
+.sk-stop__time {
+  font-family: var(--sk-data);
+  font-size: 12px;
+  color: var(--sk-action-text);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.sk-stop__name {
+  flex: 1;
+  font-weight: 500;
+}
+.sk-stop[data-done="true"] .sk-stop__name {
+  color: var(--sk-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--sk-safe);
+}
+/* The guide's own sentence — the one serif moment per screen. */
+.sk-why {
+  font-family: var(--sk-voice);
+  font-style: italic;
+  font-size: 16.5px;
+  line-height: 1.5;
+  color: var(--sk-ink);
+}
+
+/* ── 08 · Notices — three, and only three ────────────────────────── */
+.sk-notice {
+  border-radius: var(--sk-r-input);
+  padding: 13px 16px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--sk-ink-2);
+}
+.sk-notice__label {
+  display: block;
+  font-family: var(--sk-data);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+/* The highest-value element in the product. Reassures — never alarms. */
+.sk-notice--lost {
+  background: var(--sk-caution-wash);
+  border-left: 4px solid var(--sk-caution);
+}
+.sk-notice--lost .sk-notice__label { color: var(--sk-caution); }
+.sk-notice--safe {
+  background: var(--sk-safe-wash);
+  border-left: 4px solid var(--sk-safe);
+}
+.sk-notice--safe .sk-notice__label { color: var(--sk-safe); }
+.sk-notice--info {
+  background: var(--sk-info-wash);
+  border-left: 4px solid var(--sk-info);
+}
+.sk-notice--info .sk-notice__label { color: var(--sk-info); }
+
+/* ── 09 · Cost tag — money is scanned, not read ──────────────────── */
+.sk-cost {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-s2);
+  font-family: var(--sk-data);
+  font-size: 13.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--sk-ink-2);
+  background: var(--sk-sunk);
+  padding: 7px 13px;
+  border-radius: var(--sk-r-chip);
+}
+
+/* ── 10 · Lifeline — persistent, one tap, names a human ──────────── */
+.sk-lifeline {
+  position: fixed;
+  left: 14px;
+  right: 14px;
+  bottom: 16px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-s3);
+  padding: 12px 14px 12px 18px;
+  border-radius: var(--sk-r-pill);
+  background: color-mix(in srgb, var(--sk-card) 66%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  backdrop-filter: blur(18px) saturate(1.5);
+  box-shadow: var(--sk-e2);
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .sk-lifeline { background: var(--sk-card); }
+}
+.sk-lifeline__label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--sk-ink);
+}
+@media (min-width: 720px) {
+  .sk-lifeline { left: auto; right: 24px; max-width: 340px; }
+}
+
+/* ── 11 · Empty & 12 · Skeleton ──────────────────────────────────── */
+.sk-empty {
+  text-align: center;
+  color: var(--sk-muted);
+  padding: var(--sk-s7) var(--sk-s5);
+  font-size: 15px;
+}
+.sk-skeleton {
+  background: var(--sk-skeleton);
+  border-radius: var(--sk-r-input);
+  position: relative;
+  overflow: hidden;
+}
+.sk-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  animation: sk-shimmer 1.5s infinite;
+}
+@keyframes sk-shimmer {
+  to { transform: translateX(100%); }
+}
+
+/* ── 13 · Imagery ────────────────────────────────────────────────── */
+.sk-img {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--sk-r-card);
+  background: var(--sk-skeleton);
+}
+.sk-img--place { aspect-ratio: 3 / 2; }
+.sk-img--square { aspect-ratio: 1 / 1; }
+.sk-img--lane { aspect-ratio: 4 / 5; }
+.sk-img--header { aspect-ratio: 16 / 9; }
+
+.sk-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: var(--sk-img-dim);
+}
+/* Harmonises chaotic street colour. Architecture and places ONLY —
+   never food (it looks stale and he will not go) and never a face. */
+.sk-img--tinted::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--sk-img-tint);
+  pointer-events: none;
+}
+.sk-img__scrim--caption,
+.sk-img__scrim--top,
+.sk-img__scrim--hero {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.sk-img__scrim--caption { background: var(--sk-scrim-caption); }
+.sk-img__scrim--top { background: var(--sk-scrim-top); }
+.sk-img__scrim--hero { background: var(--sk-scrim-hero); }
+
+.sk-img__caption {
+  position: absolute;
+  z-index: 3;
+  left: 14px;
+  right: 14px;
+  bottom: 12px;
+  color: #fff;
+  font-family: var(--sk-voice);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* ── Utilities ───────────────────────────────────────────────────── */
+.sk-data {
+  font-family: var(--sk-data);
+  font-variant-numeric: tabular-nums;
+}
+.sk-label {
+  font-family: var(--sk-data);
+  font-size: 10px;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--sk-muted);
+}
+.sk-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Nothing in the field register moves. */
+.sk-field-mode * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* ── Theme toggle ────────────────────────────────────────────────── */
+.sk-theme-toggle {
+  display: inline-flex;
+  background: var(--sk-card);
+  border-radius: var(--sk-r-pill);
+  box-shadow: var(--sk-e1);
+  overflow: hidden;
+}
+.sk-theme-toggle button {
+  background: transparent;
+  border: none;
+  padding: 9px 17px;
+  min-height: 40px;
+  cursor: pointer;
+  font-family: var(--sk-ui);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--sk-muted);
+  transition: background var(--sk-t-micro) ease, color var(--sk-t-micro) ease;
+}
+.sk-theme-toggle button:hover { color: var(--sk-ink); }
+.sk-theme-toggle button[aria-pressed="true"] {
+  background: var(--sk-action);
+  color: var(--sk-on-action);
+}

@@ -1,0 +1,196 @@
+/* ═══════════════════════════════════════════════════════════════════
+   SAMSKRUTI — DESIGN TOKENS.  The single source of truth.
+
+   Every value here is measured, not estimated: all text pairs clear
+   4.5:1 in both themes (lowest 4.64:1), and card-to-ground separation
+   sits at 1.105:1 light / 1.216:1 dark — at or above the iOS (1.116)
+   and Material (1.103) norms.
+
+   THREE THEME STATES, and all three are required:
+     :root                        the complete light palette
+     prefers-color-scheme: dark   guarded so an explicit light choice wins
+     [data-theme="dark"]          so the toggle wins in both directions
+
+   THE ONE RULE: no hex value may appear outside this file.
+
+   Spec + live proof: /design/design-system.html
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── ground ── deepened so cards read without relying on shadow ── */
+  --sk-g1: #f8f3eb;
+  --sk-g2: #efe3d2;
+  --sk-card: #ffffff;
+  --sk-sunk: #f4ebdd;
+  --sk-hair: #ebe0d0;
+
+  /* ── ink ── */
+  --sk-ink: #241a10;
+  --sk-ink-2: #4a3728;
+  --sk-muted: #6e5d4b;
+
+  /* ── brand ── one hue, three jobs. Gold is deliberately absent:
+     it measured 3.1:1 as text and 2.5:1 as a divider, so it could not
+     carry information in any role. It lives in the logo only. ── */
+  --sk-terracotta: #c8652a;   /* the mark, icons, ornament */
+  --sk-action: #b85a22;       /* button fills */
+  --sk-action-press: #9c4a1b;
+  --sk-action-text: #9c4a1b;  /* terracotta as TEXT — must be darker */
+  --sk-on-action: #ffffff;    /* the label that sits on a fill */
+  --sk-wash: #fbede3;
+
+  /* ── semantic ── the retired segment colours, re-employed ── */
+  --sk-caution: #a83828;      /* was Swaad — scams, what not to do */
+  --sk-caution-wash: #fbeae7;
+  --sk-safe: #3d7050;         /* was Galiyan — done, fair, safe */
+  --sk-safe-wash: #e9f2ec;
+  --sk-info: #5e5348;         /* deliberately hueless: a tip is not an alarm */
+  --sk-info-wash: #f2ece3;
+
+  /* ── state ── */
+  --sk-disabled-ink: #a2988c; /* WCAG-exempt, kept readable on purpose */
+  --sk-skeleton: #ebe1d4;
+  --sk-focus: #9c4a1b;
+
+  /* ── imagery ── alphas verified against a blown-out white sky ── */
+  --sk-scrim: rgba(20, 10, 4, 0.65);
+  --sk-scrim-caption: linear-gradient(
+    180deg, transparent 40%, rgba(20, 10, 4, 0.3) 66%, rgba(20, 10, 4, 0.78) 100%
+  );                                          /* 10.1:1 */
+  --sk-scrim-top: linear-gradient(180deg, rgba(20, 10, 4, 0.45), transparent 38%); /* 3.1:1 */
+  --sk-scrim-hero: rgba(20, 10, 4, 0.62);     /* 5.6:1 */
+  --sk-img-tint: rgba(200, 101, 42, 0.06);    /* place & architecture ONLY */
+  --sk-img-dim: none;
+
+  /* ── shape ── soft, because familiarity lowers anxiety ── */
+  --sk-r-chip: 10px;
+  --sk-r-input: 14px;
+  --sk-r-card: 20px;
+  --sk-r-sheet: 28px;
+  --sk-r-pill: 999px;
+
+  /* ── elevation ── warm-tinted; neutral black greys out a warm ground ── */
+  --sk-e1: 0 1px 2px rgba(74, 55, 40, 0.04), 0 4px 14px -6px rgba(74, 55, 40, 0.1);
+  --sk-e2: 0 2px 4px rgba(74, 55, 40, 0.05), 0 14px 30px -10px rgba(74, 55, 40, 0.16);
+  --sk-e3: 0 8px 20px -6px rgba(74, 55, 40, 0.14), 0 30px 60px -20px rgba(74, 55, 40, 0.24);
+  --sk-e-act: 0 6px 18px -6px rgba(184, 90, 34, 0.46);
+  --sk-e-act-hover: 0 12px 26px -8px rgba(184, 90, 34, 0.55);
+
+  /* ── type ── the split carries meaning:
+     voice = a person is speaking · ui = logistics · data = figures ── */
+  --sk-voice: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --sk-ui: "Segoe UI", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --sk-data: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", monospace;
+
+  /* ── space ── 4px base ── */
+  --sk-s1: 4px;  --sk-s2: 8px;  --sk-s3: 12px; --sk-s4: 16px;
+  --sk-s5: 24px; --sk-s6: 32px; --sk-s7: 48px; --sk-s8: 64px; --sk-s9: 96px;
+
+  /* ── motion ── none of this applies in the field register ── */
+  --sk-t-micro: 170ms;
+  --sk-t-screen: 400ms;
+  --sk-ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+/* Dark is a designed peer, not an inversion. Terracotta LIFTS rather
+   than flips — the same hue, raised until it carries on earth, with an
+   ink label instead of white (white on #C8652A measures only 3.92:1). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --sk-g1: #150e07;
+    --sk-g2: #0a0603;
+    --sk-card: #2e2016;
+    --sk-sunk: #221709;
+    --sk-hair: #41301f;
+
+    --sk-ink: #f4ece2;
+    --sk-ink-2: #d8c7b4;
+    --sk-muted: #a08d77;
+
+    --sk-terracotta: #e08246;
+    --sk-action: #e08246;
+    --sk-action-press: #d2762f;
+    --sk-action-text: #e08246;
+    --sk-on-action: #241a10;
+    --sk-wash: #3a2317;
+
+    --sk-caution: #e07a62;
+    --sk-caution-wash: #3a201a;
+    --sk-safe: #7fb394;
+    --sk-safe-wash: #1e2e25;
+    --sk-info: #b3a797;
+    --sk-info-wash: #2a2119;
+
+    --sk-disabled-ink: #6e6255;
+    --sk-skeleton: #3a2a1e;
+    --sk-focus: #e08246;
+
+    --sk-scrim: rgba(6, 3, 1, 0.72);
+    --sk-scrim-hero: rgba(6, 3, 1, 0.68);
+    --sk-img-dim: brightness(0.88);
+
+    --sk-e1: 0 1px 2px rgba(0, 0, 0, 0.32), 0 4px 14px -6px rgba(0, 0, 0, 0.52);
+    --sk-e2: 0 2px 4px rgba(0, 0, 0, 0.36), 0 14px 30px -10px rgba(0, 0, 0, 0.62);
+    --sk-e3: 0 8px 20px -6px rgba(0, 0, 0, 0.5), 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+    --sk-e-act: 0 6px 18px -6px rgba(200, 101, 42, 0.5);
+    --sk-e-act-hover: 0 12px 26px -8px rgba(200, 101, 42, 0.6);
+  }
+}
+
+:root[data-theme="dark"] {
+  --sk-g1: #150e07;
+  --sk-g2: #0a0603;
+  --sk-card: #2e2016;
+  --sk-sunk: #221709;
+  --sk-hair: #41301f;
+
+  --sk-ink: #f4ece2;
+  --sk-ink-2: #d8c7b4;
+  --sk-muted: #a08d77;
+
+  --sk-terracotta: #e08246;
+  --sk-action: #e08246;
+  --sk-action-press: #d2762f;
+  --sk-action-text: #e08246;
+  --sk-on-action: #241a10;
+  --sk-wash: #3a2317;
+
+  --sk-caution: #e07a62;
+  --sk-caution-wash: #3a201a;
+  --sk-safe: #7fb394;
+  --sk-safe-wash: #1e2e25;
+  --sk-info: #b3a797;
+  --sk-info-wash: #2a2119;
+
+  --sk-disabled-ink: #6e6255;
+  --sk-skeleton: #3a2a1e;
+  --sk-focus: #e08246;
+
+  --sk-scrim: rgba(6, 3, 1, 0.72);
+  --sk-scrim-hero: rgba(6, 3, 1, 0.68);
+  --sk-img-dim: brightness(0.88);
+
+  --sk-e1: 0 1px 2px rgba(0, 0, 0, 0.32), 0 4px 14px -6px rgba(0, 0, 0, 0.52);
+  --sk-e2: 0 2px 4px rgba(0, 0, 0, 0.36), 0 14px 30px -10px rgba(0, 0, 0, 0.62);
+  --sk-e3: 0 8px 20px -6px rgba(0, 0, 0, 0.5), 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+  --sk-e-act: 0 6px 18px -6px rgba(200, 101, 42, 0.5);
+  --sk-e-act-hover: 0 12px 26px -8px rgba(200, 101, 42, 0.6);
+}
+
+/* The page ground. A soft gradient, never a flat slab — white cards
+   need something to float on. */
+.sk-app {
+  min-height: 100svh;
+  background: linear-gradient(172deg, var(--sk-g1) 0%, var(--sk-g2) 100%) no-repeat fixed;
+  color: var(--sk-ink);
+  font-family: var(--sk-ui);
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --sk-t-micro: 0ms;
+    --sk-t-screen: 0ms;
+  }
+}

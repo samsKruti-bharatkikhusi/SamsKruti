@@ -1,0 +1,195 @@
+/* ─────────────────────────────────────────────────────────────────
+   THE DOOR — route "/" (previewed at /new-style)
+   One screen. No nav, no map, no menu.
+
+   Shape language: soft. The headline sits on the gradient ground;
+   everything actionable lives in one floating white card. Separation
+   is by shadow, not by rules.
+   Colour and type come from src/styles/brand.module.css (.scope).
+   ───────────────────────────────────────────────────────────────── */
+
+.door {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Wordmark: a soft chip, not a masthead ───────────────────────── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  align-self: flex-start;
+  margin: 26px clamp(20px, 6vw, 64px) 0;
+  padding: 8px 16px 8px 12px;
+  background: var(--card);
+  border-radius: var(--r-pill);
+  box-shadow: var(--e1);
+  flex-shrink: 0;
+}
+
+.markGlyph {
+  display: block;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+/* ── The one screen ──────────────────────────────────────────────── */
+.stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 34px clamp(20px, 6vw, 64px) 20px;
+}
+
+.copy {
+  width: 100%;
+  max-width: 440px;
+}
+
+.headline {
+  font-family: var(--face-util);
+  font-weight: 700;
+  font-size: clamp(38px, 9vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+
+.pain {
+  font-size: 17.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0 0 26px;
+  max-width: 30ch;
+}
+
+/* ── Everything actionable, in one floating card ─────────────────── */
+.panel {
+  background: var(--card);
+  border-radius: var(--r-sheet);
+  box-shadow: var(--e2);
+  padding: 26px 24px 22px;
+}
+
+/* Serif italic = a human is speaking. The only serif on the screen. */
+.promise {
+  font-family: var(--face-voice);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 22px;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  background: var(--action);
+  color: var(--on-action);
+  font-family: var(--face-util);
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 18px 28px;
+  border-radius: var(--r-pill);
+  box-shadow: var(--e-action);
+  transition: transform 0.18s cubic-bezier(0.2, 0.7, 0.3, 1),
+    box-shadow 0.18s ease, background 0.14s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -8px rgba(184, 90, 34, 0.55);
+}
+
+.cta:active {
+  transform: translateY(0);
+  background: var(--action-press);
+}
+
+.arrow {
+  transition: transform 0.18s ease;
+}
+
+.cta:hover .arrow {
+  transform: translateX(3px);
+}
+
+.fine {
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 14px 0 0;
+}
+
+/* ── Footer: the differentiator, stated plainly ──────────────────── */
+.foot {
+  flex-shrink: 0;
+  padding: 4px clamp(20px, 6vw, 64px) 34px;
+  display: flex;
+  justify-content: center;
+}
+
+.byline {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+  max-width: 42ch;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.byline strong {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+/* ── Entrance: one gentle move, not a performance ────────────────── */
+.rise {
+  animation: rise 0.66s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+}
+
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.14s; }
+.d3 { animation-delay: 0.23s; }
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .cta,
+  .arrow {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (min-width: 720px) {
+  .stage {
+    justify-content: center;
+  }
+  .copy {
+    max-width: 470px;
+  }
+}

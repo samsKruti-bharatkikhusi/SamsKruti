@@ -1,0 +1,380 @@
+/* ─────────────────────────────────────────────────────────────────
+   THE ASKING — route "/guide"
+   Three questions, one per screen. Big soft tap targets.
+
+   Shape language: soft. Each option is a rounded card that lifts
+   slightly on hover; the selected one fills with a warm wash rather
+   than shouting. Separation by shadow, never by hard rules.
+   Colour and type come from src/styles/brand.module.css (.scope).
+   ───────────────────────────────────────────────────────────────── */
+
+.asking {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Top bar: where he is, and the way back ──────────────────────── */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 22px clamp(18px, 5vw, 56px) 0;
+  flex-shrink: 0;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--card);
+  border: none;
+  border-radius: var(--r-pill);
+  padding: 9px 17px 9px 14px;
+  cursor: pointer;
+  font-family: var(--face-util);
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  box-shadow: var(--e1);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.back:hover {
+  transform: translateX(-2px);
+  box-shadow: var(--e2);
+}
+
+.backHidden {
+  visibility: hidden;
+}
+
+.count {
+  font-size: 13.5px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Progress — four soft ticks, because the handoff is a step too. */
+.ticks {
+  display: flex;
+  gap: 6px;
+  padding: 16px clamp(18px, 5vw, 56px) 0;
+  flex-shrink: 0;
+}
+
+.tick {
+  height: 5px;
+  flex: 1;
+  max-width: 84px;
+  background: var(--hair);
+  border-radius: var(--r-pill);
+  transition: background 0.32s ease;
+}
+
+.tickOn {
+  background: var(--action);
+}
+
+/* ── The question ────────────────────────────────────────────────── */
+.stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px clamp(18px, 5vw, 56px) 44px;
+}
+
+.inner {
+  width: 100%;
+  max-width: 460px;
+}
+
+.question {
+  font-family: var(--face-util);
+  font-weight: 700;
+  font-size: clamp(29px, 6.5vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.aside {
+  font-size: 16px;
+  color: var(--muted);
+  margin: 0 0 26px;
+  max-width: 36ch;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  text-align: left;
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid transparent;
+  border-radius: var(--r-card);
+  padding: 18px 20px;
+  font-family: var(--face-util);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+  cursor: pointer;
+  box-shadow: var(--e1);
+  transition: transform 0.16s cubic-bezier(0.2, 0.7, 0.3, 1),
+    box-shadow 0.16s ease, border-color 0.14s ease, background 0.14s ease;
+}
+
+.option:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--e2);
+}
+
+.optionOn {
+  border-color: var(--action);
+  background: var(--action-wash);
+}
+
+/* The escape hatch — "I don't know". Quieter, because it must feel
+   allowed rather than like a failure. */
+.optionOut {
+  margin-top: 4px;
+  background: transparent;
+  box-shadow: none;
+  border: 2px dashed var(--hair);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.optionOut:hover {
+  background: var(--card);
+  border-color: var(--action);
+  color: var(--ink-soft);
+}
+
+.optionMark {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: var(--r-pill);
+  background: var(--action);
+  color: var(--on-action);
+  font-size: 13px;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.optionOn .optionMark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── The handoff ─────────────────────────────────────────────────── */
+.sheet {
+  background: var(--card);
+  border-radius: var(--r-sheet);
+  box-shadow: var(--e2);
+  padding: 24px 22px 22px;
+  margin-bottom: 16px;
+}
+
+.summary {
+  background: var(--card-sunk);
+  border-radius: var(--r-input);
+  padding: 14px 16px;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.summaryRow {
+  display: flex;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 1.4;
+  align-items: baseline;
+}
+
+.summaryKey {
+  font-size: 12.5px;
+  color: var(--muted);
+  width: 74px;
+  flex-shrink: 0;
+}
+
+.summaryVal {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.input {
+  background: var(--card-sunk);
+  border: 2px solid transparent;
+  border-radius: var(--r-input);
+  padding: 15px 17px;
+  font-family: var(--face-util);
+  font-size: 17px;
+  color: var(--ink);
+  width: 100%;
+  transition: border-color 0.14s ease, background 0.14s ease;
+}
+
+.input::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.input:hover {
+  border-color: var(--hair);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--action);
+  background: var(--card);
+}
+
+.arrivals {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.arrival {
+  background: var(--card-sunk);
+  border: 2px solid transparent;
+  border-radius: var(--r-pill);
+  padding: 11px 20px;
+  font-family: var(--face-util);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color 0.14s ease, background 0.14s ease, transform 0.14s ease;
+}
+
+.arrival:hover {
+  transform: translateY(-1px);
+  border-color: var(--hair);
+}
+
+.arrivalOn {
+  border-color: var(--action);
+  background: var(--action-wash);
+  color: var(--ink);
+}
+
+/* The one hot element on the page. */
+.send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  background: var(--action);
+  color: var(--on-action);
+  font-family: var(--face-util);
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  padding: 18px 28px;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  box-shadow: var(--e-action);
+  transition: transform 0.18s cubic-bezier(0.2, 0.7, 0.3, 1),
+    box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+.send:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -8px rgba(184, 90, 34, 0.55);
+}
+
+.sendOff {
+  pointer-events: none;
+  opacity: 0.38;
+  box-shadow: none;
+}
+
+.fine {
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 13px 0 0;
+}
+
+.promise {
+  font-family: var(--face-voice);
+  font-style: italic;
+  font-size: 17.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+  text-align: center;
+  padding: 0 8px;
+}
+
+/* ── Each screen arrives on its own ──────────────────────────────── */
+.enter {
+  animation: enter 0.4s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(11px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter,
+  .option,
+  .send,
+  .back,
+  .arrival,
+  .optionMark {
+    animation: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>SamsKruti Design System</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   SAMSKRUTI — DESIGN SYSTEM  ·  FINAL
+   Warm soft minimalism. Terracotta family preserved. Gold dropped.
+   Every value below is measured, not estimated.
+   This page is rendered in the system it specifies.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ground — deepened so cards read without relying on shadow */
+  --g1: #F8F3EB;
+  --g2: #EFE3D2;
+  --card: #FFFFFF;
+  --sunk: #F4EBDD;
+  --hair: #EBE0D0;
+
+  /* ink */
+  --ink: #241A10;
+  --ink-2: #4A3728;
+  --muted: #6E5D4B;
+
+  /* brand — one hue, three jobs */
+  --terracotta: #C8652A;   /* the mark, ornament, icons */
+  --action: #B85A22;       /* button fills */
+  --action-press: #9C4A1B;
+  --action-text: #9C4A1B;  /* terracotta as TEXT — needs to be darker */
+  --on-action: #FFFFFF;    /* the label that sits on a fill */
+  --wash: #FBEDE3;
+
+  /* semantic */
+  --caution: #A83828;
+  --caution-wash: #FBEAE7;
+  --safe: #3D7050;
+  --safe-wash: #E9F2EC;
+  --info: #5E5348;
+  --info-wash: #F2ECE3;
+
+  /* state */
+  --disabled-ink: #A2988C;
+  --skeleton: #EBE1D4;
+  --scrim: rgba(20,10,4,.65);
+  --focus: #9C4A1B;
+
+  /* shape */
+  --r-chip: 10px; --r-input: 14px; --r-card: 20px; --r-sheet: 28px; --r-pill: 999px;
+
+  /* elevation — warm-tinted, never neutral black */
+  --e1: 0 1px 2px rgba(74,55,40,.04), 0 4px 14px -6px rgba(74,55,40,.10);
+  --e2: 0 2px 4px rgba(74,55,40,.05), 0 14px 30px -10px rgba(74,55,40,.16);
+  --e3: 0 8px 20px -6px rgba(74,55,40,.14), 0 30px 60px -20px rgba(74,55,40,.24);
+  --e-act: 0 6px 18px -6px rgba(184,90,34,.46);
+
+  --voice: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --ui: "Segoe UI", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --data: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --g1: #150E07; --g2: #0A0603; --card: #2E2016; --sunk: #221709; --hair: #41301F;
+    --ink: #F4ECE2; --ink-2: #D8C7B4; --muted: #A08D77;
+    --terracotta: #E08246; --action: #E08246; --action-press: #D2762F;
+    --action-text: #E08246; --on-action: #241A10; --wash: #3A2317;
+    --caution: #E07A62; --caution-wash: #3A201A;
+    --safe: #7FB394; --safe-wash: #1E2E25;
+    --info: #B3A797; --info-wash: #2A2119;
+    --disabled-ink: #6E6255; --skeleton: #3A2A1E; --scrim: rgba(6,3,1,.72);
+    --focus: #E08246;
+    --e1: 0 1px 2px rgba(0,0,0,.32), 0 4px 14px -6px rgba(0,0,0,.52);
+    --e2: 0 2px 4px rgba(0,0,0,.36), 0 14px 30px -10px rgba(0,0,0,.62);
+    --e3: 0 8px 20px -6px rgba(0,0,0,.5), 0 30px 60px -20px rgba(0,0,0,.7);
+    --e-act: 0 6px 18px -6px rgba(200,101,42,.5);
+  }
+}
+:root[data-theme="dark"] {
+  --g1: #150E07; --g2: #0A0603; --card: #2E2016; --sunk: #221709; --hair: #41301F;
+  --ink: #F4ECE2; --ink-2: #D8C7B4; --muted: #A08D77;
+  --terracotta: #E08246; --action: #E08246; --action-press: #D2762F;
+  --action-text: #E08246; --on-action: #241A10; --wash: #3A2317;
+  --caution: #E07A62; --caution-wash: #3A201A;
+  --safe: #7FB394; --safe-wash: #1E2E25;
+  --info: #B3A797; --info-wash: #2A2119;
+  --disabled-ink: #6E6255; --skeleton: #3A2A1E; --scrim: rgba(6,3,1,.72);
+  --focus: #E08246;
+  --e1: 0 1px 2px rgba(0,0,0,.32), 0 4px 14px -6px rgba(0,0,0,.52);
+  --e2: 0 2px 4px rgba(0,0,0,.36), 0 14px 30px -10px rgba(0,0,0,.62);
+  --e3: 0 8px 20px -6px rgba(0,0,0,.5), 0 30px 60px -20px rgba(0,0,0,.7);
+  --e-act: 0 6px 18px -6px rgba(200,101,42,.5);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0 20px 130px; color: var(--ink); font-family: var(--ui);
+  font-size: 17px; line-height: 1.62; -webkit-font-smoothing: antialiased;
+  background: linear-gradient(172deg, var(--g1) 0%, var(--g2) 100%) no-repeat fixed; }
+.wrap { max-width: 940px; margin: 0 auto; }
+p { max-width: 66ch; }
+h1,h2,h3,h4 { font-family: var(--ui); font-weight: 700; letter-spacing: -.025em; text-wrap: balance; }
+.kicker { font-family: var(--data); font-size: 10.5px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+
+/* controls */
+.controls { position: sticky; top: 0; z-index: 40; display: flex; flex-wrap: wrap; gap: 10px;
+  align-items: center; padding: 14px 0 16px; background: linear-gradient(180deg, var(--g1) 62%, transparent); }
+.seg { display: inline-flex; background: var(--card); border-radius: var(--r-pill); box-shadow: var(--e1); overflow: hidden; }
+.seg button { background: transparent; border: none; padding: 9px 17px; cursor: pointer;
+  font-family: var(--ui); font-size: 13.5px; font-weight: 500; color: var(--muted); transition: .16s; }
+.seg button:hover { color: var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--action); color: var(--on-action); }
+.ctl-label { font-family: var(--data); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1fr auto; gap: 52px; align-items: center; padding: 34px 0 68px; }
+.hero h1 { font-size: clamp(40px,6.4vw,68px); line-height: 1.02; margin: 0 0 20px; }
+.hero h1 em { font-style: normal; color: var(--terracotta); }
+.hero .stand { font-family: var(--voice); font-style: italic; font-size: clamp(19px,2.4vw,23px);
+  line-height: 1.48; color: var(--ink-2); margin: 0 0 22px; max-width: 34ch; }
+.hero .meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-family: var(--data); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 7px 14px; border-radius: var(--r-pill); background: var(--card); box-shadow: var(--e1); color: var(--ink-2); }
+
+section { padding: 60px 0 0; }
+section > h2 { font-size: clamp(27px,3.6vw,38px); margin: 0 0 10px; }
+section > h2 em { font-style: normal; color: var(--terracotta); }
+.lede { color: var(--ink-2); margin: 0 0 30px; max-width: 62ch; font-size: 17.5px; }
+h3.sub { font-size: 19px; margin: 40px 0 14px; letter-spacing: -.01em; }
+
+.rule-box { background: var(--card); border-radius: var(--r-card); box-shadow: var(--e1);
+  border-left: 4px solid var(--terracotta); padding: 18px 22px; margin: 24px 0 0;
+  color: var(--ink-2); font-size: 15.5px; }
+.rule-box.warn { border-left-color: var(--caution); }
+.rule-box.good { border-left-color: var(--safe); }
+.rule-box b { color: var(--ink); }
+
+/* ladder */
+.ladder { display: flex; flex-direction: column-reverse; gap: 8px; }
+.tier { display: grid; grid-template-columns: 44px 1fr auto; gap: 16px; align-items: center;
+  background: var(--card); border-radius: var(--r-card); box-shadow: var(--e1); padding: 15px 20px; }
+.tier .tn { font-family: var(--data); font-size: 11px; color: var(--muted); }
+.tier strong { display: block; font-size: 16px; }
+.tier span.need { font-size: 14px; color: var(--muted); }
+.owns { font-family: var(--data); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: var(--r-pill); white-space: nowrap; }
+.owns.no { background: var(--caution-wash); color: var(--caution); }
+.owns.yes { background: var(--safe-wash); color: var(--safe); }
+
+/* swatches */
+.sws { display: grid; grid-template-columns: repeat(auto-fill,minmax(158px,1fr)); gap: 14px; }
+.sw { background: var(--card); border-radius: var(--r-card); box-shadow: var(--e1); overflow: hidden; }
+.sw .chip { height: 62px; display: flex; align-items: flex-end; justify-content: flex-end; padding: 8px; }
+.sw .ratio { font-family: var(--data); font-size: 9.5px; padding: 3px 8px; border-radius: var(--r-pill);
+  background: rgba(255,255,255,.92); color: #241A10; }
+.sw .m { padding: 12px 14px 14px; }
+.sw .role { display: block; font-size: 13.5px; font-weight: 600; }
+.sw .hex { font-family: var(--data); font-size: 11px; color: var(--muted); }
+.sw .use { display: block; margin-top: 6px; font-size: 12.5px; color: var(--ink-2); line-height: 1.45; }
+
+/* demos */
+.spec-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 18px; }
+.demo-card { background: var(--card); border-radius: var(--r-card); box-shadow: var(--e1); overflow: hidden; }
+.dc-head { padding: 13px 20px; border-bottom: 1px solid var(--hair); display: flex;
+  justify-content: space-between; align-items: baseline; gap: 12px; }
+.dc-head strong { font-size: 15px; }
+.dc-head span { font-family: var(--data); font-size: 10px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted); }
+.dc-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.dc-body p { margin: 0; font-size: 14.5px; color: var(--ink-2); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--ui); font-size: 16px; font-weight: 600; border: none; cursor: pointer;
+  padding: 15px 26px; border-radius: var(--r-pill); text-decoration: none;
+  transition: transform .17s cubic-bezier(.2,.7,.3,1), box-shadow .17s, background .14s; }
+.btn-primary { background: var(--action); color: var(--on-action); box-shadow: var(--e-act); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px rgba(184,90,34,.55); }
+.btn-primary:active { transform: none; background: var(--action-press); }
+.btn-secondary { background: var(--card); color: var(--action-text); box-shadow: var(--e1); }
+.btn-secondary:hover { transform: translateY(-2px); box-shadow: var(--e2); }
+.btn-ghost { background: transparent; color: var(--ink-2); }
+.btn-ghost:hover { background: var(--sunk); }
+.btn-disabled { background: var(--sunk); color: var(--disabled-ink); box-shadow: none; pointer-events: none; }
+
+.opt { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%;
+  background: var(--card); border: 2px solid transparent; border-radius: var(--r-card);
+  padding: 16px 18px; font-family: var(--ui); font-size: 16px; font-weight: 500; color: var(--ink);
+  text-align: left; cursor: pointer; box-shadow: var(--e1);
+  transition: transform .16s cubic-bezier(.2,.7,.3,1), box-shadow .16s, border-color .14s, background .14s; }
+.opt:hover { transform: translateY(-2px); box-shadow: var(--e2); }
+.opt.on { border-color: var(--action); background: var(--wash); }
+.opt.out { background: transparent; box-shadow: none; border: 2px dashed var(--hair);
+  color: var(--muted); font-style: italic; }
+.tk { display: grid; place-items: center; width: 24px; height: 24px; border-radius: var(--r-pill);
+  background: var(--action); color: var(--on-action); font-size: 13px; flex-shrink: 0; }
+.tk.off { background: transparent; }
+
+.field-in { width: 100%; background: var(--sunk); border: 2px solid transparent;
+  border-radius: var(--r-input); padding: 14px 16px; font-family: var(--ui); font-size: 16px; color: var(--ink); }
+.field-in:focus { outline: none; border-color: var(--focus); background: var(--card); }
+.field-in.err { border-color: var(--caution); background: var(--caution-wash); }
+.field-in.dis { color: var(--disabled-ink); }
+.err-msg { font-size: 13.5px; color: var(--caution); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip-b { background: var(--sunk); border: 2px solid transparent; border-radius: var(--r-pill);
+  padding: 9px 17px; font-family: var(--ui); font-size: 14.5px; font-weight: 500; color: var(--ink-2); cursor: pointer; }
+.chip-b.on { border-color: var(--action); background: var(--wash); color: var(--ink); }
+
+.notice { width: 100%; border-radius: var(--r-input); padding: 13px 16px; font-size: 14.5px; color: var(--ink-2); }
+.notice b { display: block; font-family: var(--data); font-size: 9.5px; letter-spacing: .16em;
+  text-transform: uppercase; margin-bottom: 5px; }
+.n-lost { background: var(--caution-wash); border-left: 4px solid var(--caution); }
+.n-lost b { color: var(--caution); }
+.n-safe { background: var(--safe-wash); border-left: 4px solid var(--safe); }
+.n-safe b { color: var(--safe); }
+.n-info { background: var(--info-wash); border-left: 4px solid var(--info); }
+.n-info b { color: var(--info); }
+
+.skel { width: 100%; display: flex; flex-direction: column; gap: 9px; }
+.skel i { display: block; height: 12px; border-radius: var(--r-pill); background: var(--skeleton); }
+.skel i:nth-child(2) { width: 78%; } .skel i:nth-child(3) { width: 54%; }
+
+.plate { position: relative; width: 100%; height: 132px; border-radius: var(--r-card); overflow: hidden;
+  background: linear-gradient(122deg,#E9DCC6,#FFFFFF 45%,#F0E2CE); margin: 6px 0 0; }
+.plate .scrim { position: absolute; inset: 0; background: linear-gradient(180deg,transparent 38%,var(--scrim)); }
+.plate figcaption { position: absolute; left: 14px; right: 14px; bottom: 12px; color: #fff;
+  font-family: var(--voice); font-style: italic; font-size: 15px; }
+
+.ticks { display: flex; gap: 6px; width: 100%; }
+.ticks i { height: 5px; flex: 1; background: var(--hair); border-radius: var(--r-pill); }
+.ticks i.on { background: var(--action); }
+.cost { display: inline-flex; gap: 8px; font-family: var(--data); font-size: 13.5px; color: var(--ink-2);
+  background: var(--sunk); padding: 7px 13px; border-radius: var(--r-chip); }
+
+/* tables */
+.scroll { overflow-x: auto; }
+table.spec { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 560px;
+  background: var(--card); border-radius: var(--r-card); box-shadow: var(--e1); overflow: hidden; }
+table.spec th { text-align: left; font-family: var(--data); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted); font-weight: 400; padding: 15px 18px 11px; }
+table.spec td { padding: 11px 18px; border-top: 1px solid var(--hair); vertical-align: top; }
+table.spec .mono { font-family: var(--data); color: var(--action-text); white-space: nowrap;
+  font-variant-numeric: tabular-nums; }
+
+/* phones */
+.screens { display: grid; grid-template-columns: repeat(auto-fit,minmax(292px,1fr)); gap: 40px 28px; align-items: start; }
+.screen-fig { margin: 0; display: flex; flex-direction: column; gap: 15px; align-items: center; }
+.screen-cap { text-align: center; max-width: 32ch; }
+.screen-cap strong { display: block; font-size: 16.5px; margin-bottom: 3px; }
+.screen-cap span { font-size: 14px; color: var(--muted); line-height: 1.5; }
+.phone { width: 300px; border-radius: 42px; padding: 9px; background: var(--card); box-shadow: var(--e3); flex-shrink: 0; }
+.pscreen { border-radius: 34px; overflow: hidden; height: 606px; position: relative;
+  background: linear-gradient(172deg,var(--g1),var(--g2)); display: flex; flex-direction: column;
+  font-size: 14px; line-height: 1.5; }
+.pscreen.field-mode { background: #F6F0E6; color: #241A10; }
+
+body[data-sun="on"] .pscreen { filter: contrast(.58) brightness(1.3) saturate(.8); }
+body[data-sun="on"] .pscreen::after { content: ""; position: absolute; inset: 0;
+  background: rgba(255,255,255,.2); pointer-events: none; }
+
+.statusbar { display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 20px 4px; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+.statusbar .dots { display: flex; gap: 3px; align-items: center; }
+.statusbar .dots i { width: 4px; height: 4px; border-radius: 50%; background: currentColor; display: block; }
+.statusbar .batt { width: 20px; height: 10px; border-radius: 3px; border: 1.4px solid currentColor; position: relative; }
+.statusbar .batt::after { content: ""; position: absolute; inset: 2px; right: 6px; background: currentColor; border-radius: 1px; }
+
+.pbody { flex: 1; overflow: hidden; padding: 10px 18px 18px; display: flex; flex-direction: column; }
+.pbody.scrolls { overflow-y: auto; }
+.p-chip { display: inline-flex; align-items: center; gap: 7px; background: var(--card);
+  border-radius: var(--r-pill); padding: 7px 14px 7px 11px; box-shadow: var(--e1);
+  font-size: 12px; font-weight: 600; color: var(--ink-2); align-self: flex-start; }
+.p-h1 { font-size: 31px; font-weight: 700; letter-spacing: -.03em; line-height: 1.06; margin: 20px 0 10px; }
+.p-h2 { font-size: 25px; font-weight: 700; letter-spacing: -.028em; line-height: 1.1; margin: 0 0 6px; }
+.p-sub { font-size: 14.5px; color: var(--muted); margin: 0 0 18px; }
+.p-card { background: var(--card); border-radius: var(--r-sheet); box-shadow: var(--e2); padding: 20px 18px; }
+.p-voice { font-family: var(--voice); font-style: italic; font-size: 17px; line-height: 1.45; margin: 0 0 18px; }
+.p-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+  background: var(--action); color: var(--on-action); font-size: 16px; font-weight: 600;
+  padding: 15px; border-radius: var(--r-pill); box-shadow: var(--e-act); }
+.p-fine { text-align: center; font-size: 12px; color: var(--muted); margin: 11px 0 0; }
+.p-foot { font-size: 11.5px; color: var(--muted); text-align: center; margin: auto 0 0; line-height: 1.45; }
+.p-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.p-back { display: inline-flex; align-items: center; gap: 6px; background: var(--card);
+  border-radius: var(--r-pill); padding: 7px 14px 7px 11px; box-shadow: var(--e1); font-size: 13px; color: var(--ink-2); }
+.p-count { font-size: 12.5px; color: var(--muted); }
+.p-opts { display: flex; flex-direction: column; gap: 9px; margin-top: 16px; }
+.p-opt { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--card); border: 2px solid transparent; border-radius: 18px; padding: 14px 15px;
+  font-size: 14.5px; font-weight: 500; box-shadow: var(--e1); }
+.p-opt.on { border-color: var(--action); background: var(--wash); }
+.p-opt.out { background: transparent; box-shadow: none; border: 2px dashed var(--hair);
+  color: var(--muted); font-style: italic; font-size: 14px; }
+.p-tick { display: grid; place-items: center; width: 21px; height: 21px; border-radius: 50%;
+  background: var(--action); color: var(--on-action); font-size: 11px; flex-shrink: 0; }
+.p-stats { display: flex; gap: 8px; margin: 14px 0 18px; }
+.p-stat { flex: 1; background: var(--card); border-radius: 16px; box-shadow: var(--e1); padding: 12px; }
+.p-stat b { display: block; font-size: 19px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.p-stat span { font-size: 11px; color: var(--muted); }
+.p-label { font-family: var(--data); font-size: 9.5px; letter-spacing: .17em; text-transform: uppercase;
+  color: var(--muted); margin: 16px 0 9px; }
+.p-row { display: flex; align-items: center; gap: 11px; background: var(--card); border-radius: 16px;
+  box-shadow: var(--e1); padding: 13px 15px; margin-bottom: 8px; font-size: 14px; }
+.p-row .t { font-family: var(--data); font-size: 12px; color: var(--action-text);
+  font-variant-numeric: tabular-nums; flex-shrink: 0; }
+.p-row .n { flex: 1; font-weight: 500; }
+.p-row .c { color: var(--muted); font-size: 17px; }
+.p-glass { position: absolute; left: 14px; right: 14px; bottom: 16px; background: rgba(255,255,255,.66);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5); backdrop-filter: blur(18px) saturate(1.5);
+  border-radius: var(--r-pill); padding: 12px 14px 12px 18px; display: flex; align-items: center;
+  justify-content: space-between; gap: 12px; box-shadow: 0 8px 26px -8px rgba(74,55,40,.32); }
+:root[data-theme="dark"] .p-glass { background: rgba(52,36,24,.7); }
+.p-glass .gl { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.p-glass .gr { background: var(--action); color: var(--on-action); border-radius: var(--r-pill);
+  padding: 8px 16px; font-size: 13px; font-weight: 600; }
+.p-open { background: var(--card); border-radius: 20px; box-shadow: var(--e2); padding: 17px; margin-top: 10px; }
+.p-open .oh { display: flex; gap: 10px; align-items: baseline; margin-bottom: 3px; }
+.p-open .ot { font-family: var(--data); font-size: 12px; color: var(--action-text); }
+.p-open .on2 { font-size: 17px; font-weight: 700; letter-spacing: -.02em; }
+.p-open .where { font-size: 13px; color: var(--muted); margin: 0 0 14px; }
+.p-meta { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 14px; }
+.p-meta span { font-family: var(--data); font-size: 11.5px; background: var(--sunk);
+  padding: 6px 11px; border-radius: var(--r-chip); color: var(--ink-2); }
+.p-lost { background: var(--caution-wash); border-left: 3px solid var(--caution); border-radius: 12px;
+  padding: 11px 13px; font-size: 13px; line-height: 1.5; color: var(--ink-2); }
+.p-lost b { display: block; font-family: var(--data); font-size: 9px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--caution); margin-bottom: 4px; }
+
+/* field register — hairline borders, because sun kills shadows */
+.field-mode .p-now { font-family: var(--data); font-size: 10.5px; letter-spacing: .18em;
+  text-transform: uppercase; color: #9C4A1B; margin: 18px 0 6px; }
+.field-mode .p-big { font-size: 33px; font-weight: 700; letter-spacing: -.03em; line-height: 1.05;
+  margin: 0 0 8px; color: #241A10; }
+.field-mode .p-where2 { font-size: 16px; color: #4A3728; margin: 0 0 16px; }
+.field-mode .p-say { background: #fff; border: 1px solid #EBE0D0; border-radius: 18px; padding: 15px 16px;
+  font-size: 16px; color: #241A10; margin-bottom: 14px; line-height: 1.6; }
+.field-mode .p-say em { font-style: normal; font-family: var(--data); font-size: 14.5px; }
+.field-mode .p-next { border-top: 1px solid #E5D9C7; padding-top: 14px; font-size: 15px; color: #4A3728; }
+.field-mode .p-next b { display: block; font-family: var(--data); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: #6E5D4B; margin-bottom: 4px; }
+.field-mode .p-btn { background: #B85A22; color: #fff; }
+
+/* ── imagery ── */
+.img-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(178px,1fr)); gap: 16px; }
+.ifig { margin: 0; background: var(--card); border-radius: var(--r-card); box-shadow: var(--e1); overflow: hidden; }
+.ifig .frame { position: relative; width: 100%; overflow: hidden; }
+.ar-32 { aspect-ratio: 3/2; } .ar-11 { aspect-ratio: 1/1; }
+.ar-45 { aspect-ratio: 4/5; } .ar-169 { aspect-ratio: 16/9; }
+.frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.frame .tint { position: absolute; inset: 0; background: var(--img-tint, rgba(200,101,42,.06)); }
+:root[data-theme="dark"] .frame img { filter: brightness(.88); }
+.ph-bright { background: linear-gradient(158deg,#FFFFFF,#F6F1E6 58%,#E2D6C2); }
+.ph-mid    { background: linear-gradient(158deg,#D6C4A8,#8A7358 52%,#42352A); }
+.ph-ghat   { background: linear-gradient(168deg,#EFD49A,#C77E4A 38%,#7A4B31 72%,#2E1E14); }
+.ph-lane   { background: linear-gradient(190deg,#E3D3B6,#A8714C 45%,#3A2418); }
+.ifig figcaption { padding: 11px 14px 13px; font-size: 13px; color: var(--ink-2); }
+.ifig figcaption b { display: block; font-family: var(--data); font-size: 9.5px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+
+.sc-cap { position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(20,10,4,.30) 66%, rgba(20,10,4,.78) 100%); }
+.sc-top { position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(20,10,4,.45), transparent 38%); }
+.sc-hero { position: absolute; inset: 0; background: rgba(20,10,4,.62); }
+.on-img { position: absolute; left: 13px; right: 13px; bottom: 11px; color: #fff;
+  font-family: var(--voice); font-style: italic; font-size: 14.5px; line-height: 1.4; }
+.on-img-top { position: absolute; left: 12px; top: 11px; color: #fff; font-size: 13px;
+  font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+.on-img-hero { position: absolute; left: 16px; right: 16px; top: 50%; transform: translateY(-50%);
+  color: #fff; text-align: center; }
+.on-img-hero b { display: block; font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+.on-img-hero span { font-size: 12.5px; opacity: .9; }
+.ratio-badge { position: absolute; right: 10px; top: 10px; font-family: var(--data); font-size: 10px;
+  background: rgba(255,255,255,.92); color: #241A10; padding: 3px 8px; border-radius: var(--r-pill); }
+
+/* image states */
+.st-skel { background: var(--skeleton); position: relative; overflow: hidden; }
+.st-skel::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  animation: shimmer 1.5s infinite; }
+@keyframes shimmer { to { transform: translateX(100%); } }
+.st-blur { background: linear-gradient(158deg,#D6C4A8,#8A7358 52%,#42352A); filter: blur(11px); transform: scale(1.1); }
+.st-fail { background: var(--sunk); display: grid; place-items: center; color: var(--muted);
+  font-size: 12.5px; text-align: center; padding: 12px; }
+
+/* the photo policy */
+.policy { display: grid; grid-template-columns: repeat(auto-fit,minmax(268px,1fr)); gap: 16px; }
+.policy > div { background: var(--card); border-radius: var(--r-card); box-shadow: var(--e1); padding: 20px 22px; }
+.policy h4 { margin: 0 0 12px; font-size: 15px; display: flex; align-items: center; gap: 9px; }
+.policy .mk { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 12px; color: #fff; }
+.policy .never .mk { background: var(--caution); }
+.policy .always .mk { background: var(--safe); }
+.policy ul { margin: 0; padding-left: 18px; }
+.policy li { font-size: 14.5px; color: var(--ink-2); margin-bottom: 7px; }
+
+/* do / don't */
+.dd { display: grid; grid-template-columns: repeat(auto-fit,minmax(272px,1fr)); gap: 16px; }
+.dd > div { background: var(--card); border-radius: var(--r-card); box-shadow: var(--e1); padding: 20px 22px; }
+.dd h4 { margin: 0 0 12px; font-size: 15px; display: flex; align-items: center; gap: 9px; }
+.dd .mk { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; color: #fff; }
+.dd .do .mk { background: var(--safe); } .dd .dont .mk { background: var(--caution); }
+.dd ul { margin: 0; padding-left: 18px; }
+.dd li { font-size: 14.5px; color: var(--ink-2); margin-bottom: 7px; }
+
+.closer { margin-top: 70px; padding: 28px 30px; background: var(--card); border-radius: var(--r-sheet);
+  box-shadow: var(--e2); font-family: var(--voice); font-style: italic; font-size: 20px;
+  line-height: 1.5; color: var(--ink-2); }
+.closer b { color: var(--terracotta); font-style: normal; font-weight: 600; }
+
+a { color: var(--action-text); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 8px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+@media (max-width: 780px) { .hero { grid-template-columns: 1fr; gap: 34px; }
+  .tier { grid-template-columns: 40px 1fr; } .tier .owns { grid-column: 2; justify-self: start; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="controls">
+    <span class="ctl-label">Theme</span>
+    <div class="seg" role="group" aria-label="Theme">
+      <button type="button" data-set="light" aria-pressed="false">Light</button>
+      <button type="button" data-set="dark" aria-pressed="false">Dark</button>
+      <button type="button" data-set="system" aria-pressed="true">System</button>
+    </div>
+    <span class="ctl-label">Sunlight</span>
+    <div class="seg" role="group" aria-label="Sunlight simulation">
+      <button type="button" data-sun="off" aria-pressed="true">Off</button>
+      <button type="button" data-sun="on" aria-pressed="false">Midday</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div>
+      <p class="kicker">SamsKruti &middot; Design system &middot; Final</p>
+      <h1>Remove elements, <em>not warmth</em>.</h1>
+      <p class="stand">Warm soft minimalism. The interface gets out of the way so the guiding can be heard.</p>
+      <div class="meta">
+        <span class="tag">Both themes verified</span><span class="tag">Gold dropped</span>
+        <span class="tag">Glass &times;2 only</span><span class="tag">Measured, not estimated</span>
+      </div>
+    </div>
+    <figure class="screen-fig">
+      <div class="phone"><div class="pscreen">
+        <div class="statusbar"><span>9:41</span><span class="dots"><i></i><i></i><i></i><span class="batt"></span></span></div>
+        <div class="pbody">
+          <span class="p-chip"><svg width="15" height="15" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 15.5 L11 5.5 L19 15.5" fill="none" stroke="var(--terracotta)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>SamsKruti</span>
+          <h2 class="p-h1">First time in Varanasi?</h2>
+          <p class="p-sub">Forty videos in, and you still don&rsquo;t know where to start.</p>
+          <div class="p-card">
+            <p class="p-voice">I&rsquo;ll walk you through it &mdash; from before you land to your last morning.</p>
+            <div class="p-btn">Guide me &nbsp;&rarr;</div>
+            <p class="p-fine">Free &middot; three questions &middot; two minutes</p>
+          </div>
+          <p class="p-foot"><strong>Written by hand, by someone who walks these lanes.</strong><br>Not generated, not scraped from a hundred videos.</p>
+        </div>
+      </div></div>
+    </figure>
+  </header>
+
+  <section>
+    <p class="kicker">01 &middot; The spine</p>
+    <h2>Aklavya&rsquo;s ladder is the <em>instrument</em></h2>
+    <p class="lede">The tool every screen is checked with. Read bottom-up, the way he lives it. Tiers one to three must be answered before four and five can land at all.</p>
+    <div class="ladder">
+      <div class="tier"><span class="tn">T5</span><div><strong>Self-actualisation</strong><span class="need">Where to go &middot; the experience he came for</span></div><span class="owns yes">Owned</span></div>
+      <div class="tier"><span class="tn">T4</span><div><strong>Esteem</strong><span class="need">Photos &middot; what to buy &middot; the famous tastes</span></div><span class="owns yes">Owned</span></div>
+      <div class="tier"><span class="tn">T3</span><div><strong>Belonging</strong><span class="need">Etiquette &middot; will anyone understand me</span></div><span class="owns no">Owned by nothing</span></div>
+      <div class="tier"><span class="tn">T2</span><div><strong>Safety</strong><span class="need">Budget &middot; scams &middot; transport &middot; SIM &middot; cash</span></div><span class="owns no">Owned by nothing</span></div>
+      <div class="tier"><span class="tn">T1</span><div><strong>Physiological</strong><span class="need">Where to stay &middot; what to eat &middot; safe water</span></div><span class="owns no">Owned by nothing</span></div>
+    </div>
+    <div class="rule-box warn"><b>Three of five tiers are owned by nothing, and they are the three that come first.</b> That is why a beautiful product can leave a first-timer unhelped &mdash; it answers his last question before his first. The method: <b>find the lowest failing tier, and fix only that.</b></div>
+  </section>
+
+  <section>
+    <p class="kicker">02 &middot; Colour</p>
+    <h2>One family, and <em>gold is gone</em></h2>
+    <p class="lede">Every ratio below is computed from the token values. Gold was removed from the system: it measured 3.1:1 as text and 2.5:1 as a divider, so it could not legally carry information in any role &mdash; while being the strongest antique cue in the palette. It survives in the logo, which is untouched.</p>
+
+    <h3 class="sub">Brand &mdash; one hue, three jobs</h3>
+    <div class="sws">
+      <div class="sw"><div class="chip" style="background:#C8652A"><span class="ratio">3.9:1</span></div><div class="m"><span class="role">Terracotta</span><span class="hex">#C8652A</span><span class="use">The mark, icons, ornament. Headings 24px+ only.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#B85A22"><span class="ratio">4.6:1</span></div><div class="m"><span class="role">Action</span><span class="hex">#B85A22</span><span class="use">Button fills. White label passes AA.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#9C4A1B"><span class="ratio">6.2:1</span></div><div class="m"><span class="role">Action text</span><span class="hex">#9C4A1B</span><span class="use">Terracotta as text or link. Also the focus ring.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#FBEDE3"></div><div class="m"><span class="role">Wash</span><span class="hex">#FBEDE3</span><span class="use">Selected rows and chips.</span></div></div>
+    </div>
+
+    <h3 class="sub">Ink and ground</h3>
+    <div class="sws">
+      <div class="sw"><div class="chip" style="background:#241A10"><span class="ratio">17.1:1</span></div><div class="m"><span class="role">Ink</span><span class="hex">#241A10</span><span class="use">Body copy and headings.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#4A3728"><span class="ratio">11.2:1</span></div><div class="m"><span class="role">Ink 2</span><span class="hex">#4A3728</span><span class="use">Secondary copy.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#6E5D4B"><span class="ratio">6.3:1</span></div><div class="m"><span class="role">Muted</span><span class="hex">#6E5D4B</span><span class="use">Captions and eyebrows &mdash; gold&rsquo;s old job.</span></div></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(172deg,#F8F3EB,#EFE3D2)"></div><div class="m"><span class="role">Ground</span><span class="hex">#F8F3EB &rarr; #EFE3D2</span><span class="use">Deepened so white cards read at 1.11&ndash;1.27:1.</span></div></div>
+    </div>
+
+    <h3 class="sub">Semantic &mdash; the retired segment colours, re-employed</h3>
+    <div class="sws">
+      <div class="sw"><div class="chip" style="background:#A83828"><span class="ratio">6.4:1</span></div><div class="m"><span class="role">Caution</span><span class="hex">#A83828</span><span class="use">Scams, what not to do, the confusion note. Was Swaad.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#3D7050"><span class="ratio">5.8:1</span></div><div class="m"><span class="role">Safe</span><span class="hex">#3D7050</span><span class="use">Done, fair price, safe to drink. Was Galiyan.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#5E5348"><span class="ratio">7.5:1</span></div><div class="m"><span class="role">Info</span><span class="hex">#5E5348</span><span class="use">Neutral notes. Deliberately hueless, so a tip never reads as an alarm.</span></div></div>
+    </div>
+
+    <h3 class="sub">State &mdash; the five that were missing</h3>
+    <div class="sws">
+      <div class="sw"><div class="chip" style="background:#A2988C"><span class="ratio">2.8:1</span></div><div class="m"><span class="role">Disabled ink</span><span class="hex">#A2988C</span><span class="use">WCAG-exempt, but kept readable on purpose.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#EBE1D4"></div><div class="m"><span class="role">Skeleton</span><span class="hex">#EBE1D4</span><span class="use">Loading placeholders.</span></div></div>
+      <div class="sw"><div class="chip" style="background:rgba(20,10,4,.65)"></div><div class="m"><span class="role">Scrim</span><span class="hex">rgba(20,10,4,.65)</span><span class="use">Under glass on photos. 0.65 guarantees 6.2:1 even over a white image.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#9C4A1B"><span class="ratio">4.9:1</span></div><div class="m"><span class="role">Focus</span><span class="hex">#9C4A1B</span><span class="use">Its own token now. Clears 3:1 on card, ground and sunk.</span></div></div>
+    </div>
+
+    <div class="rule-box good"><b>Verified:</b> every text pair in both themes passes 4.5:1, lowest 4.64:1. Card-to-ground separation is 1.105:1 light and 1.216:1 dark &mdash; at or above the iOS (1.116) and Material (1.103) norms.</div>
+    <div class="rule-box"><b>The rule that makes it a system:</b> no hex value may appear outside the token file.</div>
+  </section>
+
+  <section>
+    <p class="kicker">03 &middot; Shape, type, motion</p>
+    <h2>Soft is a <em>safety</em> decision</h2>
+    <p class="lede">Aklavya reads Google and Amazon fluently every day, and fluency lowers anxiety. Sharp editorial says &ldquo;a magazine to admire&rdquo;; soft consumer shape says &ldquo;a tool you already know how to use.&rdquo;</p>
+    <div class="scroll">
+      <table class="spec">
+        <thead><tr><th>Token</th><th>Value</th><th>Applies to</th></tr></thead>
+        <tbody>
+          <tr><td>Radius</td><td class="mono">10 / 14 / 20 / 28 / pill</td><td>Chip, input, card, sheet, button. Nothing square.</td></tr>
+          <tr><td>Elevation</td><td class="mono">e1 / e2 / e3</td><td>Rest, hover, floating. Warm-tinted, never black.</td></tr>
+          <tr><td>Action shadow</td><td class="mono">terracotta 46%</td><td>Under the primary button only &mdash; the premium detail.</td></tr>
+          <tr><td>Card padding</td><td class="mono">20&ndash;26px</td><td>Cramped padding kills premium faster than any colour.</td></tr>
+          <tr><td>Field hairline</td><td class="mono">1px #EBE0D0</td><td><strong>Field register only.</strong> Sun kills shadows; borders survive.</td></tr>
+          <tr><td>Type &mdash; UI</td><td class="mono">system sans 700</td><td>Headlines tight at &minus;.03em. All functional text.</td></tr>
+          <tr><td>Type &mdash; voice</td><td class="mono">serif italic</td><td>The guide speaking. Once per screen, never more.</td></tr>
+          <tr><td>Type &mdash; data</td><td class="mono">mono, tabular</td><td>Times, costs, durations.</td></tr>
+          <tr><td>Scale</td><td class="mono">12 / 14 / 15.5 / 17 / 20 / 25 / 31 / 48</td><td>Eight steps, nothing off-scale.</td></tr>
+          <tr><td>Motion</td><td class="mono">170ms / 400ms</td><td>Micro and screen-entry. None in the field register.</td></tr>
+          <tr><td>Target</td><td class="mono">44px min</td><td>Thumb-reachable one-handed.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">04 &middot; Components</p>
+    <h2>Live, and in <em>every state</em></h2>
+    <p class="lede">Not pictures of components &mdash; the components. Hover them, tab through them, flip the theme and watch them hold.</p>
+    <div class="spec-grid">
+      <div class="demo-card">
+        <div class="dc-head"><strong>Button</strong><span>4 variants</span></div>
+        <div class="dc-body">
+          <button class="btn btn-primary">Guide me &nbsp;&rarr;</button>
+          <button class="btn btn-secondary">Read the day</button>
+          <button class="btn btn-ghost">&larr; Back</button>
+          <button class="btn btn-disabled">Send &mdash; needs a name</button>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="dc-head"><strong>Option</strong><span>The tap target</span></div>
+        <div class="dc-body">
+          <button class="opt">The river and the rituals<span class="tk off"></span></button>
+          <button class="opt on">The makers and their hands<span class="tk">&#10003;</span></button>
+          <button class="opt out">I don&rsquo;t know &mdash; you decide<span class="tk off"></span></button>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="dc-head"><strong>Field</strong><span>Default / error / disabled</span></div>
+        <div class="dc-body">
+          <input class="field-in" type="text" placeholder="Your name" aria-label="Your name">
+          <input class="field-in err" type="text" value="+91 8" aria-label="Phone number">
+          <span class="err-msg">That number is too short to reach you on.</span>
+          <input class="field-in dis" type="text" value="Varanasi (the only city, for now)" aria-label="City" disabled>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="dc-head"><strong>Chip, progress, cost</strong><span>Small parts</span></div>
+        <div class="dc-body">
+          <div class="chips"><button class="chip-b on">Morning</button><button class="chip-b">Afternoon</button><button class="chip-b">Evening</button></div>
+          <div class="ticks"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <span class="cost">&#8377;60 for two &middot; cash only</span>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="dc-head"><strong>Notices</strong><span>Three, and only three</span></div>
+        <div class="dc-body">
+          <div class="notice n-lost"><b>If you are confused here</b>There is no menu and no queue. Say what you want, eat, then pay at the counter on your way out.</div>
+          <div class="notice n-safe"><b>Safe</b>This stall boils its water. You can drink the chai.</div>
+          <div class="notice n-info"><b>Note</b>Sunrise is 05:48 this week. The boat is worth the alarm.</div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="dc-head"><strong>Skeleton &amp; plate</strong><span>Loading, and glass on a photo</span></div>
+        <div class="dc-body">
+          <div class="skel"><i></i><i></i><i></i></div>
+          <figure class="plate">
+            <div class="scrim"></div>
+            <figcaption>The scrim guarantees the caption, whatever the photograph does.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">05 &middot; The flow</p>
+    <h2>How it actually <em>looks</em></h2>
+    <p class="lede">Four screens, in order. Switch Sunlight to Midday &mdash; the field screen is the one that must survive it, and it now carries hairline borders so it does not depend on shadow.</p>
+    <div class="screens">
+
+      <figure class="screen-fig">
+        <div class="phone"><div class="pscreen">
+          <div class="statusbar"><span>9:41</span><span class="dots"><i></i><i></i><i></i><span class="batt"></span></span></div>
+          <div class="pbody">
+            <div class="p-bar"><span class="p-back">&larr; Back</span><span class="p-count">Question 2 of 3</span></div>
+            <div class="ticks"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+            <h3 class="p-h2" style="margin-top:22px">What pulls you?</h3>
+            <p class="p-sub" style="margin-bottom:0">There is no wrong answer, and you can want more than one thing.</p>
+            <div class="p-opts">
+              <div class="p-opt">The river and the rituals</div>
+              <div class="p-opt on">The food<span class="p-tick">&#10003;</span></div>
+              <div class="p-opt">The makers and their hands</div>
+              <div class="p-opt">Just walking, no plan</div>
+              <div class="p-opt out">I don&rsquo;t know &mdash; you decide</div>
+            </div>
+          </div>
+        </div></div>
+        <figcaption class="screen-cap"><strong>The Asking</strong><span>One question per screen. The escape hatch is set apart so choosing it never feels like failing.</span></figcaption>
+      </figure>
+
+      <figure class="screen-fig">
+        <div class="phone"><div class="pscreen">
+          <div class="statusbar"><span>9:41</span><span class="dots"><i></i><i></i><i></i><span class="batt"></span></span></div>
+          <div class="pbody scrolls">
+            <h3 class="p-h2">Arjun&rsquo;s Varanasi</h3>
+            <p class="p-sub" style="margin-bottom:0">3 days &middot; slow &middot; lands Tuesday evening</p>
+            <div class="p-stats">
+              <div class="p-stat"><b>3</b><span>days</span></div>
+              <div class="p-stat"><b>18</b><span>stops</span></div>
+              <div class="p-stat"><b>&#8377;4,200</b><span>est.</span></div>
+            </div>
+            <p class="p-label">Settle first</p>
+            <div class="p-row"><span class="n">Before you land</span><span class="c">&rsaquo;</span></div>
+            <div class="p-row"><span class="n">What things cost</span><span class="c">&rsaquo;</span></div>
+            <div class="p-row"><span class="n">What never to do</span><span class="c">&rsaquo;</span></div>
+            <p class="p-label">Day one &mdash; the river</p>
+            <div class="p-row"><span class="t">05:40</span><span class="n">Boat, Assi to Manikarnika</span><span class="c">&rsaquo;</span></div>
+            <div class="p-row"><span class="t">08:15</span><span class="n">Kachori, Thatheri Bazar</span><span class="c">&rsaquo;</span></div>
+            <div class="p-row"><span class="t">09:30</span><span class="n">Kashi Vishwanath</span><span class="c">&rsaquo;</span></div>
+          </div>
+          <div class="p-glass"><span class="gl">Lost? Call Vishal</span><span class="gr">Call</span></div>
+        </div></div>
+        <figcaption class="screen-cap"><strong>The Plan</strong><span>Ground before days, always. The lifeline floats in glass &mdash; one of only two permitted uses.</span></figcaption>
+      </figure>
+
+      <figure class="screen-fig">
+        <div class="phone"><div class="pscreen">
+          <div class="statusbar"><span>9:41</span><span class="dots"><i></i><i></i><i></i><span class="batt"></span></span></div>
+          <div class="pbody scrolls">
+            <p class="p-label" style="margin-top:4px">Day one &middot; stop 2</p>
+            <div class="p-open">
+              <div class="oh"><span class="ot">08:15</span><span class="on2">Kachori sabzi</span></div>
+              <p class="where">Thatheri Bazar, second lane on the left</p>
+              <p class="p-voice" style="font-size:15.5px;margin-bottom:14px">Breakfast in Banaras is fried, sweet, and eaten standing up. Sit down and you have already missed the point.</p>
+              <div class="p-meta"><span>&#8377;60 for two</span><span>cash only</span><span>15 min</span></div>
+              <div class="p-lost"><b>If you are confused here</b>There is no menu and no queue. Say what you want, eat, then pay at the counter on your way out.</div>
+            </div>
+          </div>
+        </div></div>
+        <figcaption class="screen-cap"><strong>The Stop, open</strong><span>The atom. Serif for the why, mono for the money, caution for the confusion.</span></figcaption>
+      </figure>
+
+      <figure class="screen-fig">
+        <div class="phone"><div class="pscreen field-mode">
+          <div class="statusbar"><span>7:12</span><span class="dots"><i></i><i></i><i></i><span class="batt"></span></span></div>
+          <div class="pbody">
+            <p class="p-now">Now &middot; Day 2</p>
+            <h3 class="p-big">Kachori sabzi</h3>
+            <p class="p-where2">Thatheri Bazar, second lane</p>
+            <div class="p-say">&#8377;60 for two &middot; cash only<br>Say: <em>&ldquo;do kachori, ek chai&rdquo;</em></div>
+            <div class="p-next"><b>Next &middot; 09:00</b>Kashi Vishwanath &nbsp;&rarr;</div>
+            <div style="margin-top:auto"><div class="p-btn">I&rsquo;m lost &mdash; call</div></div>
+          </div>
+        </div></div>
+        <figcaption class="screen-cap"><strong>The Walk</strong><span>Field register: hairline borders, huge type, one card, zero motion. Turn Sunlight on &mdash; this is the screen that must hold.</span></figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">06 &middot; Imagery</p>
+    <h2>The product is mostly <em>photographs</em></h2>
+    <p class="lede">Everything above specifies type on colour. But Aklavya will spend most of his time looking at pictures of places, food and faces &mdash; so imagery needs the same rigour. All swatches below are CSS stand-ins, now the real photographs from <code>/data/images/</code>, including the bright daylight one, because that is the photograph that breaks scrims.</p>
+
+    <h3 class="sub">Four ratios, and no others</h3>
+    <p class="lede" style="margin-bottom:18px">Fixed ratios stop the layout jumping as images load &mdash; the single biggest source of &ldquo;cheap&rdquo; feel in an image-heavy app. Each ratio has one job.</p>
+    <div class="img-grid">
+      <figure class="ifig"><div class="frame ar-32"><img src="/data/images/varanasi/ghats-golden.png" alt="The Varanasi ghats at golden hour, seen from the river"><span class="ratio-badge">3:2</span></div>
+        <figcaption><b>Place</b>Ghats, temples, streets. The default.</figcaption></figure>
+      <figure class="ifig"><div class="frame ar-11"><img src="/data/images/hriday/wooden-toys/product.png" alt="Varanasi wooden lacquer toys"><span class="ratio-badge">1:1</span></div>
+        <figcaption><b>Maker &amp; craft</b>Portraits and objects. Square keeps rows even.</figcaption></figure>
+      <figure class="ifig"><div class="frame ar-45"><img src="/data/images/varanasi/galiyan/dashashwamedh-ghat/ghat-lit-at-night.jpg" alt="The ghat lit at night, seen from the river"><span class="ratio-badge">4:5</span></div>
+        <figcaption><b>The lane</b>Varanasi&rsquo;s lanes are vertical. Note this is a landscape file cropped by the frame &mdash; the library has no true vertical photograph yet.</figcaption></figure>
+      <figure class="ifig"><div class="frame ar-169"><img src="/data/images/varanasi/ghats-aerial.jpg" alt="The Varanasi riverfront from above"><span class="ratio-badge">16:9</span></div>
+        <figcaption><b>Day header</b>Wide, low, sits under a title.</figcaption></figure>
+    </div>
+
+    <h3 class="sub">What the real library actually contains</h3>
+    <p class="lede" style="margin-bottom:18px">Measured across all 23 files in <code>/public/data/images/</code>. The images above are the real ones; this is what checking them against the spec found.</p>
+    <div class="scroll">
+      <table class="spec">
+        <thead><tr><th>Finding</th><th>Measured</th><th>What it means</th></tr></thead>
+        <tbody>
+          <tr><td>Over the weight budget</td><td class="mono">19 of 23</td><td>Several exceed 2MB. <code>page-04-places.png</code> is 2,534KB against a 180KB budget &mdash; roughly 14&times;. All PNGs need converting to AVIF/WebP.</td></tr>
+          <tr><td>Within budget</td><td class="mono">4 of 23</td><td>All four are JPEGs at modest dimensions. This is the format lesson in one line.</td></tr>
+          <tr><td>True vertical (4:5)</td><td class="mono">0</td><td>The lane shot &mdash; arguably the most characteristic Varanasi frame &mdash; does not exist yet. The demo above is a landscape file cropped.</td></tr>
+          <tr><td>Food photographs</td><td class="mono">0</td><td>Half the guide is where to eat. There is nothing to show.</td></tr>
+          <tr><td>Maker portraits</td><td class="mono">0</td><td>Crafts exist as product shots; the hands and faces that make them do not.</td></tr>
+          <tr><td>Captioned + alt text</td><td class="mono">5 of 23</td><td>Only the Dashashwamedh set has a README with English and Hindi captions. That file is the model for the rest.</td></tr>
+          <tr><td>Licence confirmed</td><td class="mono">0</td><td>The Dashashwamedh README flags this itself: downloaded for an internal draft, to be licensed or replaced before publication.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rule-box warn"><b>The shoot list this produces.</b> Vertical lanes, food as served, and makers&rsquo; hands and faces &mdash; in that order. The place photography is largely covered; the tiers-1-to-3 imagery, the part that actually reassures him, is missing entirely. It is the same gap as the content: the library photographs what Varanasi <em>looks</em> like, not what he <em>needs</em>.</div>
+
+    <h3 class="sub">Three scrims, tested on the brightest real photo</h3>
+    <div class="img-grid">
+      <figure class="ifig"><div class="frame ar-32"><img src="/data/images/varanasi/galiyan/dashashwamedh-ghat/boats-by-day.jpg" alt="Boats and umbrellas at the ghat by day"><div class="sc-cap"></div>
+        <p class="on-img">The lane nobody maps is the one worth entering.</p></div>
+        <figcaption><b>Caption scrim &middot; ends .78</b>10.1:1 white text even on a blown-out sky.</figcaption></figure>
+      <figure class="ifig"><div class="frame ar-32"><img src="/data/images/varanasi/galiyan/dashashwamedh-ghat/boats-by-day.jpg" alt="Boats and umbrellas at the ghat by day"><div class="sc-top"></div>
+        <span class="on-img-top">&larr; Day one</span></div>
+        <figcaption><b>Top scrim &middot; .45</b>3.1:1 &mdash; enough for icons and controls over an image.</figcaption></figure>
+      <figure class="ifig"><div class="frame ar-32"><img src="/data/images/varanasi/galiyan/dashashwamedh-ghat/aerial-golden-hour.jpg" alt="The ghat from above at golden hour"><div class="sc-hero"></div>
+        <div class="on-img-hero"><b>Manikarnika</b><span>Day one &middot; stop 4</span></div></div>
+        <figcaption><b>Hero scrim &middot; .62</b>5.6:1 &mdash; full-bleed, text at any size.</figcaption></figure>
+    </div>
+    <div class="rule-box"><b>Why the scrim is warm-black</b> <code>rgba(20,10,4,&hellip;)</code>, not neutral: a grey scrim over a warm photograph turns it muddy and drags it away from the palette. And never place text on a photo without one, however dark that particular photo looks &mdash; the next photo in the slot will not be.</div>
+
+    <h3 class="sub">Which images may be treated, and which may not</h3>
+    <div class="scroll">
+      <table class="spec">
+        <thead><tr><th>Role</th><th>Treatment</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Place / architecture</td><td class="mono">warm tint 6%</td><td>Harmonises chaotic street colour with the palette.</td></tr>
+          <tr><td>Day header</td><td class="mono">warm tint 6% + scrim</td><td>Carries a title, so it must recede.</td></tr>
+          <tr><td><strong>Food</strong></td><td class="mono">NO tint</td><td>It has to look like the food. Tinted food looks stale and he will not go.</td></tr>
+          <tr><td><strong>Maker portrait</strong></td><td class="mono">NO tint, NO scrim</td><td>A person&rsquo;s face is not a design surface. Their name appears beside it.</td></tr>
+          <tr><td>Dark theme, all images</td><td class="mono">brightness .88</td><td>A 100% photo beside a #2E2016 card is a 15.7:1 jump &mdash; it glares at night.</td></tr>
+          <tr><td>Field register</td><td class="mono">images optional</td><td>Never let a photo delay the one instruction he needs.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Four states, always all four</h3>
+    <div class="img-grid">
+      <figure class="ifig"><div class="frame ar-32 st-skel"></div><figcaption><b>1 &middot; Skeleton</b>Reserved at the correct ratio, so nothing shifts.</figcaption></figure>
+      <figure class="ifig"><div class="frame ar-32"><img src="/data/images/varanasi/galiyan/dashashwamedh-ghat/aerial-twilight.jpg" alt="The riverfront at twilight" style="filter:blur(11px);transform:scale(1.1)"></div><figcaption><b>2 &middot; Blur-up</b>A tiny placeholder resolves into the real image.</figcaption></figure>
+      <figure class="ifig"><div class="frame ar-32"><img src="/data/images/varanasi/galiyan/dashashwamedh-ghat/aerial-twilight.jpg" alt="The riverfront at twilight, from above"><div class="tint"></div></div><figcaption><b>3 &middot; Loaded</b>Warm tint at 6% &mdash; allowed here, because it is architecture.</figcaption></figure>
+      <figure class="ifig"><div class="frame ar-32 st-fail">Image unavailable &mdash; the words still work without it</div><figcaption><b>4 &middot; Failed</b>Never a broken icon. The guidance must survive a dead connection.</figcaption></figure>
+    </div>
+    <div class="rule-box warn"><b>The failed state is not an edge case here.</b> He will open this on patchy mobile data in a lane. Every screen must remain fully usable with zero images loaded &mdash; which means an image may illustrate an instruction but must never <em>be</em> the instruction.</div>
+
+    <h3 class="sub">What we photograph, and what we never do</h3>
+    <p class="lede" style="margin-bottom:18px">This is a design rule, not only an ethical one. We tell Aklavya where he must not raise his camera; if our own card shows that exact photograph, the instruction is dead and so is his trust in the rest of it. <b>Our imagery has to obey the etiquette it teaches.</b></p>
+    <div class="policy">
+      <div class="never">
+        <h4><span class="mk">&times;</span>Never</h4>
+        <ul>
+          <li>Cremation at Manikarnika or Harishchandra &mdash; it is prohibited there, and we are the ones telling him so</li>
+          <li>Faces at prayer, without asked-for consent</li>
+          <li>Children</li>
+          <li>Interiors where photography is barred</li>
+          <li>Grief, poverty, or a body, as atmosphere</li>
+        </ul>
+      </div>
+      <div class="always">
+        <h4><span class="mk">&#10003;</span>Always</h4>
+        <ul>
+          <li>Named consent for a maker&rsquo;s portrait &mdash; their name runs beside their face</li>
+          <li>Food shot as it is served, not styled</li>
+          <li>Alt text that carries the same information as the picture</li>
+          <li>A caption that says where, so the photo is guidance and not decoration</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rule-box"><b>Weight budget.</b> Under 180KB per image, AVIF with a WebP fallback, lazy below the fold, one priority image per screen at most. His battery is his lifeline &mdash; an image-heavy screen that drains it is a safety problem, not a performance one.</div>
+  </section>
+
+  <section>
+    <p class="kicker">07 &middot; Rules</p>
+    <h2>Do, and <em>do not</em></h2>
+    <div class="dd">
+      <div class="do">
+        <h4><span class="mk">&#10003;</span>Do</h4>
+        <ul>
+          <li>Separate surfaces with soft warm shadow</li>
+          <li>Give exactly one action per screen the hot colour</li>
+          <li>Add a hairline border in the field register</li>
+          <li>Use the serif once per screen, for the guide&rsquo;s voice</li>
+          <li>Put money and times in mono, tabular</li>
+          <li>Reserve every image slot at a fixed ratio</li>
+          <li>Design both themes at the same time</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <h4><span class="mk">&times;</span>Don&rsquo;t</h4>
+        <ul>
+          <li>Fence a card with a hard border outside the field</li>
+          <li>Reintroduce gold anywhere but the logo</li>
+          <li>Put Devanagari where meaning depends on it</li>
+          <li>Animate anything in the field register</li>
+          <li>Add a second accent colour &mdash; ever</li>
+          <li>Tint a face or a plate of food</li>
+          <li>Put text on a photo without a scrim</li>
+          <li>Ship one theme intending to add the other later</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <p class="closer">The system is not the palette or the radius scale. It is the ladder &mdash; <b>find the lowest failing tier, and fix only that.</b> Everything here is downstream of that one instruction.</p>
+
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var themeBtns = document.querySelectorAll('.seg button[data-set]');
+    function applyTheme(m){
+      if (m === 'system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', m);
+      themeBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.set === m)); });
+      try { localStorage.setItem('sk-theme', m); } catch (e) {}
+    }
+    var saved = 'system';
+    try { saved = localStorage.getItem('sk-theme') || 'system'; } catch (e) {}
+    applyTheme(saved);
+    themeBtns.forEach(function(b){ b.addEventListener('click', function(){ applyTheme(b.dataset.set); }); });
+
+    var sunBtns = document.querySelectorAll('.seg button[data-sun]');
+    function applySun(s){
+      document.body.setAttribute('data-sun', s);
+      sunBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.sun === s)); });
+    }
+    applySun('off');
+    sunBtns.forEach(function(b){ b.addEventListener('click', function(){ applySun(b.dataset.sun); }); });
+  })();
+</script>
+</body>
+</html>

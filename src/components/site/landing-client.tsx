@@ -21,6 +21,7 @@ export function LandingClient() {
   return (
     <>
       <SiteHero
+        mark
         title={<>Sams<em>Kruti</em></>}
         devanagari="सम्स-क्रूति"
         tagline="Culture as a living creation"
